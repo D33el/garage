@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>V. Garage</title>
-    <base href="/" />
+    <title>Garage V. Parrot</title>
+    <base href="/front/" />
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
@@ -12,9 +12,10 @@
     <header>
       <img src="img/garage-logo.png" alt="logo garage v.parrot" class="brand" />
       <nav>
-        <div class="nav-item">Accueil</div>
-        <div class="nav-item">Showroom</div>
-        <div class="nav-item">Temoignages</div>
+        <a href="index.html" class="nav-item">Accueil</a>
+        <a href="showroom.html" class="nav-item">Showroom</a>
+        <a href="comments.html" class="nav-item">Temoignages</a>
+        <div class="nav-item scrollTo" data-id="#contact">Contact</div>
       </nav>
     </header>
     <main>
@@ -201,13 +202,10 @@
       </section>
     </main>
     <footer>
-      <img src="img/garage-logo.png" class="brand" />
-      <div class="copyright">Copyright 2023 - Garage V. Parrot</div>
-      <div class="contacts">
-        <div><span>Telephone : </span>1234567890</div>
-        <div><span>Email : </span>email@email.com</div>
-        <div><span>Addresse : </span>12 rue paris, paris, france</div>
-      </div>
+      
     </footer>
   </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+<script src="js/general.js"></script>
+<script src="js/index.js"></script>
 </html>

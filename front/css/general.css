@@ -28,6 +28,7 @@ html {
   font-family: var(--ff-montserrat);
   cursor: default;
   user-select: none;
+  overflow-x: hidden;
 }
 img {
   display: block;
@@ -202,7 +203,6 @@ footer {
   background-color: var(--clr-black-subtle);
   color: var(--clr-white);
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 footer .brand,
@@ -212,20 +212,29 @@ header .brand {
   top: 10px;
   height: calc(100% - 20px);
 }
-
+header {
+  padding-right: 50px;
+}
 header nav {
+  width: fit-content;
   display: flex;
-  gap: 20%;
+  margin-left: auto;
 }
-.nav-item {
+.nav-item,
+a.nav-item {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
+  color: inherit;
+  margin-left: 30px;
 }
-.nav-item:hover {
+.nav-item:hover,
+a.nav-item:hover {
   color: var(--clr-primary-light);
 }
-
+footer {
+  justify-content: center;
+}
 footer .contacts {
   position: absolute;
   right: 10px;
