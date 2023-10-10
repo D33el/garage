@@ -244,3 +244,24 @@ footer .contacts {
 footer .contacts span {
   font-weight: 400;
 }
+
+
+#contact .form-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 15px;
+}
+#contact .input-container:is(:nth-child(1), :nth-child(2), :nth-child(3)) {
+  width: calc((100% - 30px) / 3);
+}
+#contact .input-container:is(:nth-child(4), :nth-child(5)) {
+  width: calc((100% - 15px) / 2);
+}
+#contact .input-container:nth-child(6) {
+  width: 100%;
+}
+#contact .submit {
+  padding-inline: 70px;
+}

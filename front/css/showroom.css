@@ -1,0 +1,59 @@
+main > .title {
+  margin: 20px 0 0 20px;
+}
+main > .subtitle {
+  margin: 0 0 0 20px;
+  color: grey;
+  font-size: 14px;
+}
+#filters {
+  min-height: 100px;
+  background-color: lightblue;
+}
+#cars-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.33fr));
+  gap: 15px;
+}
+.card {
+  position: relative;
+  height: 410px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 var(--clr-shadow);
+  cursor: pointer;
+  transition: scale 0.3s;
+}
+.card:hover {
+    scale: 1.01;
+}
+.card img {
+  border-radius: 10px 10px 0 0;
+  height: 75%;
+  width: 100%;
+  object-fit: cover;
+}
+.card .car-name{
+    margin-bottom: 10px;
+}
+.card .wrapper {
+  padding: 20px;
+}
+.card .price {
+  position: absolute;
+  right: 0;
+  top: calc(75% - (35px / 2));
+  padding: 5px 15px;
+  border-radius: 4px 0 0 4px;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--clr-white);
+  background-color: var(--clr-primary);
+}
+.card .details {
+  display: flex;
+  justify-content: space-between;
+}
+.card .spacer {
+    font-weight: 700;
+    color: var(--clr-primary);
+}
