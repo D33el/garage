@@ -57,3 +57,11 @@ main > .subtitle {
     font-weight: 700;
     color: var(--clr-primary);
 }
+
+@media screen and (min-width: 0px) and (max-width: 500px){
+    #cars-list{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}

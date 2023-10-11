@@ -1,3 +1,7 @@
+.stars{
+  color: rgb(239, 188, 94);
+}
+
 #hero {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../img/alex-suprun-AHnhdjyTNGM-unsplash.jpg);
   background-size: cover;
@@ -73,9 +77,12 @@
   align-items: center;
   height: 250px;
   background-color: var(--clr-secondary);
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px var(--clr-shadow);
+}
+#services .card .title{
+  text-align: center;
 }
 #services .card img {
   width: 100px;
@@ -157,3 +164,49 @@
   font-weight: 400;
 }
 
+@media screen and (min-width: 0px) and (max-width: 500px){
+  #featured-cars .card-list {
+    display: flex;
+    flex-direction: column;
+  }
+  #opening-hours .card-list {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+  #services .card-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  #services .card{
+    height: auto;
+  }
+  #services .details {
+    text-align: left;
+  }
+  #services .details > div {
+    margin-bottom: 10px;
+  }
+  #services .details > div:nth-child(3) {
+    display: none;
+  }
+  #services .details > div::before {
+    content: '> ';
+    font-weight: 600;
+  }
+  #comments {
+    height: auto;
+  }
+  #comments .comments-list {
+    height: 500px;
+  }
+  #comments .wrapper {
+    display: block;
+  }
+  #comments .input-container:is(:nth-child(1),:nth-child(2)){
+    width: calc((100% - 10px) / 2);
+  }
+  #comments .input-container:nth-child(3) {
+    width: 100%;
+  }
+}
