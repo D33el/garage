@@ -9,8 +9,7 @@ function displayHeaderFooter() {
     <nav>
       <a href="index.html" class="nav-item">Accueil</a>
       <a href="showroom.html" class="nav-item">Showroom</a>
-      <a href="comments.html" class="nav-item">Temoignages</a>
-      <div class="nav-item scrollTo" data-id="#contact">Contact</div>
+      <div class="nav-item scrollto" data-id="#contact">Contact</div>
     </nav>
   `);
   $("footer").html(`
@@ -23,3 +22,20 @@ function displayHeaderFooter() {
     </div>
   `);
 }
+
+$(document).on('click',".scrollto", function () {
+  let section = $(this).data("id");
+  let page = '/front/index.html';
+  let currentPage = window.location.pathname;
+  console.log(currentPage);
+  if (currentPage != page) {
+    window.location.href = page + section
+  }
+  let offset = 30;
+  $("html, body").animate(
+    {
+      scrollTop: $(section).offset().top - offset,
+    },
+    300
+  );
+});
