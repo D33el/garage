@@ -2,7 +2,7 @@
 
 class HomeController{
     public function index($page){
-        include('front/'.$page.'.php'); 
+        include('Views/'.$page.'.php'); 
 
     }
 }
