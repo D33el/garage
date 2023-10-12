@@ -19,8 +19,8 @@ function displayHeaderFooter() {
       <div class="wrapper">
       <i class="fa-solid fa-bars" id="nav-toggle"></i>
         <nav class="mobile">
-          <a href="index.html" class="nav-item">Accueil</a>
-          <a href="showroom.html" class="nav-item">Showroom</a>
+          <a href="../home" class="nav-item">Accueil</a>
+          <a href="../showroom" class="nav-item">Showroom</a>
           <div class="nav-item scrollto" data-id="#contact">Contact</div>
         </nav>
       </div>
@@ -29,8 +29,8 @@ function displayHeaderFooter() {
     $("header").html(`
       <img src="img/garage-logo.png" alt="logo garage v.parrot" class="brand" />
       <nav>
-        <a href="index.html" class="nav-item">Accueil</a>
-        <a href="showroom.html" class="nav-item">Showroom</a>
+        <a href="../home" class="nav-item">Accueil</a>
+        <a href="../showroom" class="nav-item">Showroom</a>
         <div class="nav-item scrollto" data-id="#contact">Contact</div>
       </nav>
     `);
@@ -49,8 +49,9 @@ function displayHeaderFooter() {
 $(document).on('click',".scrollto", function () {
   let section = $(this).data("id");
   let currentPage = window.location.pathname;
-  if (currentPage != '/front/index.html') {
-    window.location.href = page + section
+  console.log(currentPage);
+  if (currentPage != '/home') {
+    window.location.href = "/home" + section
   }
   let offset = 30;
   $("html, body").animate(

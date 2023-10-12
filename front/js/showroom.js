@@ -4,5 +4,6 @@ $(document).ready(async function () {
 
 $('.card').click(function (e) { 
   e.preventDefault();
-  window.location.href = 'car-details.html'
+  let id = $(this).data("id")
+  window.location.href = '../car-details?id=' +id
 });

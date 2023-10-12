@@ -14,7 +14,7 @@
       <img src="img/garage-logo.png" alt="logo garage v.parrot" class="brand" />
       <nav>
         <a href="index.html" class="nav-item">Accueil</a>
-        <a href="showroom.html" class="nav-item">Showroom</a>
+        <a href="../showroom" class="nav-item">Showroom</a>
         <a href="#contact" data-id="#contact" class="scrollto nav-item">Contact</a>
       </nav>
     </header>
