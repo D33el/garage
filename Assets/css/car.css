@@ -15,7 +15,7 @@ main a:hover {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 50vh;
+  /* height: 50vh; */
 }
 #car-details .wrapper {
   height: 100%;
@@ -50,12 +50,12 @@ main a:hover {
   border-bottom-left-radius: 4px;
 }
 #car-details img {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   object-fit: cover;
 }
 #additionnal-pictures .title {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 #additionnal-pictures .wrapper {
   width: 100%;

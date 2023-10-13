@@ -95,6 +95,7 @@ header .profile {
   font-size: 12px;
   cursor: pointer;
 }
+.sidebar .nav-item.active,
 .sidebar .nav-item:hover {
   background-color: var(--clr-black);
 }
