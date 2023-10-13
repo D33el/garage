@@ -44,6 +44,9 @@ a:visited {
   font: inherit;
   color: var(--clr-primary-light);
 }
+button {
+  all: unset;
+}
 body {
   background-color: white;
 }

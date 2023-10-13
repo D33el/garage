@@ -16,7 +16,13 @@
       <div class="sidebar"><!-- Display general.js--></div>
       <div class="content">
         <div class="page" id="showroom">
-          
+          <div class="page-header">
+            <div class="wrap">
+              <div class="title">Gestion du showroom</div>
+              <div class="count">99 voitures exposés</div>
+            </div>
+            <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvelle voiture</button>
+          </div>
         </div>
       </div>
     </main>
