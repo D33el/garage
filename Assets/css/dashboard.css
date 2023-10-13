@@ -9,14 +9,33 @@
   text-align: center;
   z-index: 99; /*?au dessus de tout peu importe quoi*/
 }
+button{
+  cursor: pointer;
+}
 
+button.primary{
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  padding: 10px 20px;
+  background-color: var(--clr-primary);
+  border-radius: 8px;
+}
+button.primary:hover{
+  background-color: var(--clr-primary-light);
+}
+button.primary.has-icon {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
 #app {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 100px 1fr;
-  grid-template-rows: 80px 1fr;
+  grid-template-columns: 100px calc(100vw - 100px);
+  grid-template-rows: 80px calc(100vh - 80px);
 }
 
 header {
@@ -116,9 +135,9 @@ header .profile {
   margin-bottom: 0;
   padding: 15px;
 }
-.content {
-}
-.content {
-}
-.content {
+
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
