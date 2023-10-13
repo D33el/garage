@@ -195,11 +195,11 @@ select {
   transform: rotate(45deg);
 }
 /********************************************************************************/
-/*************************************HEADER**************************************/
+/*********************************HEADER FOOTER**********************************/
 /********************************************************************************/
 
-header,
-footer {
+body > header,
+body > footer {
   position: relative;
   width: 100%;
   height: 100px;
@@ -208,20 +208,24 @@ footer {
   display: flex;
   align-items: center;
 }
-footer .brand,
-header .brand {
+body > footer .brand,
+body > header .brand {
   position: absolute;
   left: 20px;
   top: 10px;
   height: calc(100% - 20px);
 }
-header {
+body > header {
   padding-right: 50px;
 }
-header nav {
+body > header nav {
   width: fit-content;
   display: flex;
   margin-left: auto;
+}
+header.dashboard {
+  all: unset;
+  background-color: var(--clr-white);
 }
 .nav-item,
 a.nav-item {
