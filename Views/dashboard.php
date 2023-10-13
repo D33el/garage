@@ -7,14 +7,15 @@
     <base href="/Assets/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <main class="app">
+        <header class="dashboard"></header>
+        <div class="sidebar"></div>
+    </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/general.js"></script>
-<script src="js/"></script>
+<script src="js/dashboard.js"></script>
 </html>
