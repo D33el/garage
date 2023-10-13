@@ -1,5 +1,5 @@
 $(document).ready(async function () {
-  console.log("index.js Loaded");
+  console.log("home.js Loaded");
   if (window.location.hash) {
     let section = window.location.hash;
     let offset = 30;

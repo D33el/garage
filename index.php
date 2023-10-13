@@ -9,7 +9,7 @@ $home = new HomeController;
 
 // echo "index called";
 
-$pages=['home','showroom','test'];
+$pages=['home','showroom','dashboard','car'];
 
 if(isset($_GET['page'])){
     if(in_array($_GET['page'],$pages)){
