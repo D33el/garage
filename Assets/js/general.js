@@ -27,10 +27,9 @@ function displayHeaderFooter() {
     `);
   } else if($("header").hasClass("dashboard")){
     // header dashboard
-
-    $("header").html(`
+    // $("header").html(`
     
-    `);
+    // `);
   } else  {
     // header site
     $("header").html(`
