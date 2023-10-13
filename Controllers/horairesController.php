@@ -19,6 +19,10 @@ class horairesController
     // unsuccessfull setting
    }
  }
-}
 
+ public function getHoraire(){
+  return horaire::get();
+ }
+
+}
 ?>

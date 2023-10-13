@@ -1,6 +1,6 @@
 <?php 
 
-class serviceController
+class servicesController
 {
 
 
@@ -9,20 +9,20 @@ class serviceController
 
   $nom = 'files/img'; // Le nom du répertoire à créer  
   $Img='';
-  $fileName = $_FILES['Img']['name'];
-     if(move_uploaded_file($_FILES['Img']['tmp_name'],$nom.'/'.$fileName)){
+  $fileName = $_FILES['imageService']['name'];
+     if(move_uploaded_file($_FILES['imageService']['tmp_name'],$nom.'/'.$fileName)){
        //echo'fichier envoyé avec succé';
       }else{
       //echo'fichier non envoyer';
      }
-   $Img=$nom.'/'.$_FILES['Img']['name'];
+   $Img=$nom.'/'.$_FILES['imageService']['name'];
 
   $data = array(
    'service' => $_POST['service'],
    'imageService' => $Img,
    'description' => $_POST['description'],
   );
-  $success = service::add($data);
+  $success = general::add("services",$data);
   if($success){
    // successfull insert
   }else{
