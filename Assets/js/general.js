@@ -12,7 +12,7 @@ function checkMobile() {
 }
 
 function displayHeaderFooter() {
-  let isMobile = checkMobile()
+  let isMobile = checkMobile();
   if (isMobile) {
     $("header").html(`
       <img src="img/garage-logo.png" alt="logo garage v.parrot" class="brand" />
@@ -25,7 +25,14 @@ function displayHeaderFooter() {
         </nav>
       </div>
     `);
-  } else {
+  } else if($("header").hasClass("dashboard")){
+    // header dashboard
+
+    $("header").html(`
+    
+    `);
+  } else  {
+    // header site
     $("header").html(`
       <img src="img/garage-logo.png" alt="logo garage v.parrot" class="brand" />
       <nav>
@@ -34,7 +41,7 @@ function displayHeaderFooter() {
         <div class="nav-item scrollto" data-id="#contact">Contact</div>
       </nav>
     `);
-  }
+   }
   $("footer").html(`
     <img src="img/garage-logo.png" class="brand" />
     <div class="copyright">Copyright 2023 - Garage V. Parrot</div>
@@ -46,15 +53,13 @@ function displayHeaderFooter() {
   `);
 }
 
-$(document).on('click',".scrollto", function () {
+$(document).on("click", ".scrollto", function () {
   let section = $(this).data("id");
   let currentPage = window.location.pathname;
   console.log(currentPage);
-  if (currentPage != '/home') {
-    window.location.href = "/home" + section
+  if (currentPage != "/home") {
+    window.location.href = "/home" + section;
   }
   let offset = 30;
-  $("html, body").animate(
-    {scrollTop: $(section).offset().top - offset},300
-  );
+  $("html, body").animate({ scrollTop: $(section).offset().top - offset }, 300);
 });
