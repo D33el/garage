@@ -40,6 +40,59 @@ class UserController
 
  }
 
+ Public function Logout(){
+  session_destroy();
+  session_start();
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/Login");
+ }
+
+ Public function addUser(){
+  $data = array(
+    'nomPrenom' => $_POST['nomPrenom'],
+    'email' => $_POST['email'],
+    'username' => $_POST['username'],
+    'password' => $_POST['password'],
+    'type' => $_POST['type']
+  );
+  $success = User::add($data);
+  if($success == 1){
+    // successfull insert
+  }elseif($success == 0){
+    // unsuccessfull insert
+  }else{
+    // Already exists
+  }
+ }
+
+ Public function updateUser(){
+  $data = array(
+    'id_utilis' => $_POST['id_utilis'],
+    'nomPrenom' => $_POST['nomPrenom'],
+    'email' => $_POST['email'],
+    'username' => $_POST['username'],
+    'password' => $_POST['password'],
+    'type' => $_POST['type']
+  );
+  $success = User::update($data);
+  if($success == 1){
+    // successfull insert
+  }elseif($success == 0){
+    // unsuccessfull insert
+  }else{
+    // Already exists
+  }
+ }
+
+ Public function deleteUser(){
+  $id = $_POST['id_utilis'];
+  $success = User::delete($id);
+  if($success){
+    // successfull delete
+  }else{
+    // unsuccessfull delete
+  }
+ }
+
 }
 
 ?>
