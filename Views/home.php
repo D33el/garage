@@ -1,3 +1,17 @@
+<?php
+
+if(isset($_POST['rate'])){
+  $rate = new contactController();
+  $rate->rate();
+}
+
+if(isset($_POST['contact'])){
+  $send = new contactController();
+  $send->addContact();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -166,11 +180,11 @@
             <form  method="POST" class="form-container">
               <div class="input-container">
                 <label>Nom</label>
-                <input type="text" />
+                <input type="text" placeholder="Votre nom" name="nom" />
               </div>
               <div class="input-container">
                 <label>Prénom</label>
-                <input type="text" />
+                <input type="text" placeholder="Votre prénom" name="prenom" />
               </div>
               <div class="input-container">
                 <label>Note</label>
@@ -178,10 +192,10 @@
               </div>
               <div class="input-container">
                 <label>Message</label>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
               </div>
             </form>
-            <button type="submit" class="submit button">Envoyer</button>
+            <button type="submit" name="rate" class="submit button">Envoyer</button>
           </div>
         </div>
       </section>
@@ -241,33 +255,35 @@
       </section>
       <section id="contact">
         <div class="title">Contactez nous</div>
+        <form method="POST">
         <div class="form-container">
-          <div class="input-container">
-            <label>Nom</label>
-            <input type="text" />
+            <div class="input-container">
+              <label>Nom</label>
+              <input type="text" name="nom" placeholder="Votre nom" />
+            </div>
+            <div class="input-container">
+              <label>Prénom</label>
+              <input type="text" name="prenom" placeholder="Votre prénom"/>
+            </div>
+            <div class="input-container">
+              <label>N˚ de tel</label>
+              <input type="text" name="telephone" placeholder="Votre numéro de téléphone"/>
+            </div>
+            <div class="input-container">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="Votre adresse email"/>
+            </div>
+            <div class="input-container">
+              <label>Sujet</label>
+              <input type="text" name="sujet" placeholder="Sujet" />
+            </div>
+            <div class="input-container">
+              <label>Message</label>
+              <textarea name="message" placeholder="Rédigez votre message" id="" cols="30" rows="10"></textarea>
+            </div>
           </div>
-          <div class="input-container">
-            <label>Prénom</label>
-            <input type="text" />
-          </div>
-          <div class="input-container">
-            <label>N˚ de tel</label>
-            <input type="text" />
-          </div>
-          <div class="input-container">
-            <label>Email</label>
-            <input type="text" />
-          </div>
-          <div class="input-container">
-            <label>Sujet</label>
-            <input type="text" />
-          </div>
-          <div class="input-container">
-            <label>Message</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-          </div>
-        </div>
-        <div class="submit button">Envoyer</div>
+          <div class="submit button" type="submit" name="contact">Envoyer</div>
+        </form>
       </section>
     </main>
     <footer></footer>

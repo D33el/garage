@@ -1,3 +1,11 @@
+<?php
+
+if(isset($_POST['contact'])){
+  $send = new contactController();
+  $send->addContact();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -61,33 +69,36 @@
     </section>
     <section id="contact">
       <div class="title">Contactez nous a propos de ce vehicule</div>
-      <div class="form-container">
-        <div class="input-container">
-          <label>Nom</label>
-          <input type="text" />
+      <form method="POST">
+
+        <div class="form-container">
+          <div class="input-container">
+            <label>Nom</label>
+            <input type="text" name="nom" placeholder="Votre nom"/>
+          </div>
+          <div class="input-container">
+            <label>Prénom</label>
+            <input type="text" name="prenom" placeholder="Votre prénom" />
+          </div>
+          <div class="input-container">
+            <label>N˚ de tel</label>
+            <input type="text" name="telephone" placeholder="Votre numéro de téléphone"/>
+          </div>
+          <div class="input-container">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Votre adresse email" />
+          </div>
+          <div class="input-container">
+            <label>Sujet</label>
+            <input type="text" name="sujet" value="Annonce Porsche 911 2020" disabled/>
+          </div>
+          <div class="input-container">
+            <label>Message</label>
+            <textarea type="text" name="message" placeholder="Rédigez votre message"></textarea>
+          </div>
         </div>
-        <div class="input-container">
-          <label>Prénom</label>
-          <input type="text" />
-        </div>
-        <div class="input-container">
-          <label>N˚ de tel</label>
-          <input type="text" />
-        </div>
-        <div class="input-container">
-          <label>Email</label>
-          <input type="text" />
-        </div>
-        <div class="input-container">
-          <label>Sujet</label>
-          <input type="text" value="Annonce Porsche 911 2020" />
-        </div>
-        <div class="input-container">
-          <label>Message</label>
-          <textarea></textarea>
-        </div>
-      </div>
-      <div class="submit button">Envoyer</div>
+        <div class="submit button" type="submit" name="contact">Envoyer</div>
+      </form>
     </section>
   </main>
   <footer></footer>

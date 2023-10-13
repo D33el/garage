@@ -36,6 +36,30 @@ Public function addVoiture(){
 
 }
 
+Public function addImage(){
+
+  $nom = 'files/img'; // Le nom du répertoire à créer  
+  $Img='';
+  $fileName = $_FILES['image']['name'];
+     if(move_uploaded_file($_FILES['image']['tmp_name'],$nom.'/'.$fileName)){
+       //echo'fichier envoyé avec succé';
+      }else{
+      //echo'fichier non envoyer';
+     }
+   $Img=$nom.'/'.$_FILES['image']['name'];
+
+  $data = array(
+    'image' => $Img,
+    'id_voiture' => $_POST['id_voiture']
+  );
+  $success = general::add("imagesVoiture",$data);
+  if($success){
+
+  }else{
+ 
+  }
+}
+
 Public function updateVoiture(){
 
 }
