@@ -6,3 +6,7 @@ $(document).ready(async function () {
     `);
   }
 });
+
+$(document).on('click','.nav-item',function () {
+  $(this).addClass('active');
+})
