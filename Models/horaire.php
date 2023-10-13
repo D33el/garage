@@ -2,9 +2,9 @@
 
 class horaire
 {
- $db = DB::connect();
-
+ 
  static public function Set($data){
+  $db = DB::connect();
   $query = "UPDATE horaires SET ouvertureMatin = :ouvertureMatin, fermetureMatin = :fermetureMatin
   , ouvertureAprem = :ouvertureAprem,  fermetureAprem = :fermetureAprem WHERE id_horaire = :id";
   $stmt = $db->prepare($query);
@@ -22,6 +22,7 @@ class horaire
  }
 
 static public function get(){
+ $db = DB::connect();
  $query = "SELECT * FROM horaires ";
  $stmt = $db->prepare($query);
  if($stmt->execute()){

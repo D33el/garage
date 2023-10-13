@@ -27,7 +27,7 @@ Public function addVoiture(){
   'prix' => $_POST['prix'],
   'annee' => $_POST['annee']
  );
- $success = voiture::add("voitures",$data);
+ $success = general::add("voitures",$data);
  if($success){
   // successfull insert
  }else{

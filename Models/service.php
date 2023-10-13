@@ -3,21 +3,21 @@
 class service 
 {
 
- static public function add($data){
-  $db = DB::connect();
-  $query = `INSERT INTO services (service, imageSerivce, description)
-                         VALUES (:service, :imageService, :description) `;
-  $stmt = $db->prepare($query);
-  $stmt->bindParam(':service', $data['service'], PDO::PARAM_STR);
-  $stmt->bindParam(':imageService', $data['imageService'], PDO::PARAM_STR);
-  $stmt->bindParam(':description', $data['description'], PDO::PARAM_STR);
+//  static public function add($data){
+//   $db = DB::connect();
+//   $query = `INSERT INTO services (service, imageSerivce, description)
+//                          VALUES (:service, :imageService, :description) `;
+//   $stmt = $db->prepare($query);
+//   $stmt->bindParam(':service', $data['service'], PDO::PARAM_STR);
+//   $stmt->bindParam(':imageService', $data['imageService'], PDO::PARAM_STR);
+//   $stmt->bindParam(':description', $data['description'], PDO::PARAM_STR);
 
-  if($stmt->execute()){
-   return 1;
-  }else{
-   return 0;
-  }
- }
+//   if($stmt->execute()){
+//    return 1;
+//   }else{
+//    return 0;
+//   }
+//  }
 
  static public function update($data){
   $db = DB::connect();

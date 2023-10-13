@@ -54,7 +54,7 @@ class UserController
     'password' => $_POST['password'],
     'type' => $_POST['type']
   );
-  $success = User::add($data);
+  $success = general::add("utilis",$data);
   if($success == 1){
     // successfull insert
   }elseif($success == 0){

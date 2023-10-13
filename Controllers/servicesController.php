@@ -65,7 +65,8 @@ if($success){
 }
 
  public function getAllServices(){
-  $services = service::getAllServices();
+  $id = 1;
+  $services = service::getAllServices($id);
   return $services;
  }
 

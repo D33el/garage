@@ -1,3 +1,11 @@
+<?php 
+
+if(isset($_POST['login'])){
+  $login = new UserController();
+  $login->Auth();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -15,16 +23,16 @@
         <div class="title">Bienvenue</div>
         <div class="subtitle">Veuillez vous connecter pour acceder a votre espace.</div>
         <div class="message">E-mail ou mot de passe incorrecte</div>
-        <form action="POST" class="login-form">
+        <form method="POST" class="login-form">
             <div class="input-container">
-                <label>E-mail</label>
-                <input type="text" name="" id="">
+                <label>E-mail / Nom d'utilisateur</label>
+                <input type="text" name="username">
             </div>
             <div class="input-container">
                 <label>Mot de passe</label>
-                <input type="text" name="" id="">
+                <input type="text" name="password">
             </div>
-            <button>Se connecter</button>
+            <button type="submit" name="login">Se connecter</button>
         </form>
       </div>
       <img src="img/sten-rademaker-UZUzvJEvKnI-unsplash.jpg" alt="">
