@@ -21,7 +21,7 @@ if(isset($_POST['contact'])){
     <base href="/assets/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
     <header>
@@ -177,25 +177,27 @@ if(isset($_POST['contact'])){
           </div>
           <div class="comments-form">
             <div class="subtitle">Laissez votre temoignage !</div>
-            <form  method="POST" class="form-container">
-              <div class="input-container">
-                <label>Nom</label>
-                <input type="text" placeholder="Votre nom" name="nom" />
+            <form method="post">
+              <div class="form-container">
+                <div class="input-container">
+                  <label>Nom</label>
+                  <input type="text" placeholder="Votre nom" name="nom" />
+                </div>
+                <div class="input-container">
+                  <label>Prénom</label>
+                  <input type="text" placeholder="Votre prénom" name="prenom" />
+                </div>
+                <div class="input-container">
+                  <label>Note</label>
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div class="input-container">
+                  <label>Message</label>
+                  <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
+                </div>
               </div>
-              <div class="input-container">
-                <label>Prénom</label>
-                <input type="text" placeholder="Votre prénom" name="prenom" />
-              </div>
-              <div class="input-container">
-                <label>Note</label>
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              </div>
-              <div class="input-container">
-                <label>Message</label>
-                <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
-              </div>
+              <button type="submit" name="rate" class="submit button">Envoyer</button>
             </form>
-            <button type="submit" name="rate" class="submit button">Envoyer</button>
           </div>
         </div>
       </section>
@@ -282,7 +284,7 @@ if(isset($_POST['contact'])){
               <textarea name="message" placeholder="Rédigez votre message" id="" cols="30" rows="10"></textarea>
             </div>
           </div>
-          <div class="submit button" type="submit" name="contact">Envoyer</div>
+          <button class="submit button" type="submit" name="contact">Envoyer</button>
         </form>
       </section>
     </main>

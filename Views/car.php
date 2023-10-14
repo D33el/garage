@@ -70,7 +70,6 @@ if(isset($_POST['contact'])){
     <section id="contact">
       <div class="title">Contactez nous a propos de ce vehicule</div>
       <form method="POST">
-
         <div class="form-container">
           <div class="input-container">
             <label>Nom</label>
@@ -97,7 +96,7 @@ if(isset($_POST['contact'])){
             <textarea type="text" name="message" placeholder="Rédigez votre message"></textarea>
           </div>
         </div>
-        <div class="submit button" type="submit" name="contact">Envoyer</div>
+        <button class="submit button" type="submit" name="contact">Envoyer</button>
       </form>
     </section>
   </main>
