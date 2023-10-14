@@ -1,6 +1,7 @@
 :root {
   --page-header-height: 60px;
   --page-header-margin: 10px;
+  --drawer-header-height:90px;
 }
 .mobile-warning {
   width: 100vw;
@@ -13,6 +14,59 @@
   text-align: center;
   z-index: 99; /*?au dessus de tout peu importe quoi*/
 }
+#tooltip{
+  display: none;
+  position: fixed;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  color: black;
+  font-weight: 500;
+  border-radius: 99px;
+  z-index: 11;
+}
+#drawer{
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 11;
+  display: none;
+  grid-template-rows: var(--drawer-header-height) 1fr;
+}
+.drawer-header{
+  display: grid;
+  place-content: center;
+  background-color: var(--clr-black900);
+}
+.drawer-header .title{
+  color: var(--clr-white);
+  text-align: center;
+  margin-bottom: 10px;
+}
+.drawer-header .message{
+  text-align: center;
+  color: var(--clr-red);
+  font-weight: 400;
+  font-size: 17px;
+}
+.drawer-body{
+  height: calc(100vh - var(--drawer-header-height));
+  overflow: scroll;
+  padding: 20px;
+}
+.form-container {}
+.form-container > div{
+  margin-bottom: 10px;
+}
+.form-container .submit{
+padding: 10px 60px;
+border-radius: 6px;
+}
+.form-container .submit:hover{}
 button {
   cursor: pointer;
 }
@@ -25,8 +79,18 @@ button.primary {
   background-color: var(--clr-primary);
   border-radius: 8px;
 }
+button.outline.primary {
+background-color: transparent;
+outline: .5px solid var(--clr-primary);
+color: var(--clr-primary);
+
+}
 button.primary:hover {
   background-color: var(--clr-primary-light);
+}
+button.outline.primary:hover {
+  background-color: var(--clr-primary-light);
+  color: white;
 }
 button.primary.has-icon {
   display: flex;
@@ -137,7 +201,7 @@ header .profile {
 }
 .content {
   margin-bottom: 0;
-  padding: 15px;
+  padding: 10px;
 }
 .page {
   height: 100%;
@@ -399,6 +463,7 @@ table th {
 table thead tr {
   height: 60px;
   background: var(--clr-primary-light);
+  font-weight: 500;
 }
 
 table tbody tr {
@@ -503,7 +568,7 @@ tbody tr:hover {
 
 .open-days .table {
   display: block;
-  width: fit-content;
+  width: 55%;
   margin-top: 30px;
   margin-inline: auto;
 }
@@ -558,7 +623,15 @@ tbody tr:hover {
 #website .open-days input:is(:focus, :active) {
   outline: none;
 }
-
+.services {
+  position: relative;
+}
+.services > button {
+  position: absolute;
+  right: 1px;
+  top: 0;
+  font-weight:400 ;
+}
 .services-list{
   margin-top: 20px;
   display: grid;

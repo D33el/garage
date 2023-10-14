@@ -13,6 +13,32 @@
 
 <body>
   <main id="app">
+    <div id="overlay"></div>
+    <div id="drawer">
+      <div class="drawer-header">
+        <div class="title">Ajouter un véhicule</div>
+        <div class="message">Veuillez remplir tout les champs</div>
+      </div>
+      <div class="drawer-body">
+        <form class="form-container" method="POST">
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+        </form>
+    </div>
     <header class="dashboard"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
@@ -142,7 +168,7 @@
             </div>
             <div class="services">
               <div class="subtitle">Section Services</div>
-              <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouveau</button>
+              <button class="primary outline has-icon" id=""><i class="fa-solid fa-plus"></i>Nouveau service</button>
               <div class="services-list">
                 <div class="service-card">
                   <div class="edit">

@@ -13,6 +13,67 @@
 
 <body>
   <main id="app">
+    <div id="overlay"></div>
+    <div id="tooltip">Cliquer pour quitter</div>
+    <div id="drawer">
+      <div class="drawer-header">
+        <div class="title">Ajouter un véhicule</div>
+        <div class="message">Veuillez remplir tout les champs</div>
+      </div>
+      <div class="drawer-body">
+        <form class="form-container" method="POST">
+          <div class="input-container">
+            <label for="">Marque</label>
+            <input type="text" name="" placeholder="Le modéle du vehicule">
+          </div>
+          <div class="input-container">
+            <label for="">Année</label>
+            <input type="text" name="" placeholder="L'année de mise en circulation">
+          </div>
+          <div class="input-container">
+            <label for="">Couleur</label>
+            <input type="text" name="" placeholder="La couleur">
+          </div>
+          <div class="input-container">
+            <label for="">Kilométrage</label>
+            <input type="text" name="" placeholder="Nb de KM au compteur">
+          </div>
+          <div class="input-container">
+            <label for="">Moteur</label>
+            <input type="text" name="" placeholder="Le nom du moteur">
+          </div>
+          <div class="input-container">
+            <label for="">Carburant</label>
+            <select name="" id="">
+              <option value="">Selectionnez le type de carburant</option>
+              <option value="">Essence</option>
+              <option value="">Diesel</option>
+            </select>
+          </div>
+          <div class="input-container">
+            <label for="">Boite de vitesse</label>
+            <select name="" id="">
+              <option value="">Selectionnez le type de boite de vitesse</option>
+              <option value="">Manuelle</option>
+              <option value="">Automatique</option>
+            </select>
+          </div>
+          <div class="input-container">
+            <label for="">Prix</label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for="">État</label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for="">Observation</label>
+            <textarea name="" id=""></textarea>
+          </div>
+          <button type="submit" class="submit primary">Envoyer</button>
+        </form>
+      </div>
+    </div>
     <header class="dashboard"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
@@ -23,7 +84,7 @@
               <div class="title">Gestion du showroom</div>
               <div class="count">99 voitures exposés</div>
             </div>
-            <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvelle voiture</button>
+            <button class="primary has-icon add-car" id=""><i class="fa-solid fa-plus"></i>Nouvelle voiture</button>
           </div>
           <div class="cars-list">
             <div class="card" data-id="1">

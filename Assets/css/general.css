@@ -80,8 +80,10 @@ form {
   position: fixed;
   inset: 0;
   background-color: var(--clr-black-very-subtle);
-  display: none;
+  display: block;
   z-index: 11;
+  height: 100vh;
+  cursor: pointer;
 }
 .title {
   font-family: var(--ff-poppins);
@@ -129,8 +131,6 @@ form {
 /*************************************FORMS**************************************/
 /********************************************************************************/
 
-.inputs-container {
-}
 .input-container {
   display: flex;
   flex-direction: column;
@@ -144,11 +144,11 @@ form {
 .input-container.invalid label {
   color: var(--clr-red);
 }
-.input-container select,
+/* .input-container select,
 .input-container textarea,
 .input-container input {
   background-color: #eeeeee;
-}
+} */
 .input-container textarea {
   min-height: 120px;
 }
@@ -161,8 +161,9 @@ input {
   background-color: white;
   font-size: 16px;
   font-weight: 400;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1.5px solid black;
   width: 100%;
 }
 .input-container label {
@@ -172,8 +173,11 @@ input {
 select:is(:focus, :active),
 textarea:is(:focus, :active),
 input:not([type="radio"]):not([type="checkbox"]):is(:focus, :active) {
-  outline: 0.5px solid var(--clr-secondary);
-  /* box-shadow: 0 0 10px var(--clr-shadow); */
+  outline: none;
+  border: none;
+  border: 1px solid var(--clr-black);
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px var(--clr-shadow);
 }
 select {
   background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEuNDEgNC42NyAyLjQ4IDMuMTggMy41NCA0LjY3IDEuNDEgNC42NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzLjU0IDUuMzMgMi40OCA2LjgyIDEuNDEgNS4zMyAzLjU0IDUuMzMiLz48L3N2Zz4=) no-repeat 95% 50%;

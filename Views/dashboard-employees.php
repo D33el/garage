@@ -1,120 +1,149 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Garage V. Parrot</title>
-    <base href="/assets/" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
-  </head>
 
-  <body>
-    <main id="app">
-      <header class="dashboard"><!-- Display general.js--></header>
-      <div class="sidebar"><!-- Display general.js--></div>
-      <div class="content">
-        <div class="page" id="employees">
-          <div class="page-wrapper">
-            <div class="page-header">
-              <div class="wrap">
-                <div class="title">Gestion des employés</div>
-                <div class="count">99 employés</div>
-              </div>
-              <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvel employé</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garage V. Parrot</title>
+  <base href="/assets/" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/general.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body>
+  <main id="app">
+    <div id="overlay"></div>
+    <div id="drawer">
+      <div class="drawer-header">
+        <div class="title">Ajouter un véhicule</div>
+        <div class="message">Veuillez remplir tout les champs</div>
+      </div>
+      <div class="drawer-body">
+        <form class="form-container" method="POST">
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+        </form>
+      </div>
+    </div>
+    <header class="dashboard"><!-- Display general.js--></header>
+    <div class="sidebar"><!-- Display general.js--></div>
+    <div class="content">
+      <div class="page" id="employees">
+        <div class="page-wrapper">
+          <div class="page-header">
+            <div class="wrap">
+              <div class="title">Gestion des employés</div>
+              <div class="count">99 employés</div>
             </div>
-            <div class="employees-table">
-              <table>
-                <thead>
-                  <tr class="table100-head">
-                    <th class="column1">Nom</th>
-                    <th class="column2">Prénom</th>
-                    <th class="column3">E-mail</th>
-                    <th class="column4">N˚ de tel</th>
-                    <th class="column5"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="column1">user</td>
-                    <td class="column2">test</td>
-                    <td class="column3">email@email.com</td>
-                    <td class="column4">1234567890</td>
-                    <td class="column5">
-                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="column1">user</td>
-                    <td class="column2">test</td>
-                    <td class="column3">email@email.com</td>
-                    <td class="column4">1234567890</td>
-                    <td class="column5">
-                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="column1">user</td>
-                    <td class="column2">test</td>
-                    <td class="column3">email@email.com</td>
-                    <td class="column4">1234567890</td>
-                    <td class="column5">
-                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="column1">user</td>
-                    <td class="column2">test</td>
-                    <td class="column3">email@email.com</td>
-                    <td class="column4">1234567890</td>
-                    <td class="column5">
-                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="column1">user</td>
-                    <td class="column2">test</td>
-                    <td class="column3">email@email.com</td>
-                    <td class="column4">1234567890</td>
-                    <td class="column5">
-                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="column1">user</td>
-                    <td class="column2">test</td>
-                    <td class="column3">email@email.com</td>
-                    <td class="column4">1234567890</td>
-                    <td class="column5">
-                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="column1">user</td>
-                    <td class="column2">test</td>
-                    <td class="column3">email@email.com</td>
-                    <td class="column4">1234567890</td>
-                    <td class="column5">
-                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvel employé</button>
+          </div>
+          <div class="employees-table">
+            <table>
+              <thead>
+                <tr class="table100-head">
+                  <th class="column1">Nom</th>
+                  <th class="column2">Prénom</th>
+                  <th class="column3">E-mail</th>
+                  <th class="column4">N˚ de tel</th>
+                  <th class="column5"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="column1">user</td>
+                  <td class="column2">test</td>
+                  <td class="column3">email@email.com</td>
+                  <td class="column4">1234567890</td>
+                  <td class="column5">
+                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="column1">user</td>
+                  <td class="column2">test</td>
+                  <td class="column3">email@email.com</td>
+                  <td class="column4">1234567890</td>
+                  <td class="column5">
+                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="column1">user</td>
+                  <td class="column2">test</td>
+                  <td class="column3">email@email.com</td>
+                  <td class="column4">1234567890</td>
+                  <td class="column5">
+                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="column1">user</td>
+                  <td class="column2">test</td>
+                  <td class="column3">email@email.com</td>
+                  <td class="column4">1234567890</td>
+                  <td class="column5">
+                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="column1">user</td>
+                  <td class="column2">test</td>
+                  <td class="column3">email@email.com</td>
+                  <td class="column4">1234567890</td>
+                  <td class="column5">
+                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="column1">user</td>
+                  <td class="column2">test</td>
+                  <td class="column3">email@email.com</td>
+                  <td class="column4">1234567890</td>
+                  <td class="column5">
+                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="column1">user</td>
+                  <td class="column2">test</td>
+                  <td class="column3">email@email.com</td>
+                  <td class="column4">1234567890</td>
+                  <td class="column5">
+                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-    </main>
-  </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="js/general.js"></script>
-  <script src="js/dashboard.js"></script>
+    </div>
+  </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/general.js"></script>
+<script src="js/dashboard.js"></script>
+
 </html>

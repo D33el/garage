@@ -13,6 +13,33 @@
 
 <body>
   <main id="app">
+    <div id="overlay"></div>
+    <div id="drawer">
+      <div class="drawer-header">
+        <div class="title">Ajouter un véhicule</div>
+        <div class="message">Veuillez remplir tout les champs</div>
+      </div>
+      <div class="drawer-body">
+        <form class="form-container" method="POST">
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+          <div class="input-container">
+            <label for=""></label>
+            <input type="text" name="">
+          </div>
+        </form>
+      </div>
+    </div>
     <header class="dashboard"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">

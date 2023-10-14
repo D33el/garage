@@ -1,5 +1,6 @@
 $(document).ready(async function () {
   console.log("dashboard.js Loaded");
+  $("#overlay").hide();
   if (checkMobile()) {
     $(".app").html(`
       <div class="mobile-warning">Accés impossible sur mobile</div>
@@ -10,7 +11,28 @@ $(document).ready(async function () {
   displayMessages(20);
 });
 
-$(document).on("click", ".nav-item", function () {
+function onClick(selector, callback) {
+  $(document).on("click", selector, callback);
+}
+$(document)
+  .find("#overlay")
+  .mousemove(function (e) {
+    $("#tooltip").css({
+      left: e.pageX + 10,
+      top: e.pageY - 30,
+    });
+  });
+$(document)
+  .on("mouseenter", "#overlay", function (e) {
+    $("#tooltip").show();
+  })
+  .on("mouseleave", "#overlay", function () {
+    $("#tooltip").hide();
+  });
+onClick("#overlay", function () {
+  $("#drawer,#overlay").hide();
+});
+onClick(".nav-item", function () {
   $(this).addClass("active");
 });
 
@@ -21,8 +43,8 @@ function displayCars(number) {
     $("#showroom .cars-list").append(`
     <div class="card" data-id="${i}">
       <div class="buttons">
-        <div class="update-car-btn rounded-btn"><i class="fa-solid fa-pen-to-square"></i></div>
-        <div class="delete-car-btn rounded-btn"><i class="fa-solid fa-trash-can"></i></div>
+        <div class="update-car rounded-btn"><i class="fa-solid fa-pen-to-square"></i></div>
+        <div class="delete-car rounded-btn"><i class="fa-solid fa-trash-can"></i></div>
       </div>
       <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
       <div class="wrapper">
@@ -60,8 +82,8 @@ function displayOpenDaysSelectOptions() {
   let page = $("#website .open-days");
   let morningSelect = page.find('select[data-type="morning"]');
   let eveningSelect = page.find('select[data-type="evening"]');
-  morningSelect.html('<option>Heure</option>')
-  eveningSelect.html('<option>Heure</option>')
+  morningSelect.html("<option>Heure</option>");
+  eveningSelect.html("<option>Heure</option>");
   while (i <= 12) {
     i++;
     morningSelect.append(`
@@ -71,7 +93,14 @@ function displayOpenDaysSelectOptions() {
   while (i <= 24) {
     i++;
     eveningSelect.append(`
-  <option value="${i}">${i==24?'00':i} h</option>
+  <option value="${i}">${i == 24 ? "00" : i} h</option>
   `);
   }
 }
+
+onClick(".add-car,.update-car", function () {
+  $("#overlay").show();
+  $("#drawer").fadeIn(200, function () {
+    $(this).css("display", "grid");
+  });
+});
