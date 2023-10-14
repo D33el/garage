@@ -15,13 +15,100 @@
       <header class="dashboard"><!-- Display general.js--></header>
       <div class="sidebar"><!-- Display general.js--></div>
       <div class="content">
-        <div class="page" id="showroom">
-          <div class="page-header">
-            <div class="wrap">
-              <div class="title">Gestion des employés</div>
-              <div class="count">99 employés</div>
+        <div class="page" id="employees">
+          <div class="page-wrapper">
+            <div class="page-header">
+              <div class="wrap">
+                <div class="title">Gestion des employés</div>
+                <div class="count">99 employés</div>
+              </div>
+              <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvel employé</button>
             </div>
-            <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvelle voiture</button>
+            <div class="employees-table">
+              <table>
+                <thead>
+                  <tr class="table100-head">
+                    <th class="column1">Nom</th>
+                    <th class="column2">Prénom</th>
+                    <th class="column3">E-mail</th>
+                    <th class="column4">N˚ de tel</th>
+                    <th class="column5"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="column1">user</td>
+                    <td class="column2">test</td>
+                    <td class="column3">email@email.com</td>
+                    <td class="column4">1234567890</td>
+                    <td class="column5">
+                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="column1">user</td>
+                    <td class="column2">test</td>
+                    <td class="column3">email@email.com</td>
+                    <td class="column4">1234567890</td>
+                    <td class="column5">
+                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="column1">user</td>
+                    <td class="column2">test</td>
+                    <td class="column3">email@email.com</td>
+                    <td class="column4">1234567890</td>
+                    <td class="column5">
+                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="column1">user</td>
+                    <td class="column2">test</td>
+                    <td class="column3">email@email.com</td>
+                    <td class="column4">1234567890</td>
+                    <td class="column5">
+                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="column1">user</td>
+                    <td class="column2">test</td>
+                    <td class="column3">email@email.com</td>
+                    <td class="column4">1234567890</td>
+                    <td class="column5">
+                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="column1">user</td>
+                    <td class="column2">test</td>
+                    <td class="column3">email@email.com</td>
+                    <td class="column4">1234567890</td>
+                    <td class="column5">
+                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="column1">user</td>
+                    <td class="column2">test</td>
+                    <td class="column3">email@email.com</td>
+                    <td class="column4">1234567890</td>
+                    <td class="column5">
+                      <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

@@ -15,13 +15,41 @@
       <header class="dashboard"><!-- Display general.js--></header>
       <div class="sidebar"><!-- Display general.js--></div>
       <div class="content">
-        <div class="page" id="showroom">
-          <div class="page-header">
-            <div class="wrap">
-              <div class="title">Gestion des temoignages</div>
-              <div class="count">99 temoignages en attente</div>
+        <div class="page" id="comments">
+          <div class="page-wrapper">
+            <div class="page-header">
+              <div class="wrap">
+                <div class="title">Gestion des commentaires</div>
+                <div class="count">99 commentaires en attente</div>
+              </div>
+              <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouveau commentaire</button>
             </div>
-            <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvelle voiture</button>
+            <div class="comments-list">
+              <div class="comment-card unchecked">
+                <div class="wrap">
+                  <div class="name">user test</div>
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <div class="state">Non vérifié</div>
+                  <div class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quas modi blanditiis similique dolores quae eveniet asperiores ea consequatur dolore. Beatae, veritatis numquam? Perspiciatis aut unde pariatur vero magni tempora!</div>
+                </div>
+                <div class="actions">
+                  <div class="validate-comment"><i class="fa-solid fa-circle-check"></i></div>
+                  <div class="delete-comment"><i class="fa-solid fa-trash-can"></i></div>
+                </div>
+              </div>
+              <div class="comment-card">
+                <div class="wrap">
+                  <div class="name">user test</div>
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <div class="state">Non vérifié</div>
+                  <div class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quas modi blanditiis similique dolores quae eveniet asperiores ea consequatur dolore. Beatae, veritatis numquam? Perspiciatis aut unde pariatur vero magni tempora!</div>
+                </div>
+                <div class="actions">
+                  <div class="validate-comment"><i class="fa-solid fa-circle-check"></i></div>
+                  <div class="delete-comment"><i class="fa-solid fa-trash-can"></i></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

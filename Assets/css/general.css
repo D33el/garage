@@ -3,11 +3,15 @@
   --clr-primary: #c7383a;
   --clr-primary-light: #c94f54;
   --clr-secondary: #f9abab;
+  --clr-secondary-subtle: rgba(249, 171, 171, 0.4);
   --clr-black: #262526;
   --clr-black900 : #0c0c0c;
   --clr-gray:#8b898f;
+  --clr-gray200:#d3d4d9;
   --clr-white: #f2f2f2;
   --clr-red: #ff1644;
+  --clr-green: #48b761;
+  --clr-orange:rgb(239, 188, 94);
   --clr-black-subtle: rgba(38, 37, 38, 0.5);
   --clr-black-very-subtle: rgba(38, 37, 38, 0.25);
   --clr-shadow: rgba(0, 0, 0, 0.1);
@@ -47,6 +51,7 @@ a:visited {
 button {
   all: unset;
 }
+
 body {
   background-color: white;
 }
@@ -130,6 +135,7 @@ form {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+  width: 100%;
 }
 .input-container.invalid select,
 .input-container.invalid input {
@@ -167,7 +173,7 @@ select:is(:focus, :active),
 textarea:is(:focus, :active),
 input:not([type="radio"]):not([type="checkbox"]):is(:focus, :active) {
   outline: 0.5px solid var(--clr-secondary);
-  box-shadow: 0 0 10px var(--clr-shadow);
+  /* box-shadow: 0 0 10px var(--clr-shadow); */
 }
 select {
   background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEuNDEgNC42NyAyLjQ4IDMuMTggMy41NCA0LjY3IDEuNDEgNC42NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzLjU0IDUuMzMgMi40OCA2LjgyIDEuNDEgNS4zMyAzLjU0IDUuMzMiLz48L3N2Zz4=) no-repeat 95% 50%;
