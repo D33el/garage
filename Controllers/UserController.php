@@ -65,15 +65,15 @@ class UserController
  }
 
  Public function updateUser(){
+   $id = $_POST['id_utilis'];
   $data = array(
-    'id_utilis' => $_POST['id_utilis'],
     'nomPrenom' => $_POST['nomPrenom'],
     'email' => $_POST['email'],
     'username' => $_POST['username'],
     'password' => $_POST['password'],
     'type' => $_POST['type']
   );
-  $success = User::update($data);
+  $success = general::update("utilis",$data,"id_utilis=$id");
   if($success == 1){
     // successfull insert
   }elseif($success == 0){

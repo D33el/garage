@@ -2,7 +2,7 @@
 
 if(isset($_POST['submit'])){
  $go = new servicesController;
- $go->addService();
+ $go->updateService();
 }
 
 ?>

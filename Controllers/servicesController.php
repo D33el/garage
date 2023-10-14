@@ -31,31 +31,31 @@ class servicesController
  }
 
  public function updateService(){
+  $id =$_POST['id_service'];
 
    $data = array(
-    'id_service'=>$_POST['ID_Produit'],
     'service'=>$_POST['service'],
     'description'=>$_POST['description'],
    );
 
 // Image treatment
 
-if (!empty($_FILES['Img']['name'])){
+if (!empty($_FILES['imageService']['name'])){
                 
      $nom = 'files/img'; // Le nom du répertoire à créer
      $Img='';
-     $fileName = $_FILES['Img']['name'];
-           if(move_uploaded_file($_FILES['Img']['tmp_name'],$nom.'/'.$fileName)){
+     $fileName = $_FILES['imageService']['name'];
+           if(move_uploaded_file($_FILES['imageService']['tmp_name'],$nom.'/'.$fileName)){
             //echo'fichier envoyé avec succé';
            }else{
            //echo'fichier non envoyer';
           }
-        $Img=$nom.'/'.$_FILES['Img']['name'];
+        $Img=$nom.'/'.$_FILES['imageService']['name'];
 
-     $data['Img'] = $Img;    
+     $data['imageService'] = $Img;    
 }
 
-$success = service::update($data);
+$success = general::update("services",$data,"id_service=$id");
 if($success){
  // successfull update
 }else{
