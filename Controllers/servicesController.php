@@ -22,7 +22,7 @@ class servicesController
    'imageService' => $Img,
    'description' => $_POST['description'],
   );
-  $success = general::add("services",$data);
+  $success = general::insert("services",$data);
   if($success){
    // successfull insert
   }else{

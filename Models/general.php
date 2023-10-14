@@ -4,7 +4,7 @@ class general
 {
 
  
- static Public function add($tableName,$data){
+ static Public function insert($tableName,$data){
   $db = DB::connect();
   $colonnes = implode(", ", array_keys($data));
   $valeurs = "'" . implode("', '", $data) . "'";

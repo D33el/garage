@@ -43,7 +43,9 @@ function displayHeaderFooter() {
     // header dashboard
     $("header").html(`
     <img src="img/garage-logo.png" alt="" class="brand">
-    <div id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+    <form method="post">
+    <button id="logout" type="submit" name="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+    </form>
     <div class="profile">
       <div class="avatar">un</div>
       <div class="wrap">

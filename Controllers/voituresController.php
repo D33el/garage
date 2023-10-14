@@ -27,7 +27,7 @@ Public function addVoiture(){
   'prix' => $_POST['prix'],
   'annee' => $_POST['annee']
  );
- $success = general::add("voitures",$data);
+ $success = general::insert("voitures",$data);
  if($success){
   // successfull insert
  }else{
@@ -52,7 +52,7 @@ Public function addImage(){
     'image' => $Img,
     'id_voiture' => $_POST['id_voiture']
   );
-  $success = general::add("imagesVoiture",$data);
+  $success = general::insert("imagesVoiture",$data);
   if($success){
 
   }else{

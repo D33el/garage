@@ -11,7 +11,7 @@ Public function addContact(){
   'sujet' => $_POST['sujet'],
   'message' => $_POST['message']
  );
- $success = general::add("contact",$data);
+ $success = general::insert("contact",$data);
  if($success){
 
  }else{
@@ -30,7 +30,7 @@ Public function rate(){
   'note' => $_POST['note'],
   'commentaire' => $_POST['commentaire'] 
  );
- $success = general::add("avis",$data);
+ $success = general::insert("avis",$data);
  if($success){
 
  }else{

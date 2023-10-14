@@ -43,7 +43,7 @@ class UserController
  Public function Logout(){
   session_destroy();
   session_start();
-  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/Login");
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/home");
  }
 
  Public function addUser(){
@@ -54,7 +54,7 @@ class UserController
     'password' => $_POST['password'],
     'type' => $_POST['type']
   );
-  $success = general::add("utilis",$data);
+  $success = general::insert("utilis",$data);
   if($success == 1){
     // successfull insert
   }elseif($success == 0){

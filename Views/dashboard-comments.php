@@ -1,3 +1,11 @@
+<?php 
+
+if(isset($_POST['logout'])){
+  $logout = new UserController();
+  $logout->Logout();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
