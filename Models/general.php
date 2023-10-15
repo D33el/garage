@@ -9,6 +9,7 @@ class general
   $colonnes = implode(", ", array_keys($data));
   $valeurs = "'" . implode("', '", $data) . "'";
   $sql = "INSERT INTO $tableName ($colonnes) VALUES ($valeurs)";
+  echo $sql;
   $stmt = $db->prepare($sql);
   if($stmt->execute()){
    return 1;

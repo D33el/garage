@@ -6,6 +6,15 @@ if(isset($_POST['logout'])){
   $logout->Logout();
 }
 
+if(isset($_POST['submit'])){
+  $send = new voituresController();
+  $send->addVoiture();
+}
+
+
+
+$data = new voituresController();
+$voitures = $data->getVoiture(null);
 
 ?>
 <!DOCTYPE html>
@@ -32,45 +41,49 @@ if(isset($_POST['logout'])){
       </div>
       <div class="drawer-body">
         <form class="form-container" method="POST">
+        <div class="input-container">
+            <label for="">image principale</label>
+            <input type="file" name="imageprincipale" placeholder="Le modéle du vehicule">
+          </div>
           <div class="input-container">
             <label for="">Marque</label>
-            <input type="text" name="" placeholder="Le modéle du vehicule">
+            <input type="text" name="marque" placeholder="Le modéle du vehicule">
           </div>
           <div class="input-container">
             <label for="">Année</label>
-            <input type="text" name="" placeholder="L'année de mise en circulation">
+            <input type="text" name="anee" placeholder="L'année de mise en circulation">
           </div>
           <div class="input-container">
             <label for="">Couleur</label>
-            <input type="text" name="" placeholder="La couleur">
+            <input type="text" name="couleur" placeholder="La couleur">
           </div>
           <div class="input-container">
             <label for="">Kilométrage</label>
-            <input type="text" name="" placeholder="Nb de KM au compteur">
+            <input type="text" name="kilometrage" placeholder="Nb de KM au compteur">
           </div>
           <div class="input-container">
             <label for="">Moteur</label>
-            <input type="text" name="" placeholder="Le nom du moteur">
+            <input type="text" name="moteur" placeholder="Le nom du moteur">
           </div>
           <div class="input-container">
             <label for="">Carburant</label>
-            <select name="" id="">
-              <option value="">Selectionnez le type de carburant</option>
-              <option value="">Essence</option>
-              <option value="">Diesel</option>
+            <select name="carburant" id="">
+              <option disabled selected>Selectionnez le type de carburant</option>
+              <option>Essence</option>
+              <option>Diesel</option>
             </select>
           </div>
           <div class="input-container">
             <label for="">Boite de vitesse</label>
-            <select name="" id="">
-              <option value="">Selectionnez le type de boite de vitesse</option>
-              <option value="">Manuelle</option>
-              <option value="">Automatique</option>
+            <select name="boite" id="">
+              <option disabled selected>Selectionnez le type de boite de vitesse</option>
+              <option>Manuelle</option>
+              <option>Automatique</option>
             </select>
           </div>
           <div class="input-container">
             <label for="">Prix</label>
-            <input type="text" name="">
+            <input type="text" name="prix">
           </div>
           <div class="input-container">
             <label for="">État</label>
@@ -84,9 +97,9 @@ if(isset($_POST['logout'])){
           </div>
           <div class="input-container">
             <label for="">Observation</label>
-            <textarea name="" id=""></textarea>
+            <textarea name="observation" id=""></textarea>
           </div>
-          <button type="submit" class="submit primary">Envoyer</button>
+          <button type="submit" name="submit" class="submit primary">Envoyer</button>
         </form>
       </div>
     </div>
