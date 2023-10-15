@@ -22,6 +22,7 @@ Public function addVoiture(){
   'kilometrage' => $_POST['kilometrage'],
   'etat' => $_POST['etat'],
   'moteur' => $_POST['moteur'],
+  'boite' => $_POST['boite'],
   'carburant' => $_POST['carburant'],
   'observation' => $_POST['observation'],
   'prix' => $_POST['prix'],
