@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['logout'])){
+if (isset($_POST['logout'])) {
   $logout = new UserController();
   $logout->Logout();
 }
@@ -24,29 +24,27 @@ if(isset($_POST['logout'])){
   <main id="app">
     <div id="overlay"></div>
     <div id="drawer">
+      <div id="tooltip">Cliquer pour quitter</div>
       <div class="drawer-header">
-        <div class="title">Ajouter un véhicule</div>
+        <div class="title">Ajouter un service</div>
         <div class="message">Veuillez remplir tout les champs</div>
       </div>
       <div class="drawer-body">
         <form class="form-container" method="POST">
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Nom</label>
+            <input type="text" name="" placeholder="Nom du service">
           </div>
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Image</label>
+            <input type="file" name="imageService">
           </div>
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
-          </div>
-          <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Description</label>
+            <textarea name="description" placeholder="Description du service"></textarea>
           </div>
         </form>
+      </div>
     </div>
     <header class="dashboard"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
@@ -177,7 +175,7 @@ if(isset($_POST['logout'])){
             </div>
             <div class="services">
               <div class="subtitle">Section Services</div>
-              <button class="primary outline has-icon" id=""><i class="fa-solid fa-plus"></i>Nouveau service</button>
+              <button class="primary outline has-icon add-service" id=""><i class="fa-solid fa-plus"></i>Nouveau service</button>
               <div class="services-list">
                 <div class="service-card">
                   <div class="edit">

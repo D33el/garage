@@ -23,6 +23,7 @@ if(isset($_POST['logout'])){
 <body>
   <main id="app">
     <div id="overlay"></div>
+    <div id="tooltip">Cliquer pour quitter</div>
     <div id="drawer">
       <div class="drawer-header">
         <div class="title">Ajouter un véhicule</div>

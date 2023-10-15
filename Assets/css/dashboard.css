@@ -14,6 +14,7 @@
   text-align: center;
   z-index: 99; /*?au dessus de tout peu importe quoi*/
 }
+
 #tooltip{
   display: none;
   position: fixed;
@@ -407,7 +408,7 @@ header .profile {
 }
 .comment-card .state {
   display: none;
-  margin-left: auto;
+  /* margin-left: auto; */
   font-weight: 500;
   background-color: var(--clr-secondary);
   padding: 5px 20px;
@@ -568,7 +569,7 @@ tbody tr:hover {
 
 .open-days .table {
   display: block;
-  width: 55%;
+  width: fit-content;
   margin-top: 30px;
   margin-inline: auto;
 }
@@ -619,8 +620,11 @@ tbody tr:hover {
 }
 .open-days input {
   padding-inline: 10px;
+  /* box-shadow: none; */
+  border: none;
 }
 #website .open-days input:is(:focus, :active) {
+  box-shadow: none;
   outline: none;
 }
 .services {

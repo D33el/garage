@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 
-if(isset($_POST['logout'])){
+if (isset($_POST['logout'])) {
   $logout = new UserController();
   $logout->Logout();
 }
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
   $send = new voituresController();
   $send->addVoiture();
 }
@@ -41,9 +41,10 @@ $voitures = $data->getVoiture(null);
       </div>
       <div class="drawer-body">
         <form class="form-container" method="POST">
-        <div class="input-container">
-            <label for="">image principale</label>
-            <input type="file" name="imageprincipale" placeholder="Le modéle du vehicule">
+          <div class="input-container">
+            <label for="">Image principale du vehicule</label>
+            <input type="file" class="input-file" name="imageprincipale" placeholder="Le modéle du vehicule">
+            <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" class="input-file-preview">
           </div>
           <div class="input-container">
             <label for="">Marque</label>
@@ -87,12 +88,11 @@ $voitures = $data->getVoiture(null);
           </div>
           <div class="input-container">
             <label for="">État</label>
-            <select name="" id="">
-              <option value="">Selectionnez l'etat du vehicule</option>
-              <option value="">Neuf</option>
-              <option value="">Occasion</option>
-              <option value="">Occasion comme neuf</option>
-
+            <select name="etat" id="">
+              <option disabled selected>Selectionnez l'etat du vehicule</option>
+              <option>Neuf</option>
+              <option>Occasion</option>
+              <option>Occasion comme neuf</option>
             </select>
           </div>
           <div class="input-container">

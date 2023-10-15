@@ -98,9 +98,30 @@ function displayOpenDaysSelectOptions() {
   }
 }
 
-onClick(".add-car,.update-car", function () {
+function displayDrawer() {
   $("#overlay").show();
   $("#drawer").fadeIn(200, function () {
     $(this).css("display", "grid");
   });
-});
+}
+onClick(".add-car,.update-car", displayDrawer);
+onClick(".add-employee,.update-employee", displayDrawer);
+onClick(".add-comment,.update-comment", displayDrawer);
+onClick(".add-service,.update-service", displayDrawer);
+
+$(document)
+  .find(".input-file")
+  .change(function () {
+    showImage(this);
+  });
+  
+  function showImage(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+      $(".input-file-preview").show()
+      $(".input-file-preview").attr("src", e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}

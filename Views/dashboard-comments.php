@@ -22,29 +22,27 @@ if(isset($_POST['logout'])){
 <body>
   <main id="app">
     <div id="overlay"></div>
+    <div id="tooltip">Cliquer pour quitter</div>
     <div id="drawer">
       <div class="drawer-header">
-        <div class="title">Ajouter un véhicule</div>
+        <div class="title">Ajouter un commentaire</div>
         <div class="message">Veuillez remplir tout les champs</div>
       </div>
       <div class="drawer-body">
         <form class="form-container" method="POST">
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Nom complet</label>
+            <input type="text" name="nom" placeholder="Nom et prénom du client">
           </div>
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Note</label>
+            <input type="number" name="prenom" placeholder="Note sur 5" max="5" min="1">
           </div>
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Commentaire</label>
+            <textarea name="commentaire" placeholder="Le commentaire du client"></textarea>
           </div>
-          <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
-          </div>
+          <button type="submit" name="submit" class="submit primary">Envoyer</button>
         </form>
       </div>
     </div>
@@ -58,7 +56,7 @@ if(isset($_POST['logout'])){
               <div class="title">Gestion des commentaires</div>
               <div class="count">99 commentaires en attente</div>
             </div>
-            <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouveau commentaire</button>
+            <button class="primary has-icon add-comment" id=""><i class="fa-solid fa-plus"></i>Nouveau commentaire</button>
           </div>
           <div class="comments-list">
             <div class="comment-card unchecked">

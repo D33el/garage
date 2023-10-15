@@ -23,29 +23,31 @@ if(isset($_POST['logout'])){
 <body>
   <main id="app">
     <div id="overlay"></div>
+    <div id="tooltip">Cliquer pour quitter</div>
     <div id="drawer">
       <div class="drawer-header">
-        <div class="title">Ajouter un véhicule</div>
+        <div class="title">Ajouter un employé</div>
         <div class="message">Veuillez remplir tout les champs</div>
       </div>
       <div class="drawer-body">
         <form class="form-container" method="POST">
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Nom</label>
+            <input type="text" name="nom" placeholder="Nom">
           </div>
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Prénom</label>
+            <input type="text" name="prenom" placeholder="Prénom">
           </div>
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">E-mail</label>
+            <input type="text" name="email" placeholder="E-mail">
           </div>
           <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
+            <label for="">Mot de passe</label>
+            <input type="text" name="password" placeholder="Mot de passe">
           </div>
+          <button type="submit" name="submit" class="submit primary">Envoyer</button>
         </form>
       </div>
     </div>
@@ -59,7 +61,7 @@ if(isset($_POST['logout'])){
               <div class="title">Gestion des employés</div>
               <div class="count">99 employés</div>
             </div>
-            <button class="primary has-icon" id=""><i class="fa-solid fa-plus"></i>Nouvel employé</button>
+            <button class="primary has-icon add-employee"><i class="fa-solid fa-plus"></i>Nouvel employé</button>
           </div>
           <div class="employees-table">
             <table>

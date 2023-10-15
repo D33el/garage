@@ -191,6 +191,13 @@ select {
 .input-container textarea[disabled] {
   cursor: not-allowed;
 }
+.input-container .input-file-preview{
+  width: 80%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-inline: auto;
+  display: none;
+}
 .input-container-checkbox input[type="checkbox"] {
   padding: 0;
   height: initial;
