@@ -5,6 +5,8 @@ if(isset($_POST['logout'])){
   $logout->Logout();
 }
 
+$data = new UserController();
+$users = $data->getAll();
 
 ?>
 <!DOCTYPE html>
@@ -40,12 +42,24 @@ if(isset($_POST['logout'])){
             <input type="text" name="prenom" placeholder="Prénom">
           </div>
           <div class="input-container">
+            <label for="">Téléphone</label>
+            <input type="text" name="tel" placeholder="Numérp de téléphone">
+          </div>
+          <div class="input-container">
             <label for="">E-mail</label>
             <input type="text" name="email" placeholder="E-mail">
           </div>
           <div class="input-container">
             <label for="">Mot de passe</label>
             <input type="text" name="password" placeholder="Mot de passe">
+          </div>
+          <div class="input-container">
+            <label for="">Type d'utilisateur</label>
+            <select name="type">
+              <option value="" disabled selected>Sélectionnez le type de l'utilisateur</option>  
+              <option value="Employe">Employé</option>
+              <option value="Admin">Admin</option>
+          </select>
           </div>
           <button type="submit" name="submit" class="submit primary">Envoyer</button>
         </form>
@@ -67,84 +81,29 @@ if(isset($_POST['logout'])){
             <table>
               <thead>
                 <tr class="table100-head">
-                  <th class="column1">Nom</th>
-                  <th class="column2">Prénom</th>
+                  <th class="column1">Nom & Prénom</th>
+                  <th class="column2">Nom d'utilsiateur</th>
                   <th class="column3">E-mail</th>
                   <th class="column4">N˚ de tel</th>
-                  <th class="column5"></th>
+                  <th class="column5">Type</th>
+                  <th class="column6"></th>
                 </tr>
               </thead>
               <tbody>
+                <?php foreach($users as $user){ ?>
                 <tr>
-                  <td class="column1">user</td>
-                  <td class="column2">test</td>
-                  <td class="column3">email@email.com</td>
-                  <td class="column4">1234567890</td>
-                  <td class="column5">
+                  <td class="column1"><?php echo $user['nomPrenom'] ?></td>
+                  <td class="column2"><?php echo $user['username'] ?></td>
+                  <td class="column3"><?php echo $user['email'] ?></td>
+                  <td class="column4"><?php echo $user['tel'] ?></td>
+                  <td class="column5"><?php echo $user['type'] ?></td>
+
+                  <td class="column6">
                     <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
                   </td>
                 </tr>
-                <tr>
-                  <td class="column1">user</td>
-                  <td class="column2">test</td>
-                  <td class="column3">email@email.com</td>
-                  <td class="column4">1234567890</td>
-                  <td class="column5">
-                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="column1">user</td>
-                  <td class="column2">test</td>
-                  <td class="column3">email@email.com</td>
-                  <td class="column4">1234567890</td>
-                  <td class="column5">
-                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="column1">user</td>
-                  <td class="column2">test</td>
-                  <td class="column3">email@email.com</td>
-                  <td class="column4">1234567890</td>
-                  <td class="column5">
-                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="column1">user</td>
-                  <td class="column2">test</td>
-                  <td class="column3">email@email.com</td>
-                  <td class="column4">1234567890</td>
-                  <td class="column5">
-                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="column1">user</td>
-                  <td class="column2">test</td>
-                  <td class="column3">email@email.com</td>
-                  <td class="column4">1234567890</td>
-                  <td class="column5">
-                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="column1">user</td>
-                  <td class="column2">test</td>
-                  <td class="column3">email@email.com</td>
-                  <td class="column4">1234567890</td>
-                  <td class="column5">
-                    <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
-                  </td>
-                </tr>
+                <?php } ?>
               </tbody>
             </table>
           </div>

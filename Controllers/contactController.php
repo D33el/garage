@@ -4,18 +4,23 @@ class contactController
 {
 
 Public function addContact(){
- $data = array(
+ $id = general::get("contact","id_contact");
+ $Date = date("Y-m-d"); // Récupère la date au format "Année-Mois-Jour Heure:Minute:Seconde"
+
+  $data = array(
+  'id_contact' => ++$id,
   'nomPrenom' => $_POST['nom']." ".$_POST['prenom'],
   'email' => $_POST['email'],
   'telephone' => $_POST['telephone'],
   'sujet' => $_POST['sujet'],
-  'message' => $_POST['message']
+  'message' => $_POST['message'],
+  'createdat' => $Date
  );
  $success = general::insert("contact",$data);
  if($success){
-
+   echo "successfull";
  }else{
-
+   echo "unsuccessfull";
  }
 }
 
@@ -36,6 +41,10 @@ Public function rate(){
  }else{
 
  }
+}
+
+Public function getAllMessages(){
+ return contact::getAll();
 }
 
 }

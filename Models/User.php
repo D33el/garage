@@ -27,7 +27,7 @@ static Public function add($data){
   $stmt->execute();
   $resCheck = $stmt->fetchAll();
   if(!$resCheck){
-      general::add("utilis",$data);
+      general::insert("utilis",$data);
   }else{
     return 'already exists';
   }
@@ -50,8 +50,15 @@ static public function update($data){
   }
 }
 
-static public function delete($id){
-  
+static public function getAll(){
+  $db = DB::connect();
+  $sql = "SELECT * FROM utilis";
+  $stmt = $db->prepare($sql);
+  if($stmt->execute()){
+    return $stmt->fetchAll();
+  }else{
+    return 0;
+  }
 }
 
 }

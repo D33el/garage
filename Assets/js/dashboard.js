@@ -63,19 +63,19 @@ function displayCars(number) {
   }
 }
 
-function displayMessages(number) {
-  let i = 0;
-  while (i <= number) {
-    i++;
-    $("#messages .messages-list").append(`
-    <div class="message">
-      <div class="name">User Test</div>
-      <div class="date">01/01/2000</div>
-      <div class="subject"><span>Sujet : </span>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-    </div>
-    `);
-  }
-}
+// function displayMessages(number) {
+//   let i = 0;
+//   while (i <= number) {
+//     i++;
+//     $("#messages .messages-list").append(`
+//     <div class="message">
+//       <div class="name"><User Test></div>
+//       <div class="date">01/01/2000</div>
+//       <div class="subject"><span>Sujet : </span>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+//     </div>
+//     `);
+//   }
+// }
 
 function displayOpenDaysSelectOptions() {
   let i = 0;

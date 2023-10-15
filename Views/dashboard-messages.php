@@ -6,6 +6,10 @@ if(isset($_POST['logout'])){
 }
 
 
+$data = new contactController();
+$messages = $data->getAllMessages();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -58,17 +62,19 @@ if(isset($_POST['logout'])){
           <div class="page-header">
             <div class="wrap">
               <div class="title">Messagerie</div>
-              <div class="count">99 Messages non lus</div>
+              <!-- <div class="count">99 Messages non lus</div> -->
             </div>
           </div>
           <div class="wrap">
+            <?php foreach($messages as $message){ ?>
             <div class="messages-list">
               <div class="message">
-                <div class="name">user test</div>
-                <div class="date">01/01/2000</div>
-                <div class="subject"><span>Sujet : </span>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                <div class="name"><?php echo $message['nomPrenom'] ?></div>
+                <div class="date"><?php echo $message['createdat'] ?></div>
+                <div class="subject"><span>Sujet : </span><?php echo $message['sujet'] ?></div>
               </div>
             </div>
+            <?php } ?>
             <div class="message-preview">
               <!-- <div class="empty">Selectionnez <br> un message</div> -->
               <div class="preview-wrapper">

@@ -23,7 +23,7 @@ class service
   $db = DB::connect();
   $query = "Update service SET service = :service, imageService = :imageService, description = :description ";
   
-   // Ipmage treatment
+   // Image treatment
    $image = "";
    if (array_key_exists('Img', $data)) {
        $image = ", imageService = :Img";

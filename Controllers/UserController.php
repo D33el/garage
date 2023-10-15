@@ -47,7 +47,9 @@ class UserController
  }
 
  Public function addUser(){
+  $id = general::get("utilis","id_utilis");
   $data = array(
+    'id_utilis' => ++$id,
     'nomPrenom' => $_POST['nomPrenom'],
     'email' => $_POST['email'],
     'username' => $_POST['username'],
@@ -85,12 +87,16 @@ class UserController
 
  Public function deleteUser(){
   $id = $_POST['id_utilis'];
-  $success = User::delete($id);
+  $success = general::delete("utilis","id_utilis",$id);
   if($success){
     // successfull delete
   }else{
     // unsuccessfull delete
   }
+ }
+
+ Public function getAll(){
+  return user::getAll();
  }
 
 }
