@@ -74,7 +74,13 @@ if(isset($_POST['logout'])){
           </div>
           <div class="input-container">
             <label for="">État</label>
-            <input type="text" name="">
+            <select name="" id="">
+              <option value="">Selectionnez l'etat du vehicule</option>
+              <option value="">Neuf</option>
+              <option value="">Occasion</option>
+              <option value="">Occasion comme neuf</option>
+
+            </select>
           </div>
           <div class="input-container">
             <label for="">Observation</label>
