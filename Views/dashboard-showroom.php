@@ -14,6 +14,12 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
     header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-showroom");
   }
 
+  if(isset($_POST['delete'])){
+    $delete = new voituresController();
+    $delete->deleteVoiture();
+    header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-showroom");
+  }
+
   $id = null;
 
   $data = new voituresController();
@@ -42,8 +48,8 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
         <div class="text">Êtes-vous sur de vouloir supprimer ?</div>
         <div class="buttons">
           <form action="" method="post">
-            <input type="hidden" name="id_">
-            <button class="delete button" type="submit">Supprimer</button>
+            <input type="hidden" name="id_voiture">
+            <button class="delete button" type="submit" name="delete">Supprimer</button>
           </form>
           <div class="abort button">Annuler</div>
         </div>
@@ -68,6 +74,8 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
             <div class="input-container">
               <label for="">Année</label>
               <select name="annee" class="year-select">
+                <option disabled selected>Séléctionnez l'année</option>
+              </select>
             </div>
             <div class="input-container">
               <label for="">Couleur</label>

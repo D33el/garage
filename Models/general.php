@@ -73,6 +73,7 @@ class general
       $stmt->bindValue(":$col", $value);
   }
 
+
   // Exécution de la requête préparée
   if($stmt->execute()){
    return 1;

@@ -6,6 +6,13 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
     $logout->Logout();
   }
 
+  if(isset($_POST['submit'])){
+    $new = new UserController();
+    $new->addUser();
+    header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-employees");
+
+  }
+
   $data = new UserController();
   $users = $data->getAll();
 
@@ -63,16 +70,12 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
               <input type="text" name="email" placeholder="E-mail">
             </div>
             <div class="input-container">
-              <label for="">Mot de passe</label>
-              <input type="text" name="password" placeholder="Mot de passe">
+              <label for="">Nom d'utilisateur</label>
+              <input type="text" name="username" placeholder="E-mail">
             </div>
             <div class="input-container">
-              <label for="">Type d'utilisateur</label>
-              <select name="type">
-                <option value="" disabled selected>Sélectionnez le type de l'utilisateur</option>
-                <option value="Employe">Employé</option>
-                <option value="Admin">Admin</option>
-              </select>
+              <label for="">Mot de passe</label>
+              <input type="password" name="password" placeholder="Mot de passe">
             </div>
             <button type="submit" name="submit" class="submit primary">Envoyer</button>
           </form>

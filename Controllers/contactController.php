@@ -25,22 +25,34 @@ Public function addContact(){
 }
 
 
-Public function getContact(){
-
-}
 
 Public function rate(){
- $data = array(
-  'nom' => $_POST['nom']." ".$_POST['prenom'],
-  'note' => $_POST['note'],
-  'commentaire' => $_POST['commentaire'] 
- );
- $success = general::insert("avis",$data);
- if($success){
+  $id = general::get("avis","id_avis");
+  $data = array(
+    'id_avis' => ++$id,
+    'nom' => $_POST['nom']." ".$_POST['prenom'],
+    'note' => $_POST['note'],
+    'commentaire' => $_POST['commentaire'] 
+  );
+  $success = general::insert("avis",$data);
+  if($success){
+    
+  }else{
+    
+  }
+}
 
- }else{
+Public function getRatings($param){
+  return contact::getRate($param);
+}
 
- }
+Public function Valider(){
+  $id = $_POST['id_avis'];
+  $condition = "id_avis = $id";
+  $data = array(
+    'etat' => 1
+  );
+  general::update("avis",$data,$condition);
 }
 
 Public function getAllMessages(){

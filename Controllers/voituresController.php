@@ -102,7 +102,8 @@ Public function updateVoiture(){
 }
 
 Public function deleteVoiture(){
-
+  $id = $_POST['id_voiture'];
+  general::delete("voitures","id_voiture",$id);
 }
 
 Public function getVoiture($id){

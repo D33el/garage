@@ -51,11 +51,12 @@ class UserController
   $id = general::get("utilis","id_utilis");
   $data = array(
     'id_utilis' => ++$id,
-    'nomPrenom' => $_POST['nomPrenom'],
+    'nomPrenom' => $_POST['nom']." ".$_POST['prenom'],
     'email' => $_POST['email'],
     'username' => $_POST['username'],
-    'password' => $_POST['password'],
-    'type' => $_POST['type']
+    'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
+    'tel' => $_POST['tel'],
+    'type' => 'employe'
   );
   $success = general::insert("utilis",$data);
   if($success == 1){
