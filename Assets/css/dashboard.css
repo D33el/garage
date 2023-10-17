@@ -53,6 +53,8 @@
 }
 .popup .abort:hover{
   color: white;
+  outline:none;
+  background-color: var(--clr-primary);
 }
 #tooltip{
   display: none;
