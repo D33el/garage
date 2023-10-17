@@ -1,110 +1,127 @@
 <?php
 
-if($_SESSION['admin'] == true || $_SESSION['employe'] == true){
+if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
 
 
-if (isset($_POST['logout'])) {
-  $logout = new UserController();
-  $logout->Logout();
-}
+  if (isset($_POST['logout'])) {
+    $logout = new UserController();
+    $logout->Logout();
+  }
 
 
 ?>
-<!DOCTYPE html>
-<html lang="fr">
+  <!DOCTYPE html>
+  <html lang="fr">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Garage V. Parrot</title>
-  <base href="/assets/" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/general.css" />
-  <link rel="stylesheet" href="css/dashboard.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garage V. Parrot</title>
+    <base href="/assets/" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
 
-<body>
-  <main id="app">
-    <div id="overlay"></div>
-    <div id="drawer">
+  <body>
+    <main id="app">
+      <div id="overlay"></div>
       <div id="tooltip">Cliquer pour quitter</div>
-      <div class="drawer-header">
-        <div class="title">Ajouter un service</div>
-        <div class="message">Veuillez remplir tout les champs</div>
+      <!-- popup -->
+      <div class="popup">
+        <div class="text">Êtes-vous sur de vouloir supprimer ?</div>
+        <div class="buttons">
+          <form action="" method="post">
+            <input type="hidden" name="id_">
+            <button class="delete button" type="submit">Supprimer</button>
+          </form>
+          <div class="abort button">Annuler</div>
+        </div>
       </div>
-      <div class="drawer-body">
-        <form class="form-container" method="POST">
-          <div class="input-container">
-            <label for="">Nom</label>
-            <input type="text" name="" placeholder="Nom du service">
-          </div>
-          <div class="input-container">
-            <label for="">Image</label>
-            <input type="file" name="imageService">
-          </div>
-          <div class="input-container">
-            <label for="">Description</label>
-            <textarea name="description" placeholder="Description du service"></textarea>
-          </div>
-        </form>
+      <!-- drawer -->
+      <div id="drawer">
+        <div class="drawer-header">
+          <div class="title">Ajouter un service</div>
+          <div class="message">Veuillez remplir tout les champs</div>
+        </div>
+        <div class="drawer-body">
+          <form class="form-container" method="POST">
+            <div class="input-container">
+              <label for="">Nom</label>
+              <input type="text" name="" placeholder="Nom du service">
+            </div>
+            <div class="input-container">
+              <label for="">Image</label>
+              <input type="file" name="imageService">
+            </div>
+            <div class="input-container">
+              <label for="">Description</label>
+              <textarea name="description" placeholder="Description du service"></textarea>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-    <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
-    <div class="sidebar"><!-- Display general.js--></div>
-    <div class="content">
-      <div class="page" id="website">
-        <div class="page-wrapper">
-          <div class="page-header">
+      <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
+      <div class="sidebar"><!-- Display general.js--></div>
+      <div class="content">
+        <div class="page" id="website">
+          <div class="page-wrapper">
+            <div class="page-header">
+              <div class="wrap">
+                <div class="title">Gestion du site web</div>
+              </div>
+              <button class="primary has-icon" id=""><i class="fa-solid fa-save"></i>Sauvegarder </button>
+            </div>
             <div class="wrap">
-              <div class="title">Gestion du site web</div>
-            </div>
-            <button class="primary has-icon" id=""><i class="fa-solid fa-save"></i>Sauvegarder </button>
-          </div>
-          <div class="wrap">
-            <div class="open-days">
-              <div class="subtitle">Horaires d'ouverture</div>
-              <form class="table">
-                <div class="table-head">
-                  <div></div>
-                  <div>Matinée</div>
-                  <div>Aprés-midi</div>
-                </div>
-                <?php //$i = 1; foreach(){ ?>
-                <div class="table-row">
-                  <div>Dimanche</div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="12:00" min="6:00" name="de<?php //echo $i?>">
-                    <span>à</span>
-                    <input type="time" max="12:00" min="6:00">
+              <div class="open-days">
+                <div class="subtitle">Horaires d'ouverture</div>
+                <form class="table">
+                  <div class="table-head">
+                    <div></div>
+                    <div>Matinée</div>
+                    <div>Aprés-midi</div>
                   </div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="00:00" min="13:00">
-                    <span>à</span>
-                    <input type="time" max="00:00" min="13:00">
+                  <?php //$i = 1; foreach(){ 
+                  ?>
+                  <div class="table-row">
+                    <div>Dimanche</div>
+                    <div>
+                      <span>De</span>
+                      <input type="time" max="12:00" min="6:00" name="de<?php //echo $i
+                                                                        ?>">
+                      <span>à</span>
+                      <input type="time" max="12:00" min="6:00">
+                    </div>
+                    <div>
+                      <span>De</span>
+                      <input type="time" max="00:00" min="13:00">
+                      <span>à</span>
+                      <input type="time" max="00:00" min="13:00">
+                    </div>
                   </div>
-                </div>
 
-                <?php //$i++; } ?>
-                <input type="hidden" name="inputs" value="<?php //echo $i ?>">
-              </form>
-            </div>
-            <div class="services">
-              <div class="subtitle">Section Services</div>
-              <button class="primary outline has-icon add-service" id=""><i class="fa-solid fa-plus"></i>Nouveau service</button>
-              <div class="services-list">
-                <div class="service-card">
-                  <div class="edit">
-                    <div class="update-service"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="delete-service"><i class="fa-solid fa-trash-can"></i></div>
-                  </div>
-                  <img src="img/entretien.png" alt="" />
-                  <div class="title">Entretient</div>
-                  <div class="details">
-                    <div>Vidange et filtre a huile</div>
-                    <div>Révision génerale</div>
-                    <div>Changement de plaquettes de freins</div>
+                  <?php //$i++; } 
+                  ?>
+                  <input type="hidden" name="inputs" value="<?php //echo $i 
+                                                            ?>">
+                </form>
+              </div>
+              <div class="services">
+                <div class="subtitle">Section Services</div>
+                <button class="primary outline has-icon add-service" id=""><i class="fa-solid fa-plus"></i>Nouveau service</button>
+                <div class="services-list">
+                  <div class="service-card">
+                    <div class="edit">
+                      <div class="update-service"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="delete-btn" data-id=""><i class="fa-solid fa-trash-can"></i></div>
+                    </div>
+                    <img src="img/entretien.png" alt="" />
+                    <div class="title">Entretient</div>
+                    <div class="details">
+                      <div>Vidange et filtre a huile</div>
+                      <div>Révision génerale</div>
+                      <div>Changement de plaquettes de freins</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -112,17 +129,16 @@ if (isset($_POST['logout'])) {
           </div>
         </div>
       </div>
-    </div>
-  </main>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="js/general.js"></script>
-<script src="js/dashboard.js"></script>
+    </main>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/general.js"></script>
+  <script src="js/dashboard.js"></script>
 
-</html>
+  </html>
 
-<?php 
-}else{
-  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
+<?php
+} else {
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/login");
 }
 ?>

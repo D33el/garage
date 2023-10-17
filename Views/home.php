@@ -190,7 +190,10 @@ if(isset($_POST['contact'])){
                 </div>
                 <div class="input-container">
                   <label>Note</label>
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <input type="hidden" name="" class="stars-input">
+                  <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
                 </div>
                 <div class="input-container">
                   <label>Message</label>

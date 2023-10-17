@@ -41,16 +41,19 @@ function displayHeaderFooter() {
     `);
   } else if($("header").hasClass("dashboard")){
     // header dashboard
-    $("header").html(`
+    let header = $('header')
+    let name =  header.data('name')
+    let type = header.data('type')
+    header.html(`
     <img src="img/garage-logo.png" alt="" class="brand">
     <form method="post">
     <button id="logout" type="submit" name="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
     </form>
     <div class="profile">
-      <div class="avatar">un</div>
+      <div class="avatar">${getFirstLetters(name)}</div>
       <div class="wrap">
-        <div class="name">user name</div>
-        <div class="role">admin</div>
+        <div class="name">${name}</div>
+        <div class="role">${type}</div>
       </div>
     </div>
     `);
@@ -83,23 +86,23 @@ function dashboardHandler() {
 function displaySidebar() {
   $('.sidebar').html(`
   <nav>
-    <a class="nav-item" href="../dashboard-showroom">
+    <a class="nav-item" href="../dashboard-showroom" data-id="showroom">
       <i class="fa-solid fa-car-side"></i>
       <div>Showroom</div>
     </a>
-    <a class="nav-item" href="../dashboard-messages">
+    <a class="nav-item" href="../dashboard-messages" data-id="messages">
       <i class="fa-solid fa-envelope"></i>
       <div>Messages</div>
     </a>
-    <a class="nav-item" href="../dashboard-comments">
+    <a class="nav-item" href="../dashboard-comments" data-id="comments">
       <i class="fa-solid fa-comments"></i>
       <div>Commentaires</div>
     </a>
-    <a class="nav-item" href="../dashboard-employees">
+    <a class="nav-item" href="../dashboard-employees" data-id="employees">
       <i class="fa-solid fa-clipboard-user"></i>
       <div>Employées</div>
     </a>
-    <a class="nav-item" href="../dashboard-website">
+    <a class="nav-item" href="../dashboard-website" data-id="website">
       <i class="fa-solid fa-gears"></i>
       <div>Mon site</div>
     </a>
@@ -109,7 +112,14 @@ function displaySidebar() {
 
 
 $(document).on('click','#test',function(){
-  // alert()
   $('#contact form button').click()
 })
 
+function getFirstLetters(str) {
+  const words = str.split(" ");
+  let letters = "";
+  for (const word of words) {
+    letters += word.charAt(0).toUpperCase();
+  }
+  return letters;
+}

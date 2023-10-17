@@ -30,33 +30,7 @@ $messages = $data->getAllMessages();
 <body>
   <main id="app">
     <div id="overlay"></div>
-    <div id="tooltip">Cliquer pour quitter</div>
-    <div id="drawer">
-      <div class="drawer-header">
-        <div class="title">Ajouter un véhicule</div>
-        <div class="message">Veuillez remplir tout les champs</div>
-      </div>
-      <div class="drawer-body">
-        <form class="form-container" method="POST">
-          <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
-          </div>
-          <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
-          </div>
-          <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
-          </div>
-          <div class="input-container">
-            <label for=""></label>
-            <input type="text" name="">
-          </div>
-        </form>
-      </div>
-    </div>
+    
     <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
@@ -79,9 +53,9 @@ $messages = $data->getAllMessages();
               <?php } ?>
             </div>
             <div class="message-preview" >
-              <!-- <div class="empty">Selectionnez <br> un message</div> -->
+              <div class="empty">Selectionnez <br> un message</div>
               <?php foreach($messages as $message){ ?>
-              <div data-id="<?php echo $message['id_contact'] ?>">
+              <div class="message-container" data-id="<?php echo $message['id_contact'] ?>">
                 <div class="preview-wrapper">
                   <div class="wrap">
                     <div class="name"><?php echo $message['nomPrenom'] ?></div>

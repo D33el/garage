@@ -11,3 +11,11 @@ $(document).ready(async function () {
     );
   }
 });
+
+$(document).on('click', '#comments .form-container .stars i', function () {
+  $('#comments .form-container .stars i').removeClass('yellow');
+  $(this).addClass('yellow');
+  $(this).prevAll('i').addClass('yellow');
+  let rate = $('#comments .form-container .stars i.yellow').length
+  $('#comments .form-container .stars-input').val(rate)
+});

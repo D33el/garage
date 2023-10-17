@@ -2,15 +2,35 @@ $(document).ready(async function () {
   console.log("dashboard.js Loaded");
   $("#overlay").hide();
   if (checkMobile()) {
-    $(".app").html(`
-      <div class="mobile-warning">Accés impossible sur mobile</div>
-    `);
+    $(".app").html(`<div class="mobile-warning">Accés impossible sur mobile</div>`);
   }
   displayOpenDaysSelectOptions();
-  displayCars(20);
-  displayMessages(20);
+  displayCarsYearsSelect()
+  displaySelectedNavItem();
 });
-
+function displaySelectedNavItem() {
+  let pathname = window.location.pathname;
+  $(".nav-item");
+  switch (pathname) {
+    case "/dashboard-comments":
+      $('.nav-item[data-id="comments"]').addClass("active");
+      break;
+    case "/dashboard-employees":
+      $('.nav-item[data-id="employees"]').addClass("active");
+      break;
+    case "/dashboard-messages":
+      $('.nav-item[data-id="messages"]').addClass("active");
+      break;
+    case "/dashboard-website":
+      $('.nav-item[data-id="website"]').addClass("active");
+      break;
+    case "/dashboard-showroom":
+      $('.nav-item[data-id="showroom"]').addClass("active");
+      break;
+    default:
+      break;
+  }
+}
 function onClick(selector, callback) {
   $(document).on("click", selector, callback);
 }
@@ -30,53 +50,20 @@ $(document)
     $("#tooltip").hide();
   });
 onClick("#overlay", function () {
-  $("#drawer,#overlay").hide();
+  $("#drawer,#overlay,.popup").hide();
 });
 onClick(".nav-item", function () {
   $(this).addClass("active");
 });
 
-// function displayCars(number) {
-//   let i = 0;
-//   while (i <= number) {
-//     i++;
-//     $("#showroom .cars-list").append(`
-//     <div class="card" data-id="${i}">
-//       <div class="buttons">
-//         <div class="update-car rounded-btn"><i class="fa-solid fa-pen-to-square"></i></div>
-//         <div class="delete-car rounded-btn"><i class="fa-solid fa-trash-can"></i></div>
-//       </div>
-//       <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-//       <div class="wrapper">
-//         <div class="car-name title">Porsche 911</div>
-//         <div class="price">20 000 €</div>
-//         <div class="details">
-//           <div>2020</div>
-//           <div class="spacer">•</div>
-//           <div>289439 Km</div>
-//           <div class="spacer">•</div>
-//           <div>V6 biturbo</div>
-//         </div>
-//       </div>
-//     </div>
-//     `);
-//   }
-// }
-
-// function displayMessages(number) {
-//   let i = 0;
-//   while (i <= number) {
-//     i++;
-//     $("#messages .messages-list").append(`
-//     <div class="message">
-//       <div class="name"><User Test></div>
-//       <div class="date">01/01/2000</div>
-//       <div class="subject"><span>Sujet : </span>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-//     </div>
-//     `);
-//   }
-// }
-
+function displayCarsYearsSelect() {
+  const yearsArray = Array.from({ length: new Date().getFullYear() - 1999 }, (_, index) => 2000 + index);
+  for (const year of yearsArray) {
+    $('#drawer .year-select').append(`
+    <option value='${year}'>${year}</option>
+    `)
+  }
+}
 function displayOpenDaysSelectOptions() {
   let i = 0;
   let page = $("#website .open-days");
@@ -114,14 +101,29 @@ $(document)
   .change(function () {
     showImage(this);
   });
-  
-  function showImage(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-      $(".input-file-preview").show()
+
+function showImage(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(".input-file-preview").show();
       $(".input-file-preview").attr("src", e.target.result);
     };
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+onClick(".message", function () {
+  let id = $(this).data('id')
+  $('.message-preview .empty,.message-container').hide()
+  $(`.message-container[data-id='${id}']`).show()
+});
+
+onClick('.delete-btn',function () {
+  let id = $(this).data('id')
+  $('.popup,#overlay').show()
+  $('.popup').find('input').val(id)
+})
+onClick('.abort',function () {
+  $('.popup,#overlay').hide()
+})
