@@ -58,8 +58,9 @@ onClick(".nav-item", function () {
 
 function displayCarsYearsSelect() {
   const yearsArray = Array.from({ length: new Date().getFullYear() - 1999 }, (_, index) => 2000 + index);
-  for (const year of yearsArray) {
-    $('#drawer .year-select').prepend(`
+  for (let i = yearsArray.lenght; i == 0; i--) {
+    const year = yearsArray[i];
+    $('#drawer .year-select').append(`
     <option value='${year}'>${year}</option>
     `)
   }
