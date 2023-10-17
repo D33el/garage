@@ -1,0 +1,75 @@
+CREATE TABLE Utilis(
+   id_utilis INT,
+   nomPrenom VARCHAR(255) NOT NULL,
+   email VARCHAR(255) NOT NULL,
+   username VARCHAR(50) NOT NULL,
+   password VARCHAR(255) NOT NULL,
+   type VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id_utilis)
+);
+
+CREATE TABLE Voitures(
+   id_voiture INT,
+   marque VARCHAR(50) NOT NULL,
+   imageprincipale VARCHAR(255) NOT NULL,
+   couleur VARCHAR(50) NOT NULL,
+   kilometrage VARCHAR(50) NOT NULL,
+   etat VARCHAR(50) NOT NULL,
+   moteur VARCHAR(50) NOT NULL,
+   boite VARCHAR(50) NOT NULL,
+   carburant VARCHAR(50) NOT NULL,
+   observation VARCHAR(255) NOT NULL,
+   prix DOUBLE NOT NULL,
+   annee DATE NOT NULL,
+   PRIMARY KEY(id_voiture)
+);
+
+CREATE TABLE imagesVoiture(
+   id_image INT,
+   image VARCHAR(255) NOT NULL,
+   id_voiture INT NOT NULL,
+   PRIMARY KEY(id_image),
+   FOREIGN KEY(id_voiture) REFERENCES Voitures(id_voiture)
+);
+
+CREATE TABLE services(
+   id_service INT,
+   service VARCHAR(50) NOT NULL,
+   imageService VARCHAR(255) NOT NULL,
+   description VARCHAR(50) NOT NULL,
+   id_utilis INT NOT NULL,
+   PRIMARY KEY(id_service),
+   FOREIGN KEY(id_utilis) REFERENCES Utilis(id_utilis)
+);
+
+CREATE TABLE avis(
+   id_avis INT,
+   nom VARCHAR(50) NOT NULL,
+   note DOUBLE NOT NULL,
+   commentaire VARCHAR(50) NOT NULL,
+   etat INT,
+   PRIMARY KEY(id_avis)
+);
+
+CREATE TABLE contact(
+   id_contact INT,
+   nomPrenom VARCHAR(255) NOT NULL,
+   email VARCHAR(255) NOT NULL,
+   telephone VARCHAR(50) NOT NULL,
+   sujet VARCHAR(50) NOT NULL,
+   message VARCHAR(255) NOT NULL,
+   createdat DATE,
+   id_voiture INT,
+   PRIMARY KEY(id_contact),
+   FOREIGN KEY(id_voiture) REFERENCES Voitures(id_voiture)
+);
+
+CREATE TABLE horaires(
+   id_horaire INT,
+   jour VARCHAR(50) NOT NULL,
+   ouvertureMatin TIME,
+   fermetureMatin TIME,
+   ouvertureAprem TIME,
+   fermetureAprem TIME,
+   PRIMARY KEY(id_horaire)
+);
