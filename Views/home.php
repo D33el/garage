@@ -285,8 +285,9 @@ if(isset($_POST['contact'])){
               <textarea name="message" placeholder="Rédigez votre message" id="" cols="30" rows="10"></textarea>
             </div>
           </div>
-          <button class="submit button" type="submit" name="contact">Envoyer</button>
+          <button class="submit button" style="display:none;" type="submit" name="contact">Envoyer</button>
         </form>
+        <button class="submit button" id='test'>Envoyer</button>
       </section>
     </main>
     <footer></footer>

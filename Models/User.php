@@ -5,10 +5,12 @@ class User{
 
  static Public Function Login($data){
   $db = DB::connect();
-  $Username = $data['Username'];
+  $Username = $data['username'];
 
   try{
       $query = 'SELECT * FROM utilis WHERE username=:username OR  email = :username';
+      echo $query;
+      
       $stmt = $db->prepare($query);
       $stmt->execute(array(":username" => $Username));
       $user = $stmt->fetch(PDO::FETCH_OBJ);
@@ -52,7 +54,7 @@ static public function update($data){
 
 static public function getAll(){
   $db = DB::connect();
-  $sql = "SELECT * FROM utilis";
+  $sql = "SELECT * FROM utilis order by id_utilis asc";
   $stmt = $db->prepare($sql);
   if($stmt->execute()){
     return $stmt->fetchAll();

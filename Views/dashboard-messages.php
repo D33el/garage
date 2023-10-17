@@ -1,5 +1,8 @@
 <?php
 
+if($_SESSION['admin'] == true || $_SESSION['employe'] == true){
+
+
 if(isset($_POST['logout'])){
   $logout = new UserController();
   $logout->Logout();
@@ -54,7 +57,7 @@ $messages = $data->getAllMessages();
         </form>
       </div>
     </div>
-    <header class="dashboard"><!-- Display general.js--></header>
+    <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
       <div class="page" id="messages">
@@ -66,26 +69,30 @@ $messages = $data->getAllMessages();
             </div>
           </div>
           <div class="wrap">
-            <?php foreach($messages as $message){ ?>
             <div class="messages-list">
-              <div class="message">
+              <?php foreach($messages as $message){ ?>
+              <div class="message" data-id="<?php echo $message['id_contact'] ?>">
                 <div class="name"><?php echo $message['nomPrenom'] ?></div>
                 <div class="date"><?php echo $message['createdat'] ?></div>
                 <div class="subject"><span>Sujet : </span><?php echo $message['sujet'] ?></div>
               </div>
+              <?php } ?>
             </div>
-            <?php } ?>
-            <div class="message-preview">
+            <div class="message-preview" >
               <!-- <div class="empty">Selectionnez <br> un message</div> -->
-              <div class="preview-wrapper">
-                <div class="wrap">
-                  <div class="name">user test</div>
-                  <div class="email">email@email.com</div>
-                  <div class="phone">1234567890</div>
+              <?php foreach($messages as $message){ ?>
+              <div data-id="<?php echo $message['id_contact'] ?>">
+                <div class="preview-wrapper">
+                  <div class="wrap">
+                    <div class="name"><?php echo $message['nomPrenom'] ?></div>
+                    <div class="email"><?php echo $message['email'] ?></div>
+                    <div class="phone"><?php echo $message['telephone'] ?></div>
+                  </div>
+                  <div class="subject"><span>Sujet : </span><?php echo $message['sujet'] ?></div>
+                  <div class="message"><?php echo $message['message'] ?></div>
                 </div>
-                <div class="subject"><span>Sujet : </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, ea.</div>
-                <div class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, qui, iusto ex nam non iste odio doloremque exercitationem ut praesentium nisi aliquam quae reiciendis dolorum deserunt. A necessitatibus odit illo veritatis id laborum provident fugiat expedita, numquam quas ipsa excepturi vel reprehenderit maiores voluptate cumque vitae amet deleniti dolorum! Provident.</div>
               </div>
+              <?php } ?>
             </div>
           </div>
         </div>
@@ -98,3 +105,10 @@ $messages = $data->getAllMessages();
 <script src="js/dashboard.js"></script>
 
 </html>
+
+<?php 
+}else{
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
+}
+?>
+

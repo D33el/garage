@@ -22,7 +22,7 @@ if(isset($_POST['login'])){
       <div class="form-container">
         <div class="title">Bienvenue</div>
         <div class="subtitle">Veuillez vous connecter pour acceder a votre espace.</div>
-        <div class="message">E-mail ou mot de passe incorrecte</div>
+        <div class="message" style="color:red;"></div>
         <form method="POST" class="login-form">
             <div class="input-container">
                 <label>E-mail / Nom d'utilisateur</label>
@@ -30,7 +30,7 @@ if(isset($_POST['login'])){
             </div>
             <div class="input-container">
                 <label>Mot de passe</label>
-                <input type="text" name="password">
+                <input type="password" name="password">
             </div>
             <button type="submit" name="login">Se connecter</button>
         </form>

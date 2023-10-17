@@ -9,7 +9,9 @@ $home = new HomeController;
 
 // echo "index called";
 
-$pages=['home','showroom','car','login','dashboard-showroom','dashboard-messages','dashboard-comments','dashboard-website','dashboard-employees'];
+$pages=['home','showroom','car','login','dashboard-showroom',
+'dashboard-messages','dashboard-comments','dashboard-website',
+'dashboard-employees','todo'];
 
 if(isset($_GET['page'])){
     if(in_array($_GET['page'],$pages)){

@@ -1,5 +1,8 @@
 <?php
 
+if($_SESSION['admin'] == true || $_SESSION['employe'] == true){
+
+
 if (isset($_POST['logout'])) {
   $logout = new UserController();
   $logout->Logout();
@@ -46,7 +49,7 @@ if (isset($_POST['logout'])) {
         </form>
       </div>
     </div>
-    <header class="dashboard"><!-- Display general.js--></header>
+    <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
       <div class="page" id="website">
@@ -66,11 +69,12 @@ if (isset($_POST['logout'])) {
                   <div>Matinée</div>
                   <div>Aprés-midi</div>
                 </div>
+                <?php //$i = 1; foreach(){ ?>
                 <div class="table-row">
                   <div>Dimanche</div>
                   <div>
                     <span>De</span>
-                    <input type="time" max="12:00" min="6:00">
+                    <input type="time" max="12:00" min="6:00" name="de<?php //echo $i?>">
                     <span>à</span>
                     <input type="time" max="12:00" min="6:00">
                   </div>
@@ -81,96 +85,9 @@ if (isset($_POST['logout'])) {
                     <input type="time" max="00:00" min="13:00">
                   </div>
                 </div>
-                <div class="table-row">
-                  <div>Lundi</div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="12:00" min="6:00">
-                    <span>à</span>
-                    <input type="time" max="12:00" min="6:00">
-                  </div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="00:00" min="13:00">
-                    <span>à</span>
-                    <input type="time" max="00:00" min="13:00">
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div>Mardi</div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="12:00" min="6:00">
-                    <span>à</span>
-                    <input type="time" max="12:00" min="6:00">
-                  </div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="00:00" min="13:00">
-                    <span>à</span>
-                    <input type="time" max="00:00" min="13:00">
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div>Mercredi</div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="12:00" min="6:00">
-                    <span>à</span>
-                    <input type="time" max="12:00" min="6:00">
-                  </div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="00:00" min="13:00">
-                    <span>à</span>
-                    <input type="time" max="00:00" min="13:00">
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div>Jeudi</div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="12:00" min="6:00">
-                    <span>à</span>
-                    <input type="time" max="12:00" min="6:00">
-                  </div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="00:00" min="13:00">
-                    <span>à</span>
-                    <input type="time" max="00:00" min="13:00">
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div>Vendredi</div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="12:00" min="6:00">
-                    <span>à</span>
-                    <input type="time" max="12:00" min="6:00">
-                  </div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="00:00" min="13:00">
-                    <span>à</span>
-                    <input type="time" max="00:00" min="13:00">
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div>Samedi</div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="12:00" min="6:00">
-                    <span>à</span>
-                    <input type="time" max="12:00" min="6:00">
-                  </div>
-                  <div>
-                    <span>De</span>
-                    <input type="time" max="00:00" min="13:00">
-                    <span>à</span>
-                    <input type="time" max="00:00" min="13:00">
-                  </div>
-                </div>
+
+                <?php //$i++; } ?>
+                <input type="hidden" name="inputs" value="<?php //echo $i ?>">
               </form>
             </div>
             <div class="services">
@@ -203,3 +120,9 @@ if (isset($_POST['logout'])) {
 <script src="js/dashboard.js"></script>
 
 </html>
+
+<?php 
+}else{
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
+}
+?>

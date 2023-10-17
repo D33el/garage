@@ -22,8 +22,16 @@ class voiture{
 
  }
 
- Public function get($id){
-
+ static Public function get($id){
+  $db = DB::connect();
+  $query = "SELECT * FROM voitures ";
+  if($id){
+   $query .= " WHERE id_voiture = $id";
+  }
+  $query .= " ORDER by id_voiture desc";
+  $stmt = $db->prepare($query);
+  $stmt->execute();
+  return $stmt->fetchAll();
  }
 
 

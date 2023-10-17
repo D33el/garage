@@ -8,24 +8,25 @@ class UserController
   $res = User::Login($data);
 
   if(!$res){
-   header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/Login");
+   header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
   }else{
-    if($res->type == "Admin"){
-     if(password_verify($_POST['Password'], $res->Password)){
-      $_SESSION['logged'] = true;
+    if($res->type == "admin"){
+     if(password_verify($_POST['password'], $res->password)){
+      $_SESSION['admin'] = true;
       $_SESSION['id_user'] = $res->id_user;
       $_SESSION['nomPrenom'] = $res->nomPrenom;
       $_SESSION['email'] = $res->email;
       $_SESSION['username'] = $res->username;
+      $_SESSION['telephone'] = $res->tel;
       $_SESSION['type'] = $res->type;
-      header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/dashboard");
+      header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/dashboard-showroom");
      }else{
       // wrong password
      }
 
     }else if($res->type == "employe"){
      if(password_verify($_POST['Password'], $res->Password)){
-      $_SESSION['logged'] = true;
+      $_SESSION['employe'] = true;
       $_SESSION['id_user'] = $res->id_user;
       $_SESSION['nomPrenom'] = $res->nomPrenom;
       $_SESSION['email'] = $res->email;
@@ -43,7 +44,7 @@ class UserController
  Public function Logout(){
   session_destroy();
   session_start();
-  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/home");
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
  }
 
  Public function addUser(){

@@ -22,13 +22,15 @@ class general
   // Construction de la requête préparée
   $sql = "INSERT INTO $tableName ($colonnes) VALUES ($valeurs)";
   $stmt = $db->prepare($sql);
-
   // Liaison des valeurs avec les paramètres
   foreach ($data as $key => $value) {
       $stmt->bindValue(":$key", $value);
-  }
-
-  // Exécution de la requête préparée
+    }
+    
+// $stmt->execute();
+// $stmt->debugDumpParams();
+// exit;
+//   Exécution de la requête préparée
   if ($stmt->execute()) {
       return 1;
   } else {

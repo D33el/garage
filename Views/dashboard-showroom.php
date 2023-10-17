@@ -1,5 +1,7 @@
 <?php
 
+if($_SESSION['admin'] == true || $_SESSION['employe'] == true){
+
 
 if (isset($_POST['logout'])) {
   $logout = new UserController();
@@ -9,12 +11,13 @@ if (isset($_POST['logout'])) {
 if (isset($_POST['submit'])) {
   $send = new voituresController();
   $send->addVoiture();
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/dashboard-showroom");
 }
 
-
+$id = null;
 
 $data = new voituresController();
-$voitures = $data->getVoiture(null);
+$voitures = $data->getVoiture($id);
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +43,7 @@ $voitures = $data->getVoiture(null);
         <div class="message">Veuillez remplir tout les champs</div>
       </div>
       <div class="drawer-body">
-        <form class="form-container" method="POST">
+        <form class="form-container" method="POST" enctype="multipart/form-data">
           <div class="input-container">
             <label for="">Image principale du vehicule</label>
             <input type="file" class="input-file" name="imageprincipale" placeholder="Le modéle du vehicule">
@@ -52,7 +55,7 @@ $voitures = $data->getVoiture(null);
           </div>
           <div class="input-container">
             <label for="">Année</label>
-            <input type="text" name="anee" placeholder="L'année de mise en circulation">
+            <input type="text" name="annee" placeholder="L'année de mise en circulation">
           </div>
           <div class="input-container">
             <label for="">Couleur</label>
@@ -103,7 +106,7 @@ $voitures = $data->getVoiture(null);
         </form>
       </div>
     </div>
-    <header class="dashboard"><!-- Display general.js--></header>
+    <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
       <div class="page" id="showroom">
@@ -111,29 +114,30 @@ $voitures = $data->getVoiture(null);
           <div class="page-header">
             <div class="wrap">
               <div class="title">Gestion du showroom</div>
-              <div class="count">99 voitures exposés</div>
             </div>
             <button class="primary has-icon add-car" id=""><i class="fa-solid fa-plus"></i>Nouvelle voiture</button>
           </div>
           <div class="cars-list">
-            <div class="card" data-id="1">
+            <?php foreach($voitures as $voiture){ ?>
+            <div class="card" data-id="<?php echo $voiture['id_voiture'] ?>">
               <div class="buttons">
                 <div class="update-car-btn rounded-btn"><i class="fa-solid fa-pen-to-square"></i></div>
                 <div class="delete-car-btn rounded-btn"><i class="fa-solid fa-trash-can"></i></div>
               </div>
-              <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
+              <img src="<?php echo "../".$voiture['imageprincipale'] ?>" alt="" />
               <div class="wrapper">
-                <div class="car-name title">Porsche 911</div>
-                <div class="price">20 000 €</div>
+                <div class="car-name title"><?php echo $voiture['marque'] ?></div>
+                <div class="price"><?php echo number_format($voiture['prix'],2,"."," ") ?> €</div>
                 <div class="details">
-                  <div>2020</div>
+                  <div><?php echo $voiture['annee'] ?></div>
                   <div class="spacer">•</div>
-                  <div>289439 Km</div>
+                  <div><?php echo $voiture['kilometrage'] ?> Km</div>
                   <div class="spacer">•</div>
-                  <div>1.9L TDI</div>
+                  <div><?php echo $voiture['moteur'] ?></div>
                 </div>
               </div>
             </div>
+            <?php } ?> 
           </div>
         </div>
 
@@ -146,3 +150,9 @@ $voitures = $data->getVoiture(null);
 <script src="js/dashboard.js"></script>
 
 </html>
+
+<?php 
+}else{
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
+}
+?>

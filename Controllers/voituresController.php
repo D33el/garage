@@ -7,17 +7,19 @@ Public function addVoiture(){
 
  $nom = 'files/img'; // Le nom du répertoire à créer  
  $Img='';
- $fileName = $_FILES['Img']['name'];
-    if(move_uploaded_file($_FILES['Img']['tmp_name'],$nom.'/'.$fileName)){
+ $fileName = $_FILES['imageprincipale']['name'];
+    if(move_uploaded_file($_FILES['imageprincipale']['tmp_name'],$nom.'/'.$fileName)){
       //echo'fichier envoyé avec succé';
      }else{
      //echo'fichier non envoyer';
     }
-  $Img=$nom.'/'.$_FILES['Img']['name'];
+  $Img=$nom.'/'.$_FILES['imageprincipale']['name'];
 
+  $id = general::get("voitures","id_voiture");
  $data = array(
+  'id_voiture' => ++$id,
   'marque' => $_POST['marque'],
-  'imageprincpale' => $Img,
+  'imageprincipale' => $Img,
   'couleur' => $_POST['couleur'],
   'kilometrage' => $_POST['kilometrage'],
   'etat' => $_POST['etat'],
@@ -104,7 +106,7 @@ Public function deleteVoiture(){
 }
 
 Public function getVoiture($id){
-
+  return voiture::get($id);
 }
 
 

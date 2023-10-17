@@ -1,4 +1,5 @@
 <?php
+if($_SESSION['admin'] == true || $_SESSION['employe'] == true){
 
 if(isset($_POST['logout'])){
   $logout = new UserController();
@@ -65,7 +66,7 @@ $users = $data->getAll();
         </form>
       </div>
     </div>
-    <header class="dashboard"><!-- Display general.js--></header>
+    <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
       <div class="page" id="employees">
@@ -85,7 +86,6 @@ $users = $data->getAll();
                   <th class="column2">Nom d'utilsiateur</th>
                   <th class="column3">E-mail</th>
                   <th class="column4">N˚ de tel</th>
-                  <th class="column5">Type</th>
                   <th class="column6"></th>
                 </tr>
               </thead>
@@ -96,8 +96,6 @@ $users = $data->getAll();
                   <td class="column2"><?php echo $user['username'] ?></td>
                   <td class="column3"><?php echo $user['email'] ?></td>
                   <td class="column4"><?php echo $user['tel'] ?></td>
-                  <td class="column5"><?php echo $user['type'] ?></td>
-
                   <td class="column6">
                     <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="delete-employee"><i class="fa-solid fa-trash-can"></i></div>
@@ -117,3 +115,12 @@ $users = $data->getAll();
 <script src="js/dashboard.js"></script>
 
 </html>
+
+<?php 
+
+}else{
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
+
+}
+
+?>

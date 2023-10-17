@@ -1,5 +1,7 @@
 <?php 
 
+if($_SESSION['admin'] == true || $_SESSION['employe'] == true){
+
 if(isset($_POST['logout'])){
   $logout = new UserController();
   $logout->Logout();
@@ -46,7 +48,7 @@ if(isset($_POST['logout'])){
         </form>
       </div>
     </div>
-    <header class="dashboard"><!-- Display general.js--></header>
+    <header class="dashboard" data-name="<?php echo $_SESSION['nomPrenom'] ?>" data-type="<?php echo $_SESSION['type'] ?>"><!-- Display general.js--></header>
     <div class="sidebar"><!-- Display general.js--></div>
     <div class="content">
       <div class="page" id="comments">
@@ -94,3 +96,11 @@ if(isset($_POST['logout'])){
 <script src="js/dashboard.js"></script>
 
 </html>
+
+<?php 
+
+}else{
+  header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/login");
+}
+
+?>
