@@ -108,4 +108,8 @@ function displaySidebar() {
 }
 
 
+$(document).on('click','#test',function(){
+  // alert()
+  $('#contact form button').click()
+})
 

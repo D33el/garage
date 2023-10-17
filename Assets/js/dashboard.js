@@ -36,32 +36,32 @@ onClick(".nav-item", function () {
   $(this).addClass("active");
 });
 
-function displayCars(number) {
-  let i = 0;
-  while (i <= number) {
-    i++;
-    $("#showroom .cars-list").append(`
-    <div class="card" data-id="${i}">
-      <div class="buttons">
-        <div class="update-car rounded-btn"><i class="fa-solid fa-pen-to-square"></i></div>
-        <div class="delete-car rounded-btn"><i class="fa-solid fa-trash-can"></i></div>
-      </div>
-      <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-      <div class="wrapper">
-        <div class="car-name title">Porsche 911</div>
-        <div class="price">20 000 €</div>
-        <div class="details">
-          <div>2020</div>
-          <div class="spacer">•</div>
-          <div>289439 Km</div>
-          <div class="spacer">•</div>
-          <div>V6 biturbo</div>
-        </div>
-      </div>
-    </div>
-    `);
-  }
-}
+// function displayCars(number) {
+//   let i = 0;
+//   while (i <= number) {
+//     i++;
+//     $("#showroom .cars-list").append(`
+//     <div class="card" data-id="${i}">
+//       <div class="buttons">
+//         <div class="update-car rounded-btn"><i class="fa-solid fa-pen-to-square"></i></div>
+//         <div class="delete-car rounded-btn"><i class="fa-solid fa-trash-can"></i></div>
+//       </div>
+//       <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
+//       <div class="wrapper">
+//         <div class="car-name title">Porsche 911</div>
+//         <div class="price">20 000 €</div>
+//         <div class="details">
+//           <div>2020</div>
+//           <div class="spacer">•</div>
+//           <div>289439 Km</div>
+//           <div class="spacer">•</div>
+//           <div>V6 biturbo</div>
+//         </div>
+//       </div>
+//     </div>
+//     `);
+//   }
+// }
 
 // function displayMessages(number) {
 //   let i = 0;
