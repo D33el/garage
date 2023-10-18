@@ -75,7 +75,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 250px;
+  /* height: 250px; */
   background-color: var(--clr-secondary);
   padding: 0 20px 20px 20px;
   border-radius: 10px;

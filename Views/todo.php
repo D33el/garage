@@ -36,9 +36,9 @@ body{
         <li class="done">les étoiles dans le formulaire de contact</li>
         <li class="done">Afficher un pop-up dans les click sur supprimer </li>
         <li class="done">Dropdown de l'année dans le formulaire d'ajout d'une voiture</li>
-        <li>display les étoiles selon la note dashboard-comments / home </li>
-        <li>Bouton enregistrer dans le formulaire de service </li>
-        <li>Revenir vers la home page à partir du login</li>
+        <li class="done">display les étoiles selon la note dashboard-comments / home </li>
+        <li class="done">Bouton enregistrer dans le formulaire de service </li>
+        <li class="d0ne">Revenir vers la home page à partir du login</li>
 
     </div>
 </body>

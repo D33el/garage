@@ -1,5 +1,6 @@
 $(document).ready(async function () {
   console.log("home.js Loaded");
+  displayCommentStars()
   if (window.location.hash) {
     let section = window.location.hash;
     let offset = 30;
@@ -19,3 +20,9 @@ $(document).on('click', '#comments .form-container .stars i', function () {
   let rate = $('#comments .form-container .stars i.yellow').length
   $('#comments .form-container .stars-input').val(rate)
 });
+
+function displayCommentStars() {
+  let container = $('#comments .card .stars')
+  let note = container.data('id');
+  for (let i = 0; i < note; i++) container.append('<i class="fa-solid fa-star"></i>')
+}

@@ -57,7 +57,7 @@ $ToutLesAvis = $data->getRatings(null)
         </div>
       </div>
       <!-- drawer -->
-      <div id="drawer">
+      <div class="drawer">
         <div class="drawer-header">
           <div class="title">Ajouter un commentaire</div>
           <div class="message">Veuillez remplir tout les champs</div>

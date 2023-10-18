@@ -46,7 +46,7 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
         </div>
       </div>
       <!-- drawer -->
-      <div id="drawer">
+      <div class="drawer">
         <div class="drawer-header">
           <div class="title">Ajouter un employé</div>
           <div class="message">Veuillez remplir tout les champs</div>

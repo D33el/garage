@@ -39,7 +39,6 @@ $messages = $data->getAllMessages();
           <div class="page-header">
             <div class="wrap">
               <div class="title">Messagerie</div>
-              <!-- <div class="count">99 Messages non lus</div> -->
             </div>
           </div>
           <div class="wrap">

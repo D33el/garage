@@ -70,7 +70,7 @@
   border-radius: 9999px;
   z-index: 11;
 }
-#drawer{
+.drawer{
   position: fixed;
   right: 0;
   top: 0;
@@ -102,6 +102,10 @@
   overflow: scroll;
   padding: 20px;
 }
+/*Spécific*/
+/* #additionnal-images{
+
+} */
 .form-container {}
 .form-container > div{
   margin-bottom: 10px;
@@ -616,6 +620,7 @@ tbody tr:hover {
   width: fit-content;
   margin-top: 30px;
   margin-inline: auto;
+  padding-bottom: 13px;
 }
 .open-days .table-head,
 .open-days .table-row {
@@ -640,7 +645,8 @@ tbody tr:hover {
   border-bottom: none;
   height: 50px;
 }
-.open-days .table-row:last-child {
+
+.open-days .table-row:last-of-type {
   border-bottom: 0.5px solid black;
 }
 .open-days .table-row > div {
@@ -662,9 +668,9 @@ tbody tr:hover {
 .open-days .table-row > div:last-child {
   border-right: unset;
 }
-.open-days input {
+.open-days input:not([type='hidden']) {
   padding-inline: 10px;
-  /* box-shadow: none; */
+  box-shadow: none;
   border: none;
 }
 #website .open-days input:is(:focus, :active) {
@@ -693,7 +699,7 @@ tbody tr:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 250px;
+  /* height: 250px; */
   background-color: var(--clr-secondary);
   padding: 0 20px 20px 20px;
   border-radius: 10px;
@@ -731,4 +737,3 @@ tbody tr:hover {
 .service-card .delete-service {
   color: var(--clr-red);
 }
-.service-card .edit > div:last-child {}

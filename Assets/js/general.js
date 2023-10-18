@@ -1,8 +1,9 @@
 GV = { pathname:window.location.pathname }
+
 $(document).ready(async function () {
   console.log();
   console.log("General.js Loaded");
-  if (GV.pathname.includes("dashboard")) dashboardHandler()
+  if (GV.pathname.includes("dashboard")) displaySidebar()
   displayHeaderFooter();
 });
 
@@ -24,7 +25,7 @@ function checkMobile() {
     return false;
   }
 }
-
+ 
 function displayHeaderFooter() {
   let isMobile = checkMobile();
   if (isMobile) {
@@ -79,10 +80,6 @@ function displayHeaderFooter() {
   `);
 }
 
-function dashboardHandler() {
-  displaySidebar()
-}
-
 function displaySidebar() {
   $('.sidebar').html(`
   <nav>
@@ -98,11 +95,11 @@ function displaySidebar() {
       <i class="fa-solid fa-comments"></i>
       <div>Commentaires</div>
     </a>
-    <a class="nav-item" href="../dashboard-employees" data-id="employees">
+    <a class="nav-item" href="../dashboard-employees" data-id="employees" ${$('header').data('type')== 'employe' ? 'display:none':""}>
       <i class="fa-solid fa-clipboard-user"></i>
       <div>Employées</div>
     </a>
-    <a class="nav-item" href="../dashboard-website" data-id="website">
+    <a class="nav-item" href="../dashboard-website" data-id="website" ${$('header').data('type')== 'employe' ? 'display:none':""}>
       <i class="fa-solid fa-gears"></i>
       <div>Mon site</div>
     </a>

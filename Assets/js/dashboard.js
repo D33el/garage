@@ -8,6 +8,7 @@ $(document).ready(async function () {
   displayCarsYearsSelect()
   displaySelectedNavItem();
 });
+
 function displaySelectedNavItem() {
   let pathname = window.location.pathname;
   $(".nav-item");

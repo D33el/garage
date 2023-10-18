@@ -83,53 +83,7 @@ $avisAccepte = $data->getRatings(1);
             <img src="img/entretien.png" alt="" />
             <div class="title">Entretient</div>
             <div class="details">
-              <div>Vidange et filtre a huile</div>
-              <div>Révision génerale</div>
-              <div>Changement de plaquettes de freins</div>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/engine_parts.png" alt="" />
-            <div class="title">Reparation bloc moteur</div>
-            <div class="details">
-              <div>Changement d'injecteurs</div>
-              <div>Changement des bougies d'allumage</div>
-              <div>Révision moteur</div>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/air_conditioning.png" alt="" />
-            <div class="title">Climatisation</div>
-            <div class="details">
-              <div>Changement de filtes a air d'habitacle</div>
-              <div>Recharge climatisation</div>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/distribution.png" alt="" />
-            <div class="title">Distribution</div>
-            <div class="details">
-              <div>Changement de la courroie de distribution</div>
-              <div>Changement de la courroie d’accessoires</div>
-              <div>Changement du liquide de refroidissement</div>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/hubs_and_bearings.png" alt="" />
-            <div class="title">Pneus</div>
-            <div class="details">
-              <div>Changement de pneus</div>
-              <div>Reparation de pneus</div>
-              <div>Changement des roulements de roue</div>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/trust.png" alt="" />
-            <div class="title">Vente de vehicule d'occasion</div>
-            <div class="details">
-              <div>Simonisage de la carrosserie</div>
-              <div>Lifting intégral</div>
-              <div>Révision intégrale du vehicule</div>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus doloremque voluptates quod libero aperiam eius itaque minima commodi ea cupiditate?</p>
             </div>
           </div>
         </div>
@@ -141,7 +95,7 @@ $avisAccepte = $data->getRatings(1);
             <?php foreach($avisAccepte as $avis){ ?>
             <div class="card">
               <div class="name"><?php echo $avis['nom'] ?></div>
-              <div class="stars" data-id="<?php echo $avis['note'] ?>"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="stars" data-id="<?php echo $avis['note'] ?>"></div>
               <div class="comment"><?php echo $avis['commentaire'] ?></div>
             </div>
             <?php } ?>

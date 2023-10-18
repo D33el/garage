@@ -46,7 +46,31 @@ if(isset($_POST['set'])){
         </div>
       </div>
       <!-- drawer -->
-      <div id="drawer">
+      <div class="drawer" data-id="add">
+        <div class="drawer-header">
+          <div class="title">Ajouter un service</div>
+          <div class="message">Veuillez remplir tout les champs</div>
+        </div>
+        <div class="drawer-body">
+          <form class="form-container" method="POST">
+            <div class="input-container">
+              <label for="">Nom</label>
+              <input type="text" name="" placeholder="Nom du service">
+            </div>
+            <div class="input-container">
+              <label for="">Image</label>
+              <input type="file" name="imageService">
+            </div>
+            <div class="input-container">
+              <label for="">Description</label>
+              <textarea name="description" placeholder="Description du service"></textarea>
+            </div>
+            <button type="submit" name="submit" class="submit primary">Envoyer</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="drawer" data-id="update">
         <div class="drawer-header">
           <div class="title">Ajouter un service</div>
           <div class="message">Veuillez remplir tout les champs</div>
@@ -125,9 +149,7 @@ if(isset($_POST['set'])){
                     <img src="img/entretien.png" alt="" />
                     <div class="title">Entretient</div>
                     <div class="details">
-                      <div>Vidange et filtre a huile</div>
-                      <div>Révision génerale</div>
-                      <div>Changement de plaquettes de freins</div>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus doloremque voluptates quod libero aperiam eius itaque minima commodi ea cupiditate?</p>
                     </div>
                   </div>
                 </div>

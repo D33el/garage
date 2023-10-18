@@ -20,6 +20,7 @@ if(isset($_POST['login'])){
   <body>
     <div class="login-wrapper">
       <div class="form-container">
+        <a href="../home" class="tooltip"><img src="img/garage-logo.png" alt="" class="brand"> <div class="tooltiptext">Retour a l'accueil</div></a>
         <div class="title">Bienvenue</div>
         <div class="subtitle">Veuillez vous connecter pour acceder a votre espace.</div>
         <div class="message" style="color:red;"></div>
@@ -35,7 +36,7 @@ if(isset($_POST['login'])){
             <button type="submit" name="login">Se connecter</button>
         </form>
       </div>
-      <img src="img/sten-rademaker-UZUzvJEvKnI-unsplash.jpg" alt="">
+      <img src="img/sten-rademaker-UZUzvJEvKnI-unsplash.jpg" alt="" class="login-image">
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

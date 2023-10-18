@@ -90,7 +90,7 @@ Public function updateVoiture(){
          }
        $Img=$nom.'/'.$_FILES['imageprincpale']['name'];
 
-    $data['imageprincpale'] = $Img;    
+    $data['imageprincipale'] = $Img;    
 }
 
    $success = general::update("voitures",$data,"id_voiture=$id");
@@ -114,4 +114,3 @@ Public function getVoiture($id){
 
 
 }
-?>
