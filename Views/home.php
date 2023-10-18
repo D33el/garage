@@ -116,7 +116,7 @@ $voitures = $data->getVoiture(null,3);
         <div class="wrapper">
           <div class="comments-list">
             <?php foreach($avisAccepte as $avis){ ?>
-            <div class="card">
+            <div class="card" data-id="<?php echo $avis['id_avis'] ?>">
               <div class="name"><?php echo $avis['nom'] ?></div>
               <div class="stars" data-id="<?php echo $avis['note'] ?>"></div>
               <div class="comment"><?php echo $avis['commentaire'] ?></div>
