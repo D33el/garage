@@ -65,6 +65,7 @@ if(isset($_POST['set'])){
               <label for="">Description</label>
               <textarea name="description" placeholder="Description du service"></textarea>
             </div>
+            <button type="submit" name="submit" class="submit primary">Envoyer</button>
           </form>
         </div>
       </div>
