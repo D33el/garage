@@ -15,5 +15,16 @@ static public function getAll(){
  }
 }
 
+static public function getRate($param){
+ $db = DB::connect();
+ $sql = "SELECT * FROM avis ";
+ if($param){
+  $sql .= " WHERE etat = 1";
+ }
+ $stmt = $db->prepare($sql);
+ $stmt->execute();
+ return $stmt->fetchAll();
+}
+
 }
 ?>

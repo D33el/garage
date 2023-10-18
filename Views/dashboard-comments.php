@@ -2,10 +2,30 @@
 
 if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
 
-  if (isset($_POST['logout'])) {
-    $logout = new UserController();
-    $logout->Logout();
-  }
+if (isset($_POST['logout'])) {
+  $logout = new UserController();
+  $logout->Logout();
+}
+
+if(isset($_POST['valide'])){
+  $validation = new contactController();
+  $validation->valider();
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-comments");
+}
+
+if(isset($_POST['submit'])){
+  $Ajout = new contactController();
+  $Ajout->rate();
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-comments");
+}
+
+if(isset($_POST['delete'])){
+
+}
+
+
+$data = new contactController();
+$ToutLesAvis = $data->getRatings(null)
 
 ?>
   <!DOCTYPE html>
@@ -31,7 +51,7 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
         <div class="buttons">
           <form action="" method="post">
             <input type="hidden" name="id_">
-            <button class="delete button" type="submit">Supprimer</button>
+            <button class="delete button" type="submit" name="delete">Supprimer</button>
           </form>
           <div class="abort button">Annuler</div>
         </div>
@@ -50,7 +70,7 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
             </div>
             <div class="input-container">
               <label for="">Note</label>
-              <input type="number" name="prenom" placeholder="Note sur 5" max="5" min="1">
+              <input type="number" name="note" placeholder="Note sur 5" max="5" min="1">
             </div>
             <div class="input-container">
               <label for="">Commentaire</label>
@@ -68,35 +88,27 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
             <div class="page-header">
               <div class="wrap">
                 <div class="title">Gestion des commentaires</div>
-                <div class="count">99 commentaires en attente</div>
               </div>
               <button class="primary has-icon add-comment" id=""><i class="fa-solid fa-plus"></i>Nouveau commentaire</button>
             </div>
             <div class="comments-list">
+              <?php foreach($ToutLesAvis as $avis){ ?>
               <div class="comment-card unchecked">
                 <div class="wrap">
-                  <div class="name">user test</div>
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <div class="state">Non vérifié</div>
-                  <div class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quas modi blanditiis similique dolores quae eveniet asperiores ea consequatur dolore. Beatae, veritatis numquam? Perspiciatis aut unde pariatur vero magni tempora!</div>
+                  <div class="name"><?php echo $avis['nom'] ?></div>
+                  <div class="stars" data-id="<?php echo $avis['note'] ?>"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <?php if(!$avis['etat']) {?><div class="state">Non vérifié</div><?php } ?>
+                  <div class="comment"><?php echo $avis['commentaire'] ?></div>
                 </div>
                 <div class="actions">
-                  <div class="validate-comment"><i class="fa-solid fa-circle-check"></i></div>
-                  <div class="delete-comment"><i class="fa-solid fa-trash-can"></i></div>
+                  <form method="post">
+                    <input type="hidden" name="id_avis" value="<?php echo $avis['id_avis'] ?>">
+                    <button class="validate-comment" type="submit" name="valide"><i class="fa-solid fa-circle-check"></i></button>
+                  </form>
+                  <button class="delete-btn delete-comment" data-id="<?php echo $avis['id_avis'] ?>"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
               </div>
-              <div class="comment-card">
-                <div class="wrap">
-                  <div class="name">user test</div>
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <div class="state">Non vérifié</div>
-                  <div class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quas modi blanditiis similique dolores quae eveniet asperiores ea consequatur dolore. Beatae, veritatis numquam? Perspiciatis aut unde pariatur vero magni tempora!</div>
-                </div>
-                <div class="actions">
-                  <div class="validate-comment"><i class="fa-solid fa-circle-check"></i></div>
-                  <div class="delete-btn"><i class="fa-solid fa-trash-can"></i></div>
-                </div>
-              </div>
+                <?php } ?>
             </div>
           </div>
         </div>

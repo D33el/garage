@@ -416,11 +416,13 @@ header .profile {
 #messages .preview-wrapper .subject {
   padding-bottom: 5px;
   border-bottom: 0.5px solid var(--clr-gray);
+
 }
 #messages .preview-wrapper .subject span {
   font-weight: 400;
 }
 #messages .preview-wrapper .message {
+  width: 100%;
 }
 
 .comments-list {
@@ -459,6 +461,7 @@ header .profile {
   border-radius: 4px;
 }
 .comment-card .comment {
+  width: 100%;
 }
 .comment-card .actions {
   display: flex;

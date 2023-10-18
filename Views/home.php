@@ -11,6 +11,9 @@ if(isset($_POST['contact'])){
   header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/home");
 }
 
+$data = new contactController();
+$avisAccepte = $data->getRatings(1);
+
 ?>
 
 <!DOCTYPE html>
@@ -135,46 +138,13 @@ if(isset($_POST['contact'])){
         <div class="title">Témoignages des clients</div>
         <div class="wrapper">
           <div class="comments-list">
+            <?php foreach($avisAccepte as $avis){ ?>
             <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
+              <div class="name"><?php echo $avis['nom'] ?></div>
+              <div class="stars" data-id="<?php echo $avis['note'] ?>"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="comment"><?php echo $avis['commentaire'] ?></div>
             </div>
-            <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
-            </div>
-            <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
-            </div>
-            <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
-            </div>
-            <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
-            </div>
-            <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
-            </div>
-            <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
-            </div>
-            <div class="card">
-              <div class="name">John Doe</div>
-              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-              <div class="comment">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quis harum iure ea doloremque! Cum labore illum possimus vero veritatis.</div>
-            </div>
+            <?php } ?>
           </div>
           <div class="comments-form">
             <div class="subtitle">Laissez votre temoignage !</div>
@@ -190,7 +160,7 @@ if(isset($_POST['contact'])){
                 </div>
                 <div class="input-container">
                   <label>Note</label>
-                  <input type="hidden" name="" class="stars-input">
+                  <input type="hidden" name="note" class="stars-input">
                   <div class="stars">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                   </div>
