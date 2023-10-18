@@ -3,11 +3,18 @@
 if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
 
 
-  if (isset($_POST['logout'])) {
-    $logout = new UserController();
-    $logout->Logout();
-  }
+if (isset($_POST['logout'])) {
+  $logout = new UserController();
+  $logout->Logout();
+}
 
+if(isset($_POST['set'])){
+  $set = new horairesController();
+  $set->SetHoraire();
+}
+
+  $dataHoraires = new horairesController();
+  $horaires = $dataHoraires->getHoraire();
 
 ?>
   <!DOCTYPE html>
@@ -70,40 +77,39 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
               <div class="wrap">
                 <div class="title">Gestion du site web</div>
               </div>
-              <button class="primary has-icon" id=""><i class="fa-solid fa-save"></i>Sauvegarder </button>
+              <button class="primary has-icon" id="save"><i class="fa-solid fa-save"></i>Sauvegarder </button>
             </div>
             <div class="wrap">
               <div class="open-days">
                 <div class="subtitle">Horaires d'ouverture</div>
-                <form class="table">
+                <form class="table" method="post">
                   <div class="table-head">
                     <div></div>
                     <div>Matinée</div>
                     <div>Aprés-midi</div>
                   </div>
-                  <?php //$i = 1; foreach(){ 
+                  <?php $i = 1; foreach($horaires as $horaire){ 
                   ?>
                   <div class="table-row">
-                    <div>Dimanche</div>
+                    <div><?php echo $horaire['jour'] ?></div>
                     <div>
                       <span>De</span>
-                      <input type="time" max="12:00" min="6:00" name="de<?php //echo $i
-                                                                        ?>">
+                      <input type="time" max="12:00" min="6:00" value="<?php echo $horaire['ouvertureMatin'] ?>" name="ouvertureMatin<?php echo $i ?>">
                       <span>à</span>
-                      <input type="time" max="12:00" min="6:00">
+                      <input type="time" max="12:00" min="6:00" value="<?php echo $horaire['fermetureMatin']?>"name="fermetureMatin<?php echo $i ?>">
                     </div>
                     <div>
                       <span>De</span>
-                      <input type="time" max="00:00" min="13:00">
+                      <input type="time" max="00:00" min="13:00" value="<?php echo $horaire['ouvertureAprem'] ?>" name="ouvertureAprem<?php echo $i ?>">
                       <span>à</span>
-                      <input type="time" max="00:00" min="13:00">
+                      <input type="time" max="00:00" min="13:00" value="<?php echo $horaire['fermetureAprem'] ?>" name="fermetureAprem<?php echo $i ?>">
                     </div>
                   </div>
-
-                  <?php //$i++; } 
+                      <input type="hidden" name="id_horaire<?php echo $i?>" value="<?php echo $horaire['id_horaire'] ?>">
+                  <?php $i++; } 
                   ?>
-                  <input type="hidden" name="inputs" value="<?php //echo $i 
-                                                            ?>">
+                  <input type="hidden" name="inputs" value="<?php echo $i ?>">
+                  <button type="submit" name="set" class="open-days-submit" style="display:none;"></button>
                 </form>
               </div>
               <div class="services">
