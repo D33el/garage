@@ -44,7 +44,7 @@ $ToutLesAvis = $data->getRatings(null)
   <body>
     <main id="app">
       <div id="overlay"></div>
-      <div id="tooltip">Cliquer pour quitter</div>
+      <div id="tooltip">Quitter</div>
       <!-- popup -->
       <div class="popup">
         <div class="text">Êtes-vous sur de vouloir supprimer ?</div>
@@ -93,7 +93,7 @@ $ToutLesAvis = $data->getRatings(null)
             </div>
             <div class="comments-list">
               <?php foreach($ToutLesAvis as $avis){ ?>
-              <div class="comment-card unchecked">
+              <div class="comment-card">
                 <div class="wrap">
                   <div class="name"><?php echo $avis['nom'] ?></div>
                   <div class="stars" data-id="<?php echo $avis['note'] ?>"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -101,10 +101,12 @@ $ToutLesAvis = $data->getRatings(null)
                   <div class="comment"><?php echo $avis['commentaire'] ?></div>
                 </div>
                 <div class="actions">
+                <?php if(!$avis['etat']) {?>
                   <form method="post">
                     <input type="hidden" name="id_avis" value="<?php echo $avis['id_avis'] ?>">
                     <button class="validate-comment" type="submit" name="valide"><i class="fa-solid fa-circle-check"></i></button>
                   </form>
+                  <?php } ?>
                   <button class="delete-btn delete-comment" data-id="<?php echo $avis['id_avis'] ?>"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
               </div>

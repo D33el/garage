@@ -36,10 +36,11 @@ function onClick(selector, callback) {
 }
 $(document)
   .find("#overlay")
-  .mousemove(function (e) {
+  .mousemove(function (e) { 
     $("#tooltip").css({
-      left: e.pageX + 10,
-      top: e.pageY - 30,
+      left: e.pageX,
+      top: e.pageY-10,
+      transform:'translate(-50%,100%)',
     });
   });
 $(document)

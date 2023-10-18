@@ -59,13 +59,15 @@
 #tooltip{
   display: none;
   position: fixed;
-  width: fit-content;
-  padding: 10px 20px;
+  width: 10ch;
+  padding: 10px 0;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   color: black;
+  font-size: 14px;
   font-weight: 500;
-  border-radius: 99px;
+  border-radius: 9999px;
   z-index: 11;
 }
 #drawer{
@@ -453,8 +455,7 @@ header .profile {
   color: var(--clr-orange);
 }
 .comment-card .state {
-  display: none;
-  /* margin-left: auto; */
+  display: block;
   font-weight: 500;
   background-color: var(--clr-secondary);
   padding: 5px 20px;
@@ -475,17 +476,13 @@ header .profile {
   cursor: pointer;
 }
 .comment-card .actions .validate-comment {
-  display: none;
+  display: block;
   color: var(--clr-green);
 }
 .comment-card .actions .delete-comment {
   color: var(--clr-red);
 }
 
-.comment-card.unchecked .state,
-.comment-card.unchecked .validate-comment {
-  display: block;
-}
 
 table {
   border-spacing: 1;

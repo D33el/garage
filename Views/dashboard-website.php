@@ -26,7 +26,7 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
   <body>
     <main id="app">
       <div id="overlay"></div>
-      <div id="tooltip">Cliquer pour quitter</div>
+      <div id="tooltip">Quitter</div>
       <!-- popup -->
       <div class="popup">
         <div class="text">Êtes-vous sur de vouloir supprimer ?</div>
