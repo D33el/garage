@@ -52,10 +52,10 @@ if(isset($_POST['set'])){
           <div class="message">Veuillez remplir tout les champs</div>
         </div>
         <div class="drawer-body">
-          <form class="form-container" method="POST">
+          <form class="form-container" method="POST" enctype="multipart/form-data">
             <div class="input-container">
               <label for="">Nom</label>
-              <input type="text" name="" placeholder="Nom du service">
+              <input type="text" name="service" placeholder="Nom du service">
             </div>
             <div class="input-container">
               <label for="">Image</label>
