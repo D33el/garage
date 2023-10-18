@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
+if ($_SESSION['admin'] == true) {
 
 
 if (isset($_POST['logout'])) {
@@ -11,10 +11,20 @@ if (isset($_POST['logout'])) {
 if(isset($_POST['set'])){
   $set = new horairesController();
   $set->SetHoraire();
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-website");
+}
+
+if(isset($_POST['submit'])){
+  $service = new servicesController();
+  $service->addService();
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-website");
 }
 
   $dataHoraires = new horairesController();
   $horaires = $dataHoraires->getHoraire();
+
+  $dataServices = new servicesController();
+  $services = $dataServices->getAllServices();
 
 ?>
   <!DOCTYPE html>
@@ -46,16 +56,16 @@ if(isset($_POST['set'])){
         </div>
       </div>
       <!-- drawer -->
-      <div class="drawer" data-id="add">
+      <div id="drawer" data-id="add">
         <div class="drawer-header">
           <div class="title">Ajouter un service</div>
           <div class="message">Veuillez remplir tout les champs</div>
         </div>
         <div class="drawer-body">
-          <form class="form-container" method="POST">
+          <form class="form-container" method="POST" enctype="multipart/form-data">
             <div class="input-container">
               <label for="">Nom</label>
-              <input type="text" name="" placeholder="Nom du service">
+              <input type="text" name="service" placeholder="Nom du service">
             </div>
             <div class="input-container">
               <label for="">Image</label>
@@ -76,10 +86,10 @@ if(isset($_POST['set'])){
           <div class="message">Veuillez remplir tout les champs</div>
         </div>
         <div class="drawer-body">
-          <form class="form-container" method="POST">
+          <form class="form-container" method="POST" enctype="multipart/form-data">
             <div class="input-container">
               <label for="">Nom</label>
-              <input type="text" name="" placeholder="Nom du service">
+              <input type="text" name="service" placeholder="Nom du service">
             </div>
             <div class="input-container">
               <label for="">Image</label>
@@ -141,17 +151,19 @@ if(isset($_POST['set'])){
                 <div class="subtitle">Section Services</div>
                 <button class="primary outline has-icon add-service" id=""><i class="fa-solid fa-plus"></i>Nouveau service</button>
                 <div class="services-list">
+                  <?php foreach($services as $service){ ?>
                   <div class="service-card">
                     <div class="edit">
                       <div class="update-service"><i class="fa-solid fa-pen-to-square"></i></div>
                       <div class="delete-btn" data-id=""><i class="fa-solid fa-trash-can"></i></div>
                     </div>
-                    <img src="img/entretien.png" alt="" />
-                    <div class="title">Entretient</div>
+                    <img src="<?php echo "../".$service['imageService'] ?>" alt="" />
+                    <div class="title"><?php echo $service['service'] ?></div>
                     <div class="details">
-                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus doloremque voluptates quod libero aperiam eius itaque minima commodi ea cupiditate?</p>
+                      <div><?php echo $service['description'] ?></div>
                     </div>
                   </div>
+                    <?php } ?>
                 </div>
               </div>
             </div>

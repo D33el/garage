@@ -14,6 +14,16 @@ if(isset($_POST['contact'])){
 $data = new contactController();
 $avisAccepte = $data->getRatings(1);
 
+$data = new servicesController();
+$services = $data->getAllServices();
+
+$data = new horairesController();
+$horaires = $data->getHoraire();
+
+$data = new voituresController();
+$voitures = $data->getVoiture(null,3);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -47,45 +57,58 @@ $avisAccepte = $data->getRatings(1);
       <section id="featured-cars">
         <div class="title">Voitures a la une</div>
         <div class="card-list">
+          <?php foreach($voitures as $voiture){ ?>
           <div class="card">
-            <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
+            <img src="<?php echo "../".$voiture['imageprincipale'] ?>" alt="" />
             <div class="wrapper">
-              <div class="car-name">Porsche 911</div>
-              <div class="info">291034 Km - Année 2020</div>
-              <div class="price">20 000 €</div>
-              <div class="button">Voir plus</div>
+              <div class="car-name"><?php echo $voiture['marque'] ?></div>
+              <div class="info"><?php echo $voiture['kilometrage']." Km - Année ".$voiture['annee'] ?></div>
+              <div class="price"><?php echo number_format($voiture['prix'],2,"."," ") ?> €</div>
+              <div class="button" data-id="<?php echo $voiture['id_voiture'] ?>">Voir plus</div>
             </div>
           </div>
-          <div class="card">
-            <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-            <div class="wrapper">
-              <div class="car-name">Porsche 911</div>
-              <div class="info">291034 Km - Année 2020</div>
-              <div class="price">20 000 €</div>
-              <div class="button">Voir plus</div>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-            <div class="wrapper">
-              <div class="car-name">Porsche 911</div>
-              <div class="info">291034 Km - Année 2020</div>
-              <div class="price">20 000 €</div>
-              <div class="button">Voir plus</div>
-            </div>
-          </div>
+            <?php } ?>
         </div>
       </section>
       <section id="services">
         <div class="title">Services proposées par le Garage V. Parrot</div>
         <div class="card-list">
+          <?php foreach($services as $service){ ?>
           <div class="card">
-            <img src="img/entretien.png" alt="" />
-            <div class="title">Entretient</div>
+            <img src="<?php echo "../".$service['imageService'] ?>" alt="" />
+            <div class="title"><?php echo $service['service'] ?></div>
             <div class="details">
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus doloremque voluptates quod libero aperiam eius itaque minima commodi ea cupiditate?</p>
+              <p><?php echo $service['description'] ?></p>
             </div>
           </div>
+          <?php } ?>
+          <!-- <div class="card">
+            <img src="img/distribution.png" alt="" />
+            <div class="title">Distribution</div>
+            <div class="details">
+              <div>Changement de la courroie de distribution</div>
+              <div>Changement de la courroie d’accessoires</div>
+              <div>Changement du liquide de refroidissement</div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/hubs_and_bearings.png" alt="" />
+            <div class="title">Pneus</div>
+            <div class="details">
+              <div>Changement de pneus</div>
+              <div>Reparation de pneus</div>
+              <div>Changement des roulements de roue</div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/trust.png" alt="" />
+            <div class="title">Vente de vehicule d'occasion</div>
+            <div class="details">
+              <div>Simonisage de la carrosserie</div>
+              <div>Lifting intégral</div>
+              <div>Révision intégrale du vehicule</div>
+            </div>
+          </div> -->
         </div>
       </section>
       <section id="comments">
@@ -132,55 +155,15 @@ $avisAccepte = $data->getRatings(1);
       <section id="opening-hours">
         <div class="title">Horaires d'ouverture</div>
         <div class="card-list">
+          <?php foreach($horaires as $horaire){ ?>
           <div class="card">
-            <div class="subtitle">Lundi</div>
+            <div class="subtitle"><?php echo $horaire['jour'] ?></div>
             <div class="wrapper">
-              <div><span>Matin : </span>8h - 12h</div>
-              <div><span>Aprem : </span>13h - 18h</div>
+              <div><span>Matin : </span><?php echo $horaire['ouvertureMatin'] ."h - ". $horaire['fermetureMatin']."h " ?></div>
+              <div><span>Aprem : </span><?php echo $horaire['ouvertureAprem'] ."h - ". $horaire['fermetureAprem']."h " ?></div>
             </div>
           </div>
-          <div class="card">
-            <div class="subtitle">Mardi</div>
-            <div class="wrapper">
-              <div><span>Matin : </span>8h - 12h</div>
-              <div><span>Aprem : </span>13h - 18h</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="subtitle">Mercredi</div>
-            <div class="wrapper">
-              <div><span>Matin : </span>8h - 12h</div>
-              <div><span>Aprem : </span>13h - 18h</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="subtitle">Jeudi</div>
-            <div class="wrapper">
-              <div><span>Matin : </span>8h - 12h</div>
-              <div><span>Aprem : </span>13h - 18h</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="subtitle">Vendredi</div>
-            <div class="wrapper">
-              <div><span>Matin : </span>8h - 12h</div>
-              <div><span>Aprem : </span>13h - 18h</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="subtitle">Samedi</div>
-            <div class="wrapper">
-              <div><span>Matin : </span>8h - 12h</div>
-              <div><span>Aprem : </span>13h - 18h</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="subtitle">Dimanche</div>
-            <div class="wrapper">
-              <div><span>Matin : </span>8h - 12h</div>
-              <div><span>Aprem : </span>13h - 18h</div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </section>
       <section id="contact">

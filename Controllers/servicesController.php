@@ -17,10 +17,14 @@ class servicesController
      }
    $Img=$nom.'/'.$_FILES['imageService']['name'];
 
+   $id = general::get("services","id_service");
+
   $data = array(
+   'id_service' => ++$id,
    'service' => $_POST['service'],
    'imageService' => $Img,
    'description' => $_POST['description'],
+   'id_utilis' => $_SESSION['id_user']
   );
   $success = general::insert("services",$data);
   if($success){
@@ -65,7 +69,7 @@ if($success){
 }
 
  public function getAllServices(){
-  $id = 1;
+  $id = null;
   $services = service::getAllServices($id);
   return $services;
  }

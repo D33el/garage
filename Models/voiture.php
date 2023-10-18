@@ -22,13 +22,16 @@ class voiture{
 
  }
 
- static Public function get($id){
+ static Public function get($id,$random3){
   $db = DB::connect();
   $query = "SELECT * FROM voitures ";
   if($id){
    $query .= " WHERE id_voiture = $id";
+  }else if($random3){
+   $query .= " order by RAND() limit 3 ";
+  }else{
+   $query .= " ORDER by id_voiture desc";
   }
-  $query .= " ORDER by id_voiture desc";
   $stmt = $db->prepare($query);
   $stmt->execute();
   return $stmt->fetchAll();

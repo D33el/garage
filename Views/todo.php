@@ -37,8 +37,14 @@ body{
         <li class="done">Afficher un pop-up dans les click sur supprimer </li>
         <li class="done">Dropdown de l'année dans le formulaire d'ajout d'une voiture</li>
         <li class="done">display les étoiles selon la note dashboard-comments / home </li>
-        <li class="done">Bouton enregistrer dans le formulaire de service </li>
+        <li class="done" class="done">Bouton enregistrer dans le formulaire de service </li>
         <li class="d0ne">Revenir vers la home page à partir du login</li>
+        <li>Aucun service disponible (dashboard-website ki mykounch kyn les services)</li>
+        <li>Acceder au showroom boutton dans la home segemlo lhref</li>
+        <li>f les voiture f lhome kyn voir plus zedtlou data-id bch ytb3et f l'url "assemLaPage?id="ou het data-id</li>
+        <li>Les filtres f showroom + voir plus t3hom kifkif</li>
+        <li>detail voiture coté admin</li>
+        <li>detail voiture nehilo les image supplémentaire ou zid description</li>
 
     </div>
 </body>

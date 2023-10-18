@@ -106,8 +106,8 @@ Public function deleteVoiture(){
   general::delete("voitures","id_voiture",$id);
 }
 
-Public function getVoiture($id){
-  return voiture::get($id);
+Public function getVoiture($id,$random3){
+  return voiture::get($id,$random3);
 }
 
 

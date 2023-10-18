@@ -13,7 +13,7 @@ class UserController
     if($res->type == "admin"){
      if(password_verify($_POST['password'], $res->password)){
       $_SESSION['admin'] = true;
-      $_SESSION['id_user'] = $res->id_user;
+      $_SESSION['id_user'] = $res->id_utilis;
       $_SESSION['nomPrenom'] = $res->nomPrenom;
       $_SESSION['email'] = $res->email;
       $_SESSION['username'] = $res->username;
@@ -27,7 +27,7 @@ class UserController
     }else if($res->type == "employe"){
      if(password_verify($_POST['Password'], $res->Password)){
       $_SESSION['employe'] = true;
-      $_SESSION['id_user'] = $res->id_user;
+      $_SESSION['id_user'] = $res->id_utilis;
       $_SESSION['nomPrenom'] = $res->nomPrenom;
       $_SESSION['email'] = $res->email;
       $_SESSION['username'] = $res->username;
