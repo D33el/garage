@@ -46,7 +46,42 @@ if ($_SESSION['admin'] == true) {
         </div>
       </div>
       <!-- drawer -->
-      <div class="drawer">
+      <div class="drawer" data-id="add">
+        <div class="drawer-header">
+          <div class="title">Ajouter un employé</div>
+          <div class="message">Veuillez remplir tout les champs</div>
+        </div>
+        <div class="drawer-body">
+          <form class="form-container" method="POST">
+            <div class="input-container">
+              <label for="">Nom</label>
+              <input type="text" name="nom" placeholder="Nom">
+            </div>
+            <div class="input-container">
+              <label for="">Prénom</label>
+              <input type="text" name="prenom" placeholder="Prénom">
+            </div>
+            <div class="input-container">
+              <label for="">Téléphone</label>
+              <input type="text" name="tel" placeholder="Numéro de téléphone">
+            </div>
+            <div class="input-container">
+              <label for="">E-mail</label>
+              <input type="text" name="email" placeholder="E-mail">
+            </div>
+            <div class="input-container">
+              <label for="">Nom d'utilisateur</label>
+              <input type="text" name="username" placeholder="E-mail">
+            </div>
+            <div class="input-container">
+              <label for="">Mot de passe</label>
+              <input type="password" name="password" placeholder="Mot de passe">
+            </div>
+            <button type="submit" name="submit" class="submit primary">Envoyer</button>
+          </form>
+        </div>
+      </div>
+      <div class="drawer" data-id="update">
         <div class="drawer-header">
           <div class="title">Ajouter un employé</div>
           <div class="message">Veuillez remplir tout les champs</div>

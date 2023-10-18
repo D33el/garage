@@ -7,8 +7,15 @@ $(document).ready(async function () {
   displayOpenDaysSelectOptions();
   displayCarsYearsSelect()
   displaySelectedNavItem();
+  displayCommentStars()
 });
-
+function displayCommentStars() {
+  let starContainer = $('.comments-list .comment-card .stars')
+  $.each(starContainer, () => { 
+    $(this).empty()
+    for (let i = 0; i < $(this).data('id'); i++) $(this).append('<i class="fa-solid fa-star"></i>')
+  });
+}
 function displaySelectedNavItem() {
   let pathname = window.location.pathname;
   $(".nav-item");
@@ -52,7 +59,7 @@ $(document)
     $("#tooltip").hide();
   });
 onClick("#overlay", function () {
-  $("#drawer,#overlay,.popup").hide();
+  $(".drawer,#overlay,.popup").hide();
 });
 onClick(".nav-item", function () {
   $(this).addClass("active");
@@ -62,7 +69,7 @@ function displayCarsYearsSelect() {
   const currentYear = new Date().getFullYear();
 const yearsArray = Array.from({ length: currentYear - 1999 }, (_, index) => currentYear - index);
   for (const year of yearsArray) {
-    $('#drawer .year-select').append(`
+    $('.drawer .year-select').append(`
     <option value='${year}'>${year}</option>
     `)
   }
@@ -88,16 +95,33 @@ function displayOpenDaysSelectOptions() {
   }
 }
 
-function displayDrawer() {
+function displayDrawer(type) {
   $("#overlay").show();
-  $("#drawer").fadeIn(200, function () {
-    $(this).css("display", "grid");
-  });
+  switch (type) {
+    case 'add':
+      $(".drawer[data-id='add']").fadeIn(200, function () {
+        $(this).css("display", "grid");
+      });
+      break;
+    case 'update':
+      $(".drawer[data-id='update']").fadeIn(200, function () {
+        $(this).css("display", "grid");
+      });
+      break;
+  
+    default:
+      break;
+  }
+  
 }
-onClick(".add-car,.update-car", displayDrawer);
-onClick(".add-employee,.update-employee", displayDrawer);
-onClick(".add-comment,.update-comment", displayDrawer);
-onClick(".add-service,.update-service", displayDrawer);
+onClick(".add-car", ()=>{displayDrawer('add')});
+onClick(".add-employee", ()=>{displayDrawer('add')});
+onClick(".add-comment", ()=>{displayDrawer('add')});
+onClick(".add-service", ()=>{displayDrawer('add')});
+onClick(".update-car", ()=>{displayDrawer('update')});
+onClick(".update-employee", ()=>{displayDrawer('update')});
+onClick(".update-comment", ()=>{displayDrawer('update')});
+onClick(".update-service", ()=>{displayDrawer('update')});
 
 $(document)
   .find(".input-file")

@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
         </div>
       </div>
       <!-- drawer -->
-      <div id="drawer" data-id="add">
+      <div class="drawer" data-id="add">
         <div class="drawer-header">
           <div class="title">Ajouter un service</div>
           <div class="message">Veuillez remplir tout les champs</div>

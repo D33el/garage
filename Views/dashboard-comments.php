@@ -57,7 +57,30 @@ $ToutLesAvis = $data->getRatings(null)
         </div>
       </div>
       <!-- drawer -->
-      <div class="drawer">
+      <div class="drawer" data-id="add">
+        <div class="drawer-header">
+          <div class="title">Ajouter un commentaire</div>
+          <div class="message">Veuillez remplir tout les champs</div>
+        </div>
+        <div class="drawer-body">
+          <form class="form-container" method="POST">
+            <div class="input-container">
+              <label for="">Nom complet</label>
+              <input type="text" name="nom" placeholder="Nom et prénom du client">
+            </div>
+            <div class="input-container">
+              <label for="">Note</label>
+              <input type="number" name="note" placeholder="Note sur 5" max="5" min="1">
+            </div>
+            <div class="input-container">
+              <label for="">Commentaire</label>
+              <textarea name="commentaire" placeholder="Le commentaire du client"></textarea>
+            </div>
+            <button type="submit" name="submit" class="submit primary">Envoyer</button>
+          </form>
+        </div>
+      </div>
+      <div class="drawer" data-id="update">
         <div class="drawer-header">
           <div class="title">Ajouter un commentaire</div>
           <div class="message">Veuillez remplir tout les champs</div>
