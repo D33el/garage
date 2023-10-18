@@ -110,11 +110,6 @@ function displaySidebar() {
   `)
 }
 
-
-$(document).on('click','#test',function(){
-  $('#contact form button').click()
-})
-
 function getFirstLetters(str) {
   const words = str.split(" ");
   let letters = "";

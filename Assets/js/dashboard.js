@@ -128,3 +128,9 @@ onClick('.delete-btn',function () {
 onClick('.abort',function () {
   $('.popup,#overlay').hide()
 })
+
+
+
+$(document).on('click','#save',function(){
+  $('.open-days-submit').click()
+})

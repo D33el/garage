@@ -4,20 +4,18 @@ class horairesController
 {
 
  public function SetHoraire(){
-   $id = $_POST['id_horaire'];
-   $data = array(
-    'ouvertureMatin' => $_POST['ouvertureMatin'],
-    'fermetureMatin' => $_POST['fermetureMatin'],
-    'ouvertureAprem' => $_POST['ouvertureAprem'],
-    'fermetureAprem' => $_POST['fermetureAprem'],
-   );
-
-   $success = general::update("horaires",$data,"id_horaire=$id");
-   if($success){
-    // successfull setting
-   }else{
-    // unsuccessfull setting
-   }
+  $counter = $_POST['inputs'];
+  for($i = 1;$i < $counter;$i++){
+    $id = $_POST['id_horaire'.$i];
+    
+    $data = array(
+      'ouvertureMatin' => $_POST['ouvertureMatin'.$i],
+      'fermetureMatin' => $_POST['fermetureMatin'.$i],
+      'ouvertureAprem' => $_POST['ouvertureAprem'.$i],
+      'fermetureAprem' => $_POST['fermetureAprem'.$i],
+     ); 
+    general::update("horaires",$data,"id_horaire=$id");
+  }
  }
 
  public function getHoraire(){
