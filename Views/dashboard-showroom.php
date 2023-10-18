@@ -23,7 +23,7 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
   $id = null;
 
   $data = new voituresController();
-  $voitures = $data->getVoiture($id);
+  $voitures = $data->getVoiture(null,null);
 
 ?>
   <!DOCTYPE html>

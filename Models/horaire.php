@@ -23,7 +23,7 @@ class horaire
 
 static public function get(){
  $db = DB::connect();
- $query = "SELECT * FROM horaires ";
+ $query = "SELECT * FROM horaires WHERE dayoff = 0";
  $stmt = $db->prepare($query);
  if($stmt->execute()){
   return $stmt->fetchAll();

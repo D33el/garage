@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
+if ($_SESSION['admin'] == true) {
 
 
 if (isset($_POST['logout'])) {
@@ -11,10 +11,20 @@ if (isset($_POST['logout'])) {
 if(isset($_POST['set'])){
   $set = new horairesController();
   $set->SetHoraire();
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-website");
+}
+
+if(isset($_POST['submit'])){
+  $service = new servicesController();
+  $service->addService();
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-website");
 }
 
   $dataHoraires = new horairesController();
   $horaires = $dataHoraires->getHoraire();
+
+  $dataServices = new servicesController();
+  $services = $dataServices->getAllServices();
 
 ?>
   <!DOCTYPE html>
@@ -117,19 +127,19 @@ if(isset($_POST['set'])){
                 <div class="subtitle">Section Services</div>
                 <button class="primary outline has-icon add-service" id=""><i class="fa-solid fa-plus"></i>Nouveau service</button>
                 <div class="services-list">
+                  <?php foreach($services as $service){ ?>
                   <div class="service-card">
                     <div class="edit">
                       <div class="update-service"><i class="fa-solid fa-pen-to-square"></i></div>
                       <div class="delete-btn" data-id=""><i class="fa-solid fa-trash-can"></i></div>
                     </div>
-                    <img src="img/entretien.png" alt="" />
-                    <div class="title">Entretient</div>
+                    <img src="<?php echo "../".$service['imageService'] ?>" alt="" />
+                    <div class="title"><?php echo $service['service'] ?></div>
                     <div class="details">
-                      <div>Vidange et filtre a huile</div>
-                      <div>Révision génerale</div>
-                      <div>Changement de plaquettes de freins</div>
+                      <div><?php echo $service['description'] ?></div>
                     </div>
                   </div>
+                    <?php } ?>
                 </div>
               </div>
             </div>

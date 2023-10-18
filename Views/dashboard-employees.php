@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
+if ($_SESSION['admin'] == true) {
 
   if (isset($_POST['logout'])) {
     $logout = new UserController();
