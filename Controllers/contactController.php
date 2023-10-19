@@ -3,7 +3,7 @@
 class contactController
 {
 
-Public function addContact(){
+Public function addContact($idvoiture){
  $id = general::get("contact","id_contact");
  $Date = date("Y-m-d"); // Récupère la date au format "Année-Mois-Jour Heure:Minute:Seconde"
 
@@ -16,11 +16,15 @@ Public function addContact(){
   'message' => $_POST['message'],
   'createdat' => $Date
  );
+
+ if($idvoiture){
+  $data['id_voiture'] = $idvoiture;
+ }
  $success = general::insert("contact",$data);
  if($success){
-   echo "successfull";
+   return "successfull";
  }else{
-   echo "unsuccessfull";
+   return "unsuccessfull";
  }
 }
 

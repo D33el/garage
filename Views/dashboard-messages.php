@@ -61,7 +61,7 @@ $messages = $data->getAllMessages();
                     <div class="email"><?php echo $message['email'] ?></div>
                     <div class="phone"><?php echo $message['telephone'] ?></div>
                   </div>
-                  <div class="subject"><span>Sujet : </span><?php echo $message['sujet'] ?></div>
+                  <div class="subject"><span>Sujet : </span><?php $idvoiture = $message['id_voiture']; if($idvoiture){echo "<a href='car-detail?id=$idvoiture'>";} echo $message['sujet']; if($idvoiture){echo "</a>";} ?></div>
                   <div class="message"><?php echo $message['message'] ?></div>
                 </div>
               </div>

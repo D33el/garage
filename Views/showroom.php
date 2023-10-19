@@ -1,3 +1,11 @@
+<?php
+
+
+$data = new voituresController();
+$voitures = $data->getVoiture(null,null);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -17,22 +25,24 @@
       <section id="filters">fiha tekhmam</section>
       <section id="cars-list">
         <!-- Display  -->
-        <!-- <div class="card" data-id="1">
-          <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
+        <?php foreach($voitures as $voiture){ ?>
+        <div class="card" data-id="<?php echo $voiture['id_voiture'] ?>">
+          <img src="<?php echo "../".$voiture['imageprincipale'] ?>" alt="" />
           <div class="wrapper">
-            <div class="car-name title">Porsche 911</div>
-            <div class="price">20 000 €</div>
+            <div class="car-name title"><?php echo $voiture['marque'] ?></div>
+            <div class="price"><?php echo number_format($voiture['prix'],2,"."," ") ?> €</div>
             <div class="details">
-              <div>2020</div>
+              <div><?php echo $voiture['annee'] ?></div>
               <div class="spacer">•</div>
-              <div>289439 Km</div>
+              <div><?php echo $voiture['kilometrage'] ?> Km</div>
               <div class="spacer">•</div>
-              <div>Essence</div>
+              <div><?php echo $voiture['carburant'] ?></div>
               <div class="spacer">•</div>
-              <div>Manuelle</div>
+              <div><?php echo $voiture['boite'] ?></div>
             </div>
           </div>
-        </div> -->
+        </div>
+        <?php } ?>
       </section>
     </main>
     <footer></footer>

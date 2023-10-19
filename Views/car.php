@@ -1,9 +1,15 @@
 <?php
 
+$id = $_GET['id'];
+
 if(isset($_POST['contact'])){
   $send = new contactController();
-  $send->addContact();
+  $send->addContact($id);
 }
+
+
+$data = new voituresController();
+$voitrue = $data->getVoiture($id,null);
 
 ?>
 <!DOCTYPE html>
@@ -25,36 +31,38 @@ if(isset($_POST['contact'])){
     <a href="../showroom" class="back title"><i class="fa-solid fa-chevron-left"></i> Retourner au showroom</a>
     <section id="car-details">
       <div class="wrapper">
-        <div class="car-name title">Porsche 911</div>
+        <div class="car-name title"><?php echo $voitrue[0]['marque'] ?></div>
         <div class="wrap">
           <div class="group">
             <span>Année</span>
-            2020
+            <?php echo $voitrue[0]['annee'] ?>
           </div>
           <div class="group">
             <span>Kilométrage</span>
-            365732 Km
+            <?php echo $voitrue[0]['kilometrage'] ?> Km
           </div>
           <div class="group">
             <span>Boite</span>
-            Manuelle
+            <?php echo $voitrue[0]['boite'] ?>
           </div>
           <div class="group">
             <span>Couleur</span>
-            Gris Nardo
+            <?php echo $voitrue[0]['couleur'] ?>
           </div>
           <div class="group">
             <span>Carburant</span>
-            Essence
+            <?php echo $voitrue[0]['carburant'] ?>
           </div>
           <div class="group">
             <span>Moteur</span>
-            1.6L TDI
+            <?php echo $voitrue[0]['moteur'] ?>
           </div>
         </div>
       </div>
-      <div class="prix">20 000 €</div>
+      <div class="prix"><?php echo $voitrue[0]['prix'] ?> €</div>
       <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
+      <!-- <img src="<?php //echo "../".$voitrue[0]['imageprincipale'] ?>" alt="" /> -->
+
     </section>
     <section id="additionnal-pictures">
       <div class="title">Images supplémentaires</div>
@@ -89,7 +97,7 @@ if(isset($_POST['contact'])){
           </div>
           <div class="input-container">
             <label>Sujet</label>
-            <input type="text" name="sujet" value="Annonce Porsche 911 2020" disabled/>
+            <input type="text" name="sujet" value="Annonce <?php echo $voitrue[0]['marque'] ?>" readonlyz/>
           </div>
           <div class="input-container">
             <label>Message</label>

@@ -13,6 +13,11 @@ li.done{
     text-decoration: line-through;
 }
 
+li.prioritaire{
+    color: red;
+    font-weight: 800;
+}
+
 /* .div{
     position: fixed;
     top: 50%;
@@ -45,6 +50,8 @@ body{
         <li>Les filtres f showroom + voir plus t3hom kifkif</li>
         <li>detail voiture coté admin</li>
         <li>detail voiture nehilo les image supplémentaire ou zid description</li>
+        <li class="prioritaire">la page car.php, l'image principale de la voiture (fit / cover) + ajouter l'observation</li>
+        <li>supprimer un message et supprimer tout les messages</li>
 
     </div>
 </body>

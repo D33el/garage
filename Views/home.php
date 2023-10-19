@@ -7,7 +7,7 @@ if(isset($_POST['rate'])){
 
 if(isset($_POST['contact'])){
   $send = new contactController();
-  $send->addContact();
+  $send->addContact(null);
   header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/home");
 }
 
