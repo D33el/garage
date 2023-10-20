@@ -120,13 +120,14 @@ onClick(".add-comment", ()=>{displayDrawer('add')});
 onClick(".add-service", ()=>{displayDrawer('add')});
 
 function displayUpdateDrawer(obj) {
+  console.log(obj);
   let container = $('.drawer[data-id="update"]')
   let inputs = container.find('input')
   console.log(inputs);
   inputs.each(function (i,input) {
-    console.log(input);
     let name = input.name
-    input.val(obj[name])
+    console.log(obj[name]);
+    input.setAttribute('value',obj[name])
   })
 }
 onClick(".update-car", async function (){
@@ -139,7 +140,7 @@ onClick(".update-car", async function (){
       success: function (response) {
         console.log('success');
         let voiture = JSON.parse(response)
-        displayUpdateDrawer(voiture)
+        displayUpdateDrawer(voiture[0])
       },
       error: function (error) {
         console.log(error);
