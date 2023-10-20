@@ -1,5 +1,8 @@
 <?php
 
+require_once realpath(__DIR__) . '/../bootstrap.php';
+require_once APP_PATH .('/Models/voiture.php');
+require_once APP_PATH .('/DataBase/DB.php');
 
 class voituresController{
 
@@ -106,11 +109,20 @@ Public function deleteVoiture(){
   general::delete("voitures","id_voiture",$id);
 }
 
-Public function getVoiture($id,$random3){
-  return voiture::get($id,$random3);
+static Public function getVoiture($id,$random3){
+  return (new voiture)->get($id,$random3);
 }
 
+}
 
-
-
+if(isset($_POST['action'])){
+  $action = $_POST['action'];
+  $id = $_POST['id'];
+  // echo $action;
+  // echo $id;
+  if($action == "getVoiture"){
+    $result = voiture::get($id,null);
+    $result = json_encode($result);
+    echo $result;
+  }
 }

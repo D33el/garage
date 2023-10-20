@@ -118,20 +118,38 @@ onClick(".add-car", ()=>{displayDrawer('add')});
 onClick(".add-employee", ()=>{displayDrawer('add')});
 onClick(".add-comment", ()=>{displayDrawer('add')});
 onClick(".add-service", ()=>{displayDrawer('add')});
-onClick(".update-car", async ()=>{
-  await $.ajax({
-    type: "post",
-    url: "../controllers/voituresController.php",
-    data: { action : 'getVoiture' , id :$(this).data('id')},
-    success: function (response) {
-      console.log('success');
-      console.log(response);
-    },
-    error: function (error) {
-      console.log(error);
-    }
+
+function displayUpdateDrawer(obj) {
+  let container = $('.drawer[data-id="update"]')
+  let inputs = container.find('input')
+  console.log(inputs);
+  inputs.each(function (i,input) {
+    console.log(input);
+    let name = input.name
+    input.val(obj[name])
+  })
+}
+onClick(".update-car", async function (){
+  displayDrawer('update')
+    let id = $(this).data('id')
+    await $.ajax({
+      type: "post",
+      url: "../controllers/voituresController.php",
+      data: { action : 'getVoiture' , id :id},
+      success: function (response) {
+        console.log('success');
+        let voiture = JSON.parse(response)
+        displayUpdateDrawer(voiture)
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    
   });
-  displayDrawer('update')});
+  
+
+});
+
 onClick(".update-employee", async ()=>{
   await $.ajax({
     type: "post",
