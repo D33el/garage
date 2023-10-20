@@ -5,15 +5,15 @@ $(document).ready(async function () {
     $(".app").html(`<div class="mobile-warning">Accés impossible sur mobile</div>`);
   }
   displayOpenDaysSelectOptions();
-  displayCarsYearsSelect()
+  displayCarsYearsSelect();
   displaySelectedNavItem();
-  displayCommentStars()
+  displayCommentStars();
 });
 function displayCommentStars() {
-  let starContainer = $('.comments-list .comment-card .stars')
-  $.each(starContainer, () => { 
-    $(this).empty()
-    for (let i = 0; i < $(this).data('id'); i++) $(this).append('<i class="fa-solid fa-star"></i>')
+  let starContainer = $(".comments-list .comment-card .stars");
+  $.each(starContainer, () => {
+    $(this).empty();
+    for (let i = 0; i < $(this).data("id"); i++) $(this).append('<i class="fa-solid fa-star"></i>');
   });
 }
 function displaySelectedNavItem() {
@@ -44,11 +44,11 @@ function onClick(selector, callback) {
 }
 $(document)
   .find("#overlay")
-  .mousemove(function (e) { 
+  .mousemove(function (e) {
     $("#tooltip").css({
       left: e.pageX,
-      top: e.pageY-10,
-      transform:'translate(-50%,100%)',
+      top: e.pageY - 10,
+      transform: "translate(-50%,100%)",
     });
   });
 $(document)
@@ -67,11 +67,11 @@ onClick(".nav-item", function () {
 
 function displayCarsYearsSelect() {
   const currentYear = new Date().getFullYear();
-const yearsArray = Array.from({ length: currentYear - 1999 }, (_, index) => currentYear - index);
+  const yearsArray = Array.from({ length: currentYear - 1999 }, (_, index) => currentYear - index);
   for (const year of yearsArray) {
-    $('.drawer .year-select').append(`
+    $(".drawer .year-select").append(`
     <option value='${year}'>${year}</option>
-    `)
+    `);
   }
 }
 function displayOpenDaysSelectOptions() {
@@ -98,92 +98,111 @@ function displayOpenDaysSelectOptions() {
 function displayDrawer(type) {
   $("#overlay").show();
   switch (type) {
-    case 'add':
+    case "add":
       $(".drawer[data-id='add']").fadeIn(200, function () {
         $(this).css("display", "grid");
       });
       break;
-    case 'update':
+    case "update":
       $(".drawer[data-id='update']").fadeIn(200, function () {
         $(this).css("display", "grid");
       });
       break;
-  
+
     default:
       break;
   }
-  
 }
-onClick(".add-car", ()=>{displayDrawer('add')});
-onClick(".add-employee", ()=>{displayDrawer('add')});
-onClick(".add-comment", ()=>{displayDrawer('add')});
-onClick(".add-service", ()=>{displayDrawer('add')});
+onClick(".add-car", () => {
+  displayDrawer("add");
+});
+onClick(".add-employee", () => {
+  displayDrawer("add");
+});
+onClick(".add-comment", () => {
+  displayDrawer("add");
+});
+onClick(".add-service", () => {
+  displayDrawer("add");
+});
 
 function displayUpdateDrawer(obj) {
   console.log(obj);
-  let container = $('.drawer[data-id="update"]')
-  let inputs = container.find('input')
+  let container = $('.drawer[data-id="update"]');
+  let inputs = container.find("input,select,textarea");
   console.log(inputs);
-  inputs.each(function (i,input) {
-    let name = input.name
-    console.log(obj[name]);
-    input.setAttribute('value',obj[name])
-  })
-}
-onClick(".update-car", async function (){
-  displayDrawer('update')
-    let id = $(this).data('id')
-    await $.ajax({
-      type: "post",
-      url: "../controllers/voituresController.php",
-      data: { action : 'getVoiture' , id :id},
-      success: function (response) {
-        console.log('success');
-        let voiture = JSON.parse(response)
-        displayUpdateDrawer(voiture[0])
-      },
-      error: function (error) {
-        console.log(error);
-      }
-    
+  inputs.each(function (i, input) {
+    let name = input.name;
+    if (name == "imageprincipale" || name == "imageService") $(".input-file-preview").attr("src", obj[name]);
+    input.setAttribute("value", obj[name]);
   });
-  
-
+}
+onClick(".update-car", async function () {
+  displayDrawer("update");
+  let id = $(this).data("id");
+  await $.ajax({
+    type: "post",
+    url: "../controllers/voituresController.php",
+    data: { action: "getVoiture", id: id },
+    success: function (response) {
+      console.log("success");
+      let data = JSON.parse(response);
+      displayUpdateDrawer(data[0]);
+    },
+    error: function (error) {
+      console.log(error);
+    },
+  });
 });
 
-onClick(".update-employee", async ()=>{
+onClick(".update-employee", async () => {
+  displayDrawer("update");
   await $.ajax({
     type: "post",
     url: "url",
     data: "data",
-    dataType: "dataType",
     success: function (response) {
-      
-    }
+      console.log("success");
+      let data = JSON.parse(response);
+      displayUpdateDrawer(data[0]);
+    },
+    error: function (error) {
+      console.log(error);
+    },
   });
-  displayDrawer('update')});
-onClick(".update-comment", async ()=>{
+});
+onClick(".update-comment", async () => {
+  displayDrawer("update");
   await $.ajax({
     type: "post",
     url: "url",
     data: "data",
-    dataType: "dataType",
     success: function (response) {
-      
-    }
+      console.log("success");
+      let data = JSON.parse(response);
+      displayUpdateDrawer(data[0]);
+    },
+    error: function (error) {
+      console.log(error);
+    },
   });
-  displayDrawer('update')});
-onClick(".update-service", async ()=>{
+});
+onClick(".update-service", async () => {
+  displayDrawer("update");
   await $.ajax({
     type: "post",
     url: "url",
     data: "data",
-    dataType: "dataType",
     success: function (response) {
-      
-    }
+      console.log("success");
+      let data = JSON.parse(response);
+      displayUpdateDrawer(data[0]);
+    },
+    error: function (error) {
+      console.log(error);
+    },
   });
-  displayDrawer('update')});
+});
 
 $(document)
   .find(".input-file")
@@ -203,22 +222,20 @@ function showImage(input) {
 }
 
 onClick(".message", function () {
-  let id = $(this).data('id')
-  $('.message-preview .empty,.message-container').hide()
-  $(`.message-container[data-id='${id}']`).show()
+  let id = $(this).data("id");
+  $(".message-preview .empty,.message-container").hide();
+  $(`.message-container[data-id='${id}']`).show();
 });
 
-onClick('.delete-btn',function () {
-  let id = $(this).data('id')
-  $('.popup,#overlay').show()
-  $('.popup').find('input').val(id)
-})
-onClick('.abort',function () {
-  $('.popup,#overlay').hide()
-})
+onClick(".delete-btn", function () {
+  let id = $(this).data("id");
+  $(".popup,#overlay").show();
+  $(".popup").find("input").val(id);
+});
+onClick(".abort", function () {
+  $(".popup,#overlay").hide();
+});
 
-
-
-$(document).on('click','#save',function(){
-  $('.open-days-submit').click()
-})
+$(document).on("click", "#save", function () {
+  $(".open-days-submit").click();
+});
