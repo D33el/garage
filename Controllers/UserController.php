@@ -25,14 +25,14 @@ class UserController
      }
 
     }else if($res->type == "employe"){
-     if(password_verify($_POST['Password'], $res->Password)){
+     if(password_verify($_POST['password'], $res->password)){
       $_SESSION['employe'] = true;
       $_SESSION['id_user'] = $res->id_utilis;
       $_SESSION['nomPrenom'] = $res->nomPrenom;
       $_SESSION['email'] = $res->email;
       $_SESSION['username'] = $res->username;
       $_SESSION['type'] = $res->type;
-      header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/dashboard");
+      header('Location: ' . APP_PROTOCOL.'://'.$_SERVER['HTTP_HOST']."/dashboard-showroom");
      }else{
       // wrong password
      }
@@ -88,7 +88,7 @@ class UserController
  }
 
  Public function deleteUser(){
-  $id = $_POST['id_utilis'];
+  $id = $_POST['id_'];
   $success = general::delete("utilis","id_utilis",$id);
   if($success){
     // successfull delete

@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION['admin'] == true) {
+if (isset($_SESSION['admin']) == true) {
 
   if (isset($_POST['logout'])) {
     $logout = new UserController();
@@ -11,6 +11,12 @@ if ($_SESSION['admin'] == true) {
     $new->addUser();
     header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-employees");
 
+  }
+
+  if(isset($_POST['delete'])){
+    $delete = new UserController();
+    $delete->deleteUser();
+    header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-employees");
   }
 
   $data = new UserController();
@@ -40,7 +46,7 @@ if ($_SESSION['admin'] == true) {
         <div class="buttons">
           <form action="" method="post">
             <input type="hidden" name="id_">
-            <button class="delete button" type="submit">Supprimer</button>
+            <button class="delete button" type="submit" name="delete">Supprimer</button>
           </form>
           <div class="abort button">Annuler</div>
         </div>
@@ -124,7 +130,6 @@ if ($_SESSION['admin'] == true) {
             <div class="page-header">
               <div class="wrap">
                 <div class="title">Gestion des employés</div>
-                <div class="count">99 employés</div>
               </div>
               <button class="primary has-icon add-employee"><i class="fa-solid fa-plus"></i>Nouvel employé</button>
             </div>
@@ -148,7 +153,7 @@ if ($_SESSION['admin'] == true) {
                       <td class="column4"><?php echo $user['tel'] ?></td>
                       <td class="column6">
                         <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
-                        <div class="delete-btn" data-id="<?php echo $user['id_user'] ?>"><i class="fa-solid fa-trash-can"></i></div>
+                        <?php if($user['type'] != 'admin'){?><div class="delete-btn" data-id="<?php echo $user['id_utilis'] ?>"><i class="fa-solid fa-trash-can"></i></div><?php } ?>
                       </td>
                     </tr>
                   <?php } ?>
@@ -168,7 +173,9 @@ if ($_SESSION['admin'] == true) {
 
 <?php
 
-} else {
+} else if(isset($_SESSION['employe'])) {
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/403");
+}else{
   header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/login");
 }
 

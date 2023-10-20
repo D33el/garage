@@ -74,6 +74,11 @@ if($success){
   return $services;
  }
 
+ public function deleteService(){
+  $id = $_POST['id_'];
+  general::delete("services","id_service",$id);
+ }
+
 
 
 }

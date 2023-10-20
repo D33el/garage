@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
+if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
 
 
   if (isset($_POST['logout'])) {
@@ -15,6 +15,7 @@ if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
   }
 
   if(isset($_POST['delete'])){
+    
     $delete = new voituresController();
     $delete->deleteVoiture();
     header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-showroom");

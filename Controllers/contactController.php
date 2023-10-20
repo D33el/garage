@@ -63,5 +63,10 @@ Public function getAllMessages(){
  return contact::getAll();
 }
 
+Public function deleteRating(){
+  $id = $_POST['id_'];
+  general::delete("avis","id_avis",$id);
+}
+
 }
 ?>

@@ -20,6 +20,14 @@ if(isset($_POST['submit'])){
   header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-website");
 }
 
+
+if(isset($_POST['delete'])){
+  
+  $delete = new servicesController();
+  $delete->deleteService();
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-website");
+}
+
   $dataHoraires = new horairesController();
   $horaires = $dataHoraires->getHoraire();
 
@@ -50,7 +58,7 @@ if(isset($_POST['submit'])){
         <div class="buttons">
           <form action="" method="post">
             <input type="hidden" name="id_">
-            <button class="delete button" type="submit">Supprimer</button>
+            <button class="delete button" type="submit" name="delete">Supprimer</button>
           </form>
           <div class="abort button">Annuler</div>
         </div>
@@ -155,7 +163,7 @@ if(isset($_POST['submit'])){
                   <div class="service-card">
                     <div class="edit">
                       <div class="update-service"><i class="fa-solid fa-pen-to-square"></i></div>
-                      <div class="delete-btn" data-id=""><i class="fa-solid fa-trash-can"></i></div>
+                      <div class="delete-btn" data-id="<?php echo $service['id_service'] ?>"><i class="fa-solid fa-trash-can"></i></div>
                     </div>
                     <img src="<?php echo "../".$service['imageService'] ?>" alt="" />
                     <div class="title"><?php echo $service['service'] ?></div>
@@ -179,7 +187,9 @@ if(isset($_POST['submit'])){
   </html>
 
 <?php
-} else {
+} else if(isset($_SESSION['employe'])){
+  header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/403");
+}else{
   header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/login");
 }
 ?>

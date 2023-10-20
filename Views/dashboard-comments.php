@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['admin'] == true || $_SESSION['employe'] == true) {
+if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
 
 if (isset($_POST['logout'])) {
   $logout = new UserController();
@@ -20,7 +20,8 @@ if(isset($_POST['submit'])){
 }
 
 if(isset($_POST['delete'])){
-
+  $supp = new contactController();
+  $supp->deleteRating();
 }
 
 
