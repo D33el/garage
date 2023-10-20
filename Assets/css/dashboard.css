@@ -81,6 +81,9 @@
   display: none;
   grid-template-rows: var(--drawer-header-height) 1fr;
 }
+.drawer[data-id='update'] .input-file-preview{
+  display: block;
+}
 .drawer-header{
   display: grid;
   place-content: center;
