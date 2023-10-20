@@ -118,25 +118,38 @@ onClick(".add-car", ()=>{displayDrawer('add')});
 onClick(".add-employee", ()=>{displayDrawer('add')});
 onClick(".add-comment", ()=>{displayDrawer('add')});
 onClick(".add-service", ()=>{displayDrawer('add')});
-onClick(".update-car", async ()=>{
-  setTimeout(async () => {
-    var id = $(this).data('id')
-    
-    console.log(id);
+
+function displayUpdateDrawer(obj) {
+  let container = $('.drawer[data-id="update"]')
+  let inputs = container.find('input')
+  console.log(inputs);
+  inputs.each(function (i,input) {
+    console.log(input);
+    let name = input.name
+    input.val(obj[name])
+  })
+}
+onClick(".update-car", async function (){
+  displayDrawer('update')
+    let id = $(this).data('id')
     await $.ajax({
       type: "post",
       url: "../controllers/voituresController.php",
       data: { action : 'getVoiture' , id :id},
       success: function (response) {
         console.log('success');
-        console.log(response);
+        let voiture = JSON.parse(response)
+        displayUpdateDrawer(voiture)
       },
       error: function (error) {
         console.log(error);
       }
-    }, 1000);
-    });
-  displayDrawer('update')});
+    
+  });
+  
+
+});
+
 onClick(".update-employee", async ()=>{
   await $.ajax({
     type: "post",

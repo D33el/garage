@@ -130,7 +130,7 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
       
       <div class="drawer" data-id="update">
         <div class="drawer-header">
-          <div class="title">Ajouter un véhicule</div>
+          <div class="title">Modifier un véhicule</div>
           <div class="message">Veuillez remplir tout les champs</div>
         </div>
         <div class="drawer-body">
@@ -214,7 +214,7 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
               <?php foreach ($voitures as $voiture) { ?>
                 <div class="card" data-id="<?php echo $voiture['id_voiture'] ?>">
                   <div class="buttons">
-                    <div class="update-car rounded-btn"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="update-car rounded-btn" data-id="<?php echo $voiture['id_voiture'] ?>"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="delete-btn rounded-btn" data-id="<?php echo $voiture['id_voiture'] ?>"><i class="fa-solid fa-trash-can"></i></div>
                   </div>
                   <img src="<?php echo "../" . $voiture['imageprincipale'] ?>" alt="" />
