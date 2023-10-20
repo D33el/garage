@@ -19,6 +19,11 @@ if (isset($_SESSION['admin']) == true) {
     header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-employees");
   }
 
+  if(isset($_POST['modifier'])){
+    $modif = new UserController();
+    $modif->updateUser();
+  }
+
   $data = new UserController();
   $users = $data->getAll();
 
@@ -77,7 +82,7 @@ if (isset($_SESSION['admin']) == true) {
             </div>
             <div class="input-container">
               <label for="">Nom d'utilisateur</label>
-              <input type="text" name="username" placeholder="E-mail">
+              <input type="text" name="username" placeholder="Nom d'utilisateur">
             </div>
             <div class="input-container">
               <label for="">Mot de passe</label>
@@ -89,18 +94,14 @@ if (isset($_SESSION['admin']) == true) {
       </div>
       <div class="drawer" data-id="update">
         <div class="drawer-header">
-          <div class="title">Ajouter un employé</div>
+          <div class="title">Modifier un employé</div>
           <div class="message">Veuillez remplir tout les champs</div>
         </div>
         <div class="drawer-body">
           <form class="form-container" method="POST">
             <div class="input-container">
-              <label for="">Nom</label>
-              <input type="text" name="nom" placeholder="Nom">
-            </div>
-            <div class="input-container">
-              <label for="">Prénom</label>
-              <input type="text" name="prenom" placeholder="Prénom">
+              <label for="">Nom & prénom</label>
+              <input type="text" name="nomPrenom" placeholder="Nom & prénom">
             </div>
             <div class="input-container">
               <label for="">Téléphone</label>
@@ -112,13 +113,14 @@ if (isset($_SESSION['admin']) == true) {
             </div>
             <div class="input-container">
               <label for="">Nom d'utilisateur</label>
-              <input type="text" name="username" placeholder="E-mail">
+              <input type="text" name="username" placeholder="Nom d'utilisateur">
             </div>
             <div class="input-container">
               <label for="">Mot de passe</label>
-              <input type="password" name="password" placeholder="Mot de passe">
+              <input type="password" name="password" placeholder="Changer le mot de passe">
             </div>
-            <button type="submit" name="submit" class="submit primary">Envoyer</button>
+            <input type="hidden" name="id_utilis">
+            <button type="submit" name="modifier" class="submit primary">Envoyer</button>
           </form>
         </div>
       </div>
@@ -152,7 +154,7 @@ if (isset($_SESSION['admin']) == true) {
                       <td class="column3"><?php echo $user['email'] ?></td>
                       <td class="column4"><?php echo $user['tel'] ?></td>
                       <td class="column6">
-                        <div class="update-employee"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div class="update-employee" data-id="<?php echo $user['id_utilis'] ?>"><i class="fa-solid fa-pen-to-square"></i></div>
                         <?php if($user['type'] != 'admin'){?><div class="delete-btn" data-id="<?php echo $user['id_utilis'] ?>"><i class="fa-solid fa-trash-can"></i></div><?php } ?>
                       </td>
                     </tr>

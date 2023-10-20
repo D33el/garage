@@ -52,9 +52,13 @@ static public function update($data){
   }
 }
 
-static public function getAll(){
+static public function getAll($id){
   $db = DB::connect();
-  $sql = "SELECT * FROM utilis order by id_utilis asc";
+  $sql = "SELECT * FROM utilis ";
+  if($id){
+    $sql .= " WHERE id_utilis = $id";
+  }
+  $sql .= " order by id_utilis asc";
   $stmt = $db->prepare($sql);
   if($stmt->execute()){
     return $stmt->fetchAll();

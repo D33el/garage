@@ -21,6 +21,11 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
     header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-showroom");
   }
 
+  if(isset($_POST['modifier'])){
+    $modif = new voituresController();
+    $modif->updateVoiture();
+  }
+
   $id = null;
 
   $data = new voituresController();
@@ -195,7 +200,8 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
               <label for="">Observation</label>
               <textarea name="observation" id=""></textarea>
             </div>
-            <button type="submit" name="submit" class="submit primary">Envoyer</button>
+            <input type="hidden" name="id_voiture">
+            <button type="submit" name="submit" name="modifier" class="submit primary">Envoyer</button>
           </form>
         </div>
       </div>

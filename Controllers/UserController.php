@@ -1,5 +1,9 @@
 <?php
 
+require_once realpath(__DIR__) . '/../bootstrap.php';
+require_once APP_PATH .('/Models/user.php');
+require_once APP_PATH .('/DataBase/DB.php');
+
 class UserController
 {
 
@@ -74,9 +78,13 @@ class UserController
     'nomPrenom' => $_POST['nomPrenom'],
     'email' => $_POST['email'],
     'username' => $_POST['username'],
-    'password' => $_POST['password'],
-    'type' => $_POST['type']
+    'tel' => $_POST['tel']
   );
+  
+  if($_POST['password']){
+    $data['password'] = password_hash($_POST['password'],PASSWORD_DEFAULT);
+  }
+
   $success = general::update("utilis",$data,"id_utilis=$id");
   if($success == 1){
     // successfull insert
@@ -98,9 +106,18 @@ class UserController
  }
 
  Public function getAll(){
-  return user::getAll();
+  return user::getAll(null);
  }
 
 }
+
+if(isset($_POST['action'])){
+  $action = $_POST['action'];
+  $id = $_POST['id'];
+  $result = user::getAll($id);
+  $result = json_encode($result);
+  echo $result;
+}
+
 
 ?>

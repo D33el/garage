@@ -133,10 +133,13 @@ function displayUpdateDrawer(obj) {
   console.log(inputs);
   inputs.each(function (i, input) {
     let name = input.name;
-    if (name == "imageprincipale" || name == "imageService") $(".input-file-preview").attr("src", obj[name]);
-    input.setAttribute("value", obj[name]);
+    if (name == "imageprincipale" || name == "imageService") $(".input-file-preview").attr("src", "../"+obj[name]);
+    if(name != "password"){
+      input.setAttribute("value", obj[name]);
+    }
   });
 }
+
 onClick(".update-car", async function () {
   displayDrawer("update");
   let id = $(this).data("id");
@@ -155,12 +158,13 @@ onClick(".update-car", async function () {
   });
 });
 
-onClick(".update-employee", async () => {
+onClick(".update-employee", async function () {
   displayDrawer("update");
+  let id = $(this).data('id');
   await $.ajax({
     type: "post",
-    url: "url",
-    data: "data",
+    url: "../Controllers/UserController.php",
+    data: {action : "getAll",id:id},
     success: function (response) {
       console.log("success");
       let data = JSON.parse(response);

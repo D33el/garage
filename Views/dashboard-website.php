@@ -22,10 +22,14 @@ if(isset($_POST['submit'])){
 
 
 if(isset($_POST['delete'])){
-  
   $delete = new servicesController();
   $delete->deleteService();
   header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-website");
+}
+
+if(isset($_POST['modifier'])){
+  $modif = new servicesController();
+  $modif->updateService();
 }
 
   $dataHoraires = new horairesController();
@@ -90,7 +94,7 @@ if(isset($_POST['delete'])){
       
       <div class="drawer" data-id="update">
         <div class="drawer-header">
-          <div class="title">Ajouter un service</div>
+          <div class="title">Modifier un service</div>
           <div class="message">Veuillez remplir tout les champs</div>
         </div>
         <div class="drawer-body">
@@ -107,7 +111,8 @@ if(isset($_POST['delete'])){
               <label for="">Description</label>
               <textarea name="description" placeholder="Description du service"></textarea>
             </div>
-            <button type="submit" name="submit" class="submit primary">Envoyer</button>
+            <input type="hidden" name="id_service">
+            <button type="submit" name="submit" name="modifier" class="submit primary">Envoyer</button>
           </form>
         </div>
       </div>

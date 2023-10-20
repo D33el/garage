@@ -52,6 +52,7 @@ body{
         <li>detail voiture nehilo les image supplémentaire ou zid description</li>
         <li class="prioritaire">la page car.php, l'image principale de la voiture (fit / cover) + ajouter l'observation</li>
         <li>supprimer un message et supprimer tout les messages</li>
+        <li>onclick voiture f dashboard-showroom yeddik l car?id=data-id li raho f lcard</li>
 
     </div>
 </body>
