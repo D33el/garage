@@ -119,18 +119,23 @@ onClick(".add-employee", ()=>{displayDrawer('add')});
 onClick(".add-comment", ()=>{displayDrawer('add')});
 onClick(".add-service", ()=>{displayDrawer('add')});
 onClick(".update-car", async ()=>{
-  await $.ajax({
-    type: "post",
-    url: "../controllers/voituresController.php",
-    data: { action : 'getVoiture' , id :$(this).data('id')},
-    success: function (response) {
-      console.log('success');
-      console.log(response);
-    },
-    error: function (error) {
-      console.log(error);
-    }
-  });
+  setTimeout(async () => {
+    var id = $(this).data('id')
+    
+    console.log(id);
+    await $.ajax({
+      type: "post",
+      url: "../controllers/voituresController.php",
+      data: { action : 'getVoiture' , id :id},
+      success: function (response) {
+        console.log('success');
+        console.log(response);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    }, 1000);
+    });
   displayDrawer('update')});
 onClick(".update-employee", async ()=>{
   await $.ajax({
