@@ -8,7 +8,12 @@ $(document).ready(async function () {
   displayCarsYearsSelect();
   displaySelectedNavItem();
   displayCommentStars();
+  checkRoles()
 });
+function checkRoles() {
+  let role = $('.profile .role').html()
+  if(role == 'employe') $('.nav-item[data-id="employees"],.nav-item[data-id="website"]').hide()
+}
 function displayCommentStars() {
   $(".comments-list .comment-card .stars").each(function () {
     let rating = $(this).data("id");
