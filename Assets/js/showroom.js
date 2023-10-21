@@ -1,6 +1,6 @@
 $(document).ready(async function () {
   console.log("showroom.js Loaded");
-  displayCars(50);
+  displayYearsSelect()
 });
 
 $(document).on("click", ".card", function (e) {
@@ -112,3 +112,13 @@ fromInput.on("input", function () {
 toInput.on("input", function () {
   controlToInput(toSlider, fromInput, toInput, toSlider);
 });
+
+function displayYearsSelect() {
+  const currentYear = new Date().getFullYear();
+  const yearsArray = Array.from({ length: currentYear - 1999 }, (_, index) => currentYear - index);
+  for (const year of yearsArray) {
+    $("#year-filter-select").append(`
+    <option value='${year}'>${year}</option>
+    `);
+  }
+}

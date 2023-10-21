@@ -80,7 +80,7 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
             <div class="input-container">
               <label for="">Année</label>
               <select name="annee" class="year-select">
-                <option disabled selected>Séléctionnez l'année</option>
+                <option disabled selected>Sélectionnez l'année</option>
               </select>
             </div>
             <div class="input-container">
