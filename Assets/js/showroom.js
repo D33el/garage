@@ -152,8 +152,9 @@ async function getFilteredCars() {
     },
     success: function (response) {
       console.log("success");
-      let data = JSON.parse(response);
-      GV.filteredCars = data;
+      console.log(response);
+      //let data = JSON.parse(response);
+      //GV.filteredCars = data;
     },
     error: function (error) {
       console.log(error);

@@ -54,8 +54,8 @@ $voitures = $data->getVoiture(null, null);
           <div class="input-container">
             <select name="" id="boite-filter-select" data-id="boite">
               <option disabled selected>Trier par boite de vitesse</option>
-              <option value="auto">Automatique</option>
-              <option value="manuelle">Manuelle</option>
+              <option value="Automatique">Automatique</option>
+              <option value="Manuelle">Manuelle</option>
             </select>
           </div>
         </form>
@@ -65,8 +65,8 @@ $voitures = $data->getVoiture(null, null);
           <div class="input-container">
             <select name="" id="carburant-filter-select" data-id="carburant">
               <option disabled selected>Trier par carburant</option>
-              <option value="essence">Essence</option>
-              <option value="diesel">Diesel</option>
+              <option value="Essence">Essence</option>
+              <option value="Diesel">Diesel</option>
             </select>
           </div>
         </form>
