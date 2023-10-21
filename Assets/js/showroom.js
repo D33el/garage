@@ -131,6 +131,7 @@ $(document).on(
     let value = $(this).val();
     GV.filters[key] = value;
     await getFilteredCars();
+    displayCars()
   }, 500)
 );
 
@@ -153,6 +154,7 @@ async function getFilteredCars() {
     success: function (response) {
       console.log("success");
       let data = JSON.parse(response);
+      console.log(data);
       GV.filteredCars = data;
     },
     error: function (error) {
@@ -171,4 +173,27 @@ function debounce(func, delay) {
       func.apply(context, args);
     }, delay);
   };
+}
+
+
+function displayCars() {
+  $('#cars-list').empty()
+  for (const car of Object.values(GV.filteredCars)) {
+    $('#cars-list').append(`
+    <div class="card" data-id="${car.id_voiture}">
+      <img src="../${car.imageprincipale}" alt="" />
+      <div class="wrapper">
+        <div class="car-name title">${car.marque}</div>
+        <div class="price">${car.prix} €</div>
+        <div class="details">
+          <div>${car.annee}</div>
+          <div class="spacer">•</div>
+          <div>${car.kilometrage} Km</div>
+          <div class="spacer">•</div>
+          <div>${car.carburant}</div>
+        </div>
+      </div>
+    </div>
+    `)
+  }
 }
