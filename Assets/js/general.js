@@ -1,9 +1,8 @@
-GV = { pathname:window.location.pathname }
+
 
 $(document).ready(async function () {
-  console.log();
   console.log("General.js Loaded");
-  if (GV.pathname.includes("dashboard")) displaySidebar()
+  if (window.location.pathname.includes("dashboard")) displaySidebar()
   displayHeaderFooter();
 });
 

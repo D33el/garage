@@ -1,6 +1,7 @@
+let GV = { filters: {} };
 $(document).ready(async function () {
   console.log("showroom.js Loaded");
-  displayYearsSelect()
+  displayYearsSelect();
 });
 
 $(document).on("click", ".card", function (e) {
@@ -12,8 +13,8 @@ $(document).on("click", ".card", function (e) {
 function getParsed(currentFrom, currentTo) {
   const from = parseInt(currentFrom.val(), 10);
   const to = parseInt(currentTo.val(), 10);
-  $(".from-value").html(from)
-  $(".to-value").html(to)
+  $(".from-value").html(from);
+  to == 100000 ?$(".to-value").html(to +'+ '):$(".to-value").html(to);
   return [from, to];
 }
 
@@ -96,7 +97,7 @@ const fromInput = $("#fromInput");
 const toInput = $("#toInput");
 fillSlider(fromSlider, toSlider, "#C6C6C6", "var(--clr-primary)", toSlider);
 setToggleAccessible(toSlider);
-getParsed(fromSlider,toSlider)
+getParsed(fromSlider, toSlider);
 fromSlider.on("input", function () {
   controlFromSlider(fromSlider, toSlider, fromInput);
 });
@@ -121,4 +122,53 @@ function displayYearsSelect() {
     <option value='${year}'>${year}</option>
     `);
   }
+}
+$(document).on(
+  "input",
+  ".price-filter input, #year-filter-select, #boite-filter-select, #carburant-filter-select",
+  debounce(async function () {
+    let key = $(this).data("id");
+    let value = $(this).val();
+    GV.filters[key] = value;
+    await getFilteredCars();
+  }, 500)
+);
+
+async function getFilteredCars() {
+  let filters = GV.filters;
+  filters.fromPrice = filters.fromPrice ?? 1000
+  filters.toPrice = filters.toPrice ?? 100000
+  console.log(filters);
+  await $.ajax({
+    type: "post",
+    url: "../Models/voiture.php",
+    data: { 
+      action: "filterShowroom", 
+      fromPrice: filters.fromPrice, 
+      toPrice: filters.toPrice, 
+      annee: filters.annee, boite: 
+      filters.boite, carburant: 
+      filters.carburant 
+    },
+    success: function (response) {
+      console.log("success");
+      let data = JSON.parse(response);
+      GV.filteredCars = data;
+    },
+    error: function (error) {
+      console.log(error);
+    },
+  });
+}
+
+function debounce(func, delay) {
+  let timeoutId;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      func.apply(context, args);
+    }, delay);
+  };
 }

@@ -29,21 +29,21 @@ $voitures = $data->getVoiture(null, null);
         <div class="text">Prix</div>
         <div class="range_container">
           <div class="sliders_control">
-            <input id="fromSlider" type="range" value="45" min="0" max="100" />
-            <input id="toSlider" type="range" value="55" min="0" max="100" />
+            <input id="fromSlider" data-id="fromPrice" type="range" value="1000" min="0" max="100000" />
+            <input id="toSlider" data-id="toPrice" type="range" value="100000" min="0" max="100000" />
           </div>
         </div>
         <div class="wrap">
           <span>Entre</span>
-          <span class="from-value"></span>
+          <span class="from-value" ></span>
           <span>et</span>
-          <span class="to-value"></span>
+          <span class="to-value" ></span>
         </div>
       </div>
       <div class="year-filter filter">
         <form action="" method="post">
           <div class="input-container">
-            <select name="" id="year-filter-select">
+            <select name="" id="year-filter-select" data-id="annee">
               <option selected disabled>Trier par année de fabrication</option>
             </select>
           </div>
@@ -52,7 +52,7 @@ $voitures = $data->getVoiture(null, null);
       <div class="boite-filter filter">
         <form action="" method="post">
           <div class="input-container">
-            <select name="" id="boite-filter-select">
+            <select name="" id="boite-filter-select" data-id="boite">
               <option disabled selected>Trier par boite de vitesse</option>
               <option value="auto">Automatique</option>
               <option value="manuelle">Manuelle</option>
@@ -63,7 +63,7 @@ $voitures = $data->getVoiture(null, null);
       <div class="carburant-filter filter">
         <form action="" method="post">
           <div class="input-container">
-            <select name="" id="carburant-filter-select">
+            <select name="" id="carburant-filter-select" data-id="carburant">
               <option disabled selected>Trier par carburant</option>
               <option value="essence">Essence</option>
               <option value="diesel">Diesel</option>
