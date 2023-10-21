@@ -22,9 +22,11 @@ $(document).on('click', '#comments .form-container .stars i', function () {
 });
 
 function displayCommentStars() {
-  let starContainer = $('#comments .card .stars')
-  $.each(starContainer, () => { 
-    $(this).empty()
-    for (let i = 0; i < $(this).data('id'); i++) $(this).append('<i class="fa-solid fa-star"></i>')
+  $(".comments-list .card .stars").each(function() {
+    let rating = $(this).data("id");
+    $(this).empty();
+    for (let i = 0; i < rating; i++) {
+      $(this).append('<i class="fas fa-star"></i>');
+    }
   });
 }

@@ -10,10 +10,12 @@ $(document).ready(async function () {
   displayCommentStars();
 });
 function displayCommentStars() {
-  let starContainer = $(".comments-list .comment-card .stars");
-  $.each(starContainer, () => {
+  $(".comments-list .comment-card .stars").each(function () {
+    let rating = $(this).data("id");
     $(this).empty();
-    for (let i = 0; i < $(this).data("id"); i++) $(this).append('<i class="fa-solid fa-star"></i>');
+    for (let i = 0; i < rating; i++) {
+      $(this).append('<i class="fas fa-star"></i>');
+    }
   });
 }
 function displaySelectedNavItem() {
@@ -129,18 +131,22 @@ onClick(".add-service", () => {
 function displayUpdateDrawer(obj) {
   console.log(obj);
   let container = $('.drawer[data-id="update"]');
-  let inputs = container.find("input,select,textarea");
+  let inputs = container.find("input,textarea");
   console.log(inputs);
   inputs.each(function (i, input) {
     let name = input.name;
-    if (name == "imageprincipale" || name == "imageService") $(".input-file-preview").attr("src", "../"+obj[name]);
-    if(name != "password"){
-      input.setAttribute("value", obj[name]);
-    }
+    if (name == "imageprincipale" || name == "imageService") $(".input-file-preview").attr("src", "../" + obj[name]);
+    if (name != "password") input.setAttribute("value", obj[name]);
+  });
+  
+  container.find('select').each(function() {
+    const name = $(this).attr('name');
+    $(this).find(`option[value="${obj[name]}"]`).prop('selected', true);
   });
 }
 
-onClick(".update-car", async function () {
+onClick(".update-car", async function (e) {
+  e.stopPropagation();
   displayDrawer("update");
   let id = $(this).data("id");
   await $.ajax({
@@ -160,11 +166,11 @@ onClick(".update-car", async function () {
 
 onClick(".update-employee", async function () {
   displayDrawer("update");
-  let id = $(this).data('id');
+  let id = $(this).data("id");
   await $.ajax({
     type: "post",
     url: "../Controllers/UserController.php",
-    data: {action : "getAll",id:id},
+    data: { action: "getAll", id: id },
     success: function (response) {
       console.log("success");
       let data = JSON.parse(response);
@@ -231,7 +237,8 @@ onClick(".message", function () {
   $(`.message-container[data-id='${id}']`).show();
 });
 
-onClick(".delete-btn", function () {
+onClick(".delete-btn", function (e) {
+  e.stopPropagation();
   let id = $(this).data("id");
   $(".popup,#overlay").show();
   $(".popup").find("input").val(id);
@@ -242,4 +249,10 @@ onClick(".abort", function () {
 
 $(document).on("click", "#save", function () {
   $(".open-days-submit").click();
+});
+
+$(document).on("click", ".cars-list .card", function (e) {
+  e.preventDefault();
+  let id = $(this).data("id");
+  window.location.href = `../car?id=${id}`;
 });

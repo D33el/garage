@@ -95,6 +95,7 @@ form {
   font-size: 20px;
   font-weight: 500;
 }
+a.button ,
 .button {
   font-family: var(--ff-poppins);
   border-radius: 4px;
@@ -170,9 +171,7 @@ input {
   font-weight: 500;
   color: var(--clr-title);
 }
-select:is(:focus, :active),
-textarea:is(:focus, :active),
-input:not([type="radio"]):not([type="checkbox"]):is(:focus, :active) {
+select:is(:focus, :active), textarea:is(:focus, :active), input:not([type="radio"]):not([type="checkbox"]):not([type="range"]):is(:focus, :active) {
   border-color: transparent;
   outline: 1px solid var(--clr-primary-light);
   border-radius: 4px;

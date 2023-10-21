@@ -75,12 +75,12 @@ main > .subtitle {
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 35% auto;
+  /* margin: 35% auto; */
 }
 
 .sliders_control {
   position: relative;
-  min-height: 50px;
+  /* min-height: 50px; */
 }
 
 .form_control {
@@ -136,13 +136,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type="range"] {
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
   appearance: none;
   height: 2px;
   width: 100%;
   position: absolute;
   background-color: #C6C6C6;
   pointer-events: none;
+  padding: 0;
+  border: none;
 }
 
 #fromSlider {

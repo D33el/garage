@@ -58,22 +58,13 @@ $voitrue = $data->getVoiture($id,null);
             <?php echo $voitrue[0]['moteur'] ?>
           </div>
         </div>
+        <div class="description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi magni earum dolorem ad explicabo, et a ipsam doloribus dignissimos quis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, quam illum? Facere suscipit aspernatur, corporis iste dignissimos perferendis ab natus!
+        </div>
       </div>
       <div class="prix"><?php echo $voitrue[0]['prix'] ?> €</div>
       <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
       <!-- <img src="<?php //echo "../".$voitrue[0]['imageprincipale'] ?>" alt="" /> -->
-
-    </section>
-    <section id="additionnal-pictures">
-      <div class="title">Images supplémentaires</div>
-      <div class="wrapper">
-        <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-        <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-        <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-        <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-        <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-        <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-      </div>
     </section>
     <section id="contact">
       <div class="title">Contactez nous a propos de ce vehicule</div>

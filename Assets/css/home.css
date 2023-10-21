@@ -63,7 +63,19 @@
   width: fit-content;
   padding: 5px 20px;
 }
-
+#services {
+  position: relative;
+  min-height: 200px;
+}
+#services .empty {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-weight: 600;
+  color: var(--clr-shadow);
+  font-size: 25px;
+}
 #services .card-list {
   width: 100%;
   display: grid;
@@ -75,7 +87,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* height: 250px; */
   background-color: var(--clr-secondary);
   padding: 0 20px 20px 20px;
   border-radius: 10px;

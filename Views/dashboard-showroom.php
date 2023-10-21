@@ -171,16 +171,16 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
               <label for="">Carburant</label>
               <select name="carburant" id="">
                 <option disabled selected>Selectionnez le type de carburant</option>
-                <option>Essence</option>
-                <option>Diesel</option>
+                <option value="essence">Essence</option>
+                <option value="diesel">Diesel</option>
               </select>
             </div>
             <div class="input-container">
               <label for="">Boite de vitesse</label>
               <select name="boite" id="">
                 <option disabled selected>Selectionnez le type de boite de vitesse</option>
-                <option>Manuelle</option>
-                <option>Automatique</option>
+                <option value="manuelle">Manuelle</option>
+                <option value="automatique">Automatique</option>
               </select>
             </div>
             <div class="input-container">
@@ -191,9 +191,9 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
               <label for="">État</label>
               <select name="etat" id="">
                 <option disabled selected>Selectionnez l'etat du vehicule</option>
-                <option>Neuf</option>
-                <option>Occasion</option>
-                <option>Occasion comme neuf</option>
+                <option value="neuf">Neuf</option>
+                <option value="occasion">Occasion</option>
+                <option value="occasion comme neuf">Occasion comme neuf</option>
               </select>
             </div>
             <div class="input-container">
