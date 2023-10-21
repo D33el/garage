@@ -33,14 +33,40 @@ $voitures = $data->getVoiture(null, null);
             <input id="toSlider" type="range" value="55" min="0" max="1000000" />
           </div>
         </div>
-        <div class="from-value"></div>
-        <div class="to-value"></div>
+        <div class="wrap">
+          <span>Entre</span>
+          <span class="from-value"></span>
+          <span>et</span>
+          <span class="to-value"></span>
+        </div>
       </div>
       <div class="year-filter filter">
         <form action="" method="post">
           <div class="input-container">
             <select name="" id="year-filter-select">
               <option selected disabled>Trier par année de fabrication</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="boite-filter filter">
+        <form action="" method="post">
+          <div class="input-container">
+            <select name="" id="boite-filter-select">
+              <option disabled selected>Trier par boite de vitesse</option>
+              <option value="auto">Automatique</option>
+              <option value="manuelle">Manuelle</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="carburant-filter filter">
+        <form action="" method="post">
+          <div class="input-container">
+            <select name="" id="carburant-filter-select">
+              <option disabled selected>Trier par carburant</option>
+              <option value="essence">Essence</option>
+              <option value="diesel">Diesel</option>
             </select>
           </div>
         </form>
