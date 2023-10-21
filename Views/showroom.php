@@ -29,8 +29,8 @@ $voitures = $data->getVoiture(null, null);
         <div class="text">Prix</div>
         <div class="range_container">
           <div class="sliders_control">
-            <input id="fromSlider" type="range" value="45" min="0" max="100" />
-            <input id="toSlider" type="range" value="55" min="0" max="100" />
+            <input id="fromSlider" type="range" value="45" min="0" max="1000000" />
+            <input id="toSlider" type="range" value="55" min="0" max="1000000" />
           </div>
         </div>
         <div class="from-value"></div>

@@ -9,7 +9,7 @@ if(isset($_POST['contact'])){
 
 
 $data = new voituresController();
-$voitrue = $data->getVoiture($id,null);
+$voiture = $data->getVoiture($id,null);
 
 ?>
 <!DOCTYPE html>
@@ -31,40 +31,40 @@ $voitrue = $data->getVoiture($id,null);
     <a href="../showroom" class="back title"><i class="fa-solid fa-chevron-left"></i> Retourner au showroom</a>
     <section id="car-details">
       <div class="wrapper">
-        <div class="car-name title"><?php echo $voitrue[0]['marque'] ?></div>
+        <div class="car-name title"><?php echo $voiture[0]['marque'] ?></div>
         <div class="wrap">
           <div class="group">
             <span>Année</span>
-            <?php echo $voitrue[0]['annee'] ?>
+            <?php echo $voiture[0]['annee'] ?>
           </div>
           <div class="group">
             <span>Kilométrage</span>
-            <?php echo $voitrue[0]['kilometrage'] ?> Km
+            <?php echo $voiture[0]['kilometrage'] ?> Km
           </div>
           <div class="group">
             <span>Boite</span>
-            <?php echo $voitrue[0]['boite'] ?>
+            <?php echo $voiture[0]['boite'] ?>
           </div>
           <div class="group">
             <span>Couleur</span>
-            <?php echo $voitrue[0]['couleur'] ?>
+            <?php echo $voiture[0]['couleur'] ?>
           </div>
           <div class="group">
             <span>Carburant</span>
-            <?php echo $voitrue[0]['carburant'] ?>
+            <?php echo $voiture[0]['carburant'] ?>
           </div>
           <div class="group">
             <span>Moteur</span>
-            <?php echo $voitrue[0]['moteur'] ?>
+            <?php echo $voiture[0]['moteur'] ?>
           </div>
         </div>
         <div class="description">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi magni earum dolorem ad explicabo, et a ipsam doloribus dignissimos quis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, quam illum? Facere suscipit aspernatur, corporis iste dignissimos perferendis ab natus!
+          <?php echo $voiture[0]['observation'] ?>
         </div>
       </div>
-      <div class="prix"><?php echo $voitrue[0]['prix'] ?> €</div>
-      <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" />
-      <!-- <img src="<?php //echo "../".$voitrue[0]['imageprincipale'] ?>" alt="" /> -->
+      <div class="prix"><?php echo number_format($voiture[0]['prix'],2,"."," ") ?> €</div>
+      <!-- <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="" /> -->
+      <img src="<?php echo "../".$voiture[0]['imageprincipale'] ?>" alt="" />
     </section>
     <section id="contact">
       <div class="title">Contactez nous a propos de ce vehicule</div>
@@ -88,7 +88,7 @@ $voitrue = $data->getVoiture($id,null);
           </div>
           <div class="input-container">
             <label>Sujet</label>
-            <input type="text" name="sujet" value="Annonce <?php echo $voitrue[0]['marque'] ?>" readonlyz/>
+            <input type="text" name="sujet" value="Annonce <?php echo $voiture[0]['marque'] ?>" readonly/>
           </div>
           <div class="input-container">
             <label>Message</label>

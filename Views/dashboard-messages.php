@@ -8,6 +8,11 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
     $logout->Logout();
   }
 
+  if(isset($_POST['delete'])){
+    $delete = new contactController();
+    $delete->deleteMessage();
+    header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-messages");
+  }
 
   $data = new contactController();
   $messages = $data->getAllMessages();
@@ -63,8 +68,8 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
                     <div class="message" data-id="<?php echo $message['id_contact'] ?>">
                       <div class="name"><?php echo $message['nomPrenom'] ?></div>
                       <div class="date"><?php echo $message['createdat'] ?></div>
-                      <div class="subject"><span>Sujet : </span><?php echo $message['sujet'] ?></div>
-                      <button class="delete-btn" data-id="<?php echo $avis['id_contact'] ?>"><i class="fa-solid fa-trash-can"></i></button>
+                      <div class="subject"><span>Sujet : </span><?php $idvoiture = $message['id_voiture']; if($idvoiture){echo "<a href='../car?id=$idvoiture'>";} echo $message['sujet'] ; if($idvoiture){echo "</a>";}?></div>
+                      <button class="delete-btn" data-id="<?php echo $message['id_contact'] ?>"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 <?php
                   }
@@ -83,7 +88,7 @@ if (isset($_SESSION['admin']) == true || isset($_SESSION['employe']) == true) {
                       </div>
                       <div class="subject"><span>Sujet : </span><?php $idvoiture = $message['id_voiture'];
                                                                 if ($idvoiture) {
-                                                                  echo "<a href='car-detail?id=$idvoiture'>";
+                                                                  echo "<a href='../car?id=$idvoiture'>";
                                                                 }
                                                                 echo $message['sujet'];
                                                                 if ($idvoiture) {
