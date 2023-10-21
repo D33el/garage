@@ -146,9 +146,9 @@ async function getFilteredCars() {
       action: "filterShowroom", 
       fromPrice: filters.fromPrice, 
       toPrice: filters.toPrice, 
-      annee: filters.annee, boite: 
-      filters.boite, carburant: 
-      filters.carburant 
+      annee: filters.annee, 
+      boite: filters.boite, 
+      carburant: filters.carburant 
     },
     success: function (response) {
       console.log("success");
