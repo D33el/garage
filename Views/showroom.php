@@ -94,6 +94,7 @@ $voitures = $data->getVoiture(null, null);
         </div>
       <?php } ?>
     </section>
+    
   </main>
   <footer></footer>
 </body>

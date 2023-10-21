@@ -68,5 +68,10 @@ Public function deleteRating(){
   general::delete("avis","id_avis",$id);
 }
 
+Public function deleteMessage(){
+  $id = $_POST['id_'];
+  general::delete("contact","id_contact",$id);
+}
+
 }
 ?>

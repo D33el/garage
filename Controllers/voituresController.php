@@ -113,6 +113,7 @@ static Public function getVoiture($id,$random3){
   return (new voiture)->get($id,$random3);
 }
 
+
 }
 
 if(isset($_POST['action'])){
