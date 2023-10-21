@@ -25,22 +25,25 @@ $voitures = $data->getVoiture(null, null);
     <div class="title">Showroom</div>
     <div class="subtitle count">99 Résultats</div>
     <section id="filters">
-
-      <div class="range_container">
-        <div class="sliders_control">
-          <input id="fromSlider" type="range" value="10" min="0" max="100" />
-          <input id="toSlider" type="range" value="40" min="0" max="100" />
-        </div>
-        <div class="form_control">
-          <div class="form_control_container">
-            <div class="form_control_container__time">Min</div>
-            <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="100" />
-          </div>
-          <div class="form_control_container">
-            <div class="form_control_container__time">Max</div>
-            <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="100" />
+      <div class="price-filter filter">
+        <div class="text">Prix</div>
+        <div class="range_container">
+          <div class="sliders_control">
+            <input id="fromSlider" type="range" value="45" min="0" max="100" />
+            <input id="toSlider" type="range" value="55" min="0" max="100" />
           </div>
         </div>
+        <div class="from-value"></div>
+        <div class="to-value"></div>
+      </div>
+      <div class="year-filter filter">
+        <form action="" method="post">
+          <div class="input-container">
+            <select name="" id="year-filter-select">
+              <option selected disabled>Trier par année de fabrication</option>
+            </select>
+          </div>
+        </form>
       </div>
 
     </section>
