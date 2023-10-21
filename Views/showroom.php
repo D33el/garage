@@ -87,8 +87,6 @@ $voitures = $data->getVoiture(null, null);
               <div><?php echo $voiture['kilometrage'] ?> Km</div>
               <div class="spacer">•</div>
               <div><?php echo $voiture['carburant'] ?></div>
-              <div class="spacer">•</div>
-              <div><?php echo $voiture['boite'] ?></div>
             </div>
           </div>
         </div>
