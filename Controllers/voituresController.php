@@ -106,7 +106,11 @@ Public function updateVoiture(){
 
 Public function deleteVoiture(){
   $id = $_POST['id_voiture'];
+  $res = contact::getAll($id);
   general::delete("voitures","id_voiture",$id);
+  if($res){
+    general::delete("contact","id_voiture",$id);
+  }
 }
 
 static Public function getVoiture($id,$random3){

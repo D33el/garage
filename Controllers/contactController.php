@@ -60,7 +60,7 @@ Public function Valider(){
 }
 
 Public function getAllMessages(){
- return contact::getAll();
+ return contact::getAll(null);
 }
 
 Public function deleteRating(){

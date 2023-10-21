@@ -4,9 +4,15 @@ class contact
 {
 
 
-static public function getAll(){
+
+static public function getAll($id){
  $db = DB::connect();
- $sql = "SELECT * FROM contact order by id_contact desc";
+ $sql = "SELECT * FROM contact ";
+ if($id){
+  $sql .= " WHERE id_voiture =$id";
+ }else{
+  $sql .= " order by id_contact desc";
+ }
  $stmt = $db->prepare($sql);
  if($stmt->execute()){
   return $stmt->fetchAll();
