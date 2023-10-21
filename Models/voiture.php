@@ -1,5 +1,7 @@
 <?php
+require_once realpath(__DIR__) . '/../bootstrap.php';
 
+require_once APP_PATH .('/DataBase/DB.php');
 
 class voiture{
 
@@ -63,6 +65,7 @@ class voiture{
   }
 
   $sql .= " order by id_voiture desc";
+  // return $sql;
   $stmt = $db->prepare($sql);
   $stmt->execute();
   return $stmt->fetchAll();
@@ -71,15 +74,18 @@ class voiture{
 
 }
 
-if(isset($_POST['filterShowroom'])){
- $action = $_POST['filterShowroom'];
- $fromPrice = $_POST['fromPrice'];
- $toPrice = $_POST['toPrice'];
- $annee = $_POST['annee'];
- $boite = $_POST['boite'];
- $carburant = $_POST['carburant'];
+if(isset($_POST['action'])){
+ $action = $_POST['action'];
+ if($action == "filterShowroom"){
+  $fromPrice = $_POST['fromPrice'];
+  $toPrice = $_POST['toPrice'];
+  $annee = isset($_POST['annee']) ? $_POST['annee'] : null ;
+  $boite = isset($_POST['boite']) ? $_POST['boite'] : null;
+  $carburant = isset($_POST['carburant']) ? $_POST['carburant'] : null;
  $result = voiture::filterShowroom($fromPrice, $toPrice, $annee, $boite, $carburant);
  $result = json_encode($result);
  echo $result;
 }
+}
+
 ?>
