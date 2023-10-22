@@ -54,10 +54,10 @@ body{
         <li class="done">onclick voiture f dashboard-showroom yeddik l car?id=data-id li raho f lcard</li>
         <li class="done">Les filtres f showroom</li>
         <li class="done">afficher les données modifier service</li>
-        <li class="progress">3 véhicules par ligne dans showroom</li>
-        <li>les select dans les formulaire (cas de modification)</li>
-        <li class="progress">problème d'affichage de l'image (car.php)</li>
-        <li class="progress">afficher l'aperçu de l'image dans le formulaire modifier service</li>
+        <li class="done">3 véhicules par ligne dans showroom</li>
+        <li class="done">les select dans les formulaire (cas de modification)</li>
+        <li class="done">problème d'affichage de l'image (car.php)</li>
+        <li class="done">afficher l'aperçu de l'image dans le formulaire modifier service</li>
         <li class="done">les textarea dans les formulaire de modification (voiture & service)</li>
         
 

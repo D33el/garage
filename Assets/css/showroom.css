@@ -26,6 +26,7 @@ main > .subtitle {
   cursor: pointer;
   transition: scale 0.3s;
 }
+
 .card:hover {
   scale: 1.01;
 }
@@ -149,9 +150,10 @@ input[type="range"] {
 }
 
 .filter {
-  width: 30%;
+  width: 80%;
 }
 .price-filter {
+  /* width: 80%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -183,4 +185,16 @@ width: fit-content;
 position: absolute;
 top:0;
 right:25px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  .card {
+    width: 100%;
+  }
+  #filters {
+    flex-direction: column;
+  }
+  .filter{
+    width: 80%;
+  }
 }

@@ -107,6 +107,7 @@ if(isset($_POST['modifier'])){
             <div class="input-container">
               <label for="">Image</label>
               <input type="file" name="imageService">
+              <img src="img/campbell-3ZUsNJhi_Ik-unsplash.jpg" class="input-file-preview">
             </div>
             <div class="input-container">
               <label for="">Description</label>

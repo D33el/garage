@@ -136,13 +136,11 @@ onClick(".add-service", () => {
 function displayUpdateDrawer(obj) {
   console.log(obj);
   let container = $('.drawer[data-id="update"]');
-  let inputs = container.find("input");
-  inputs.each(function (i, input) {
-    let name = input.name;
+  container.find("input").each(function () {
+    const name = $(this).attr('name');
     if (name == "imageprincipale" || name == "imageService") $(".input-file-preview").attr("src", "../" + obj[name]);
-    if (name != "password") input.setAttribute("value", obj[name]);
+    if (name != "password") $(this).attr("value", obj[name]);
   });
-  
   container.find('textarea').each(function() {
     const name = $(this).attr('name');
     $(this).html(obj[name]);
