@@ -1,5 +1,10 @@
 <?php 
 
+require_once realpath(__DIR__) . '/../bootstrap.php';
+require_once APP_PATH .('/Models/service.php');
+require_once APP_PATH .('/DataBase/DB.php');
+
+
 class servicesController
 {
 
@@ -83,5 +88,15 @@ if($success){
 
 }
 
+if(isset($_POST['action'])){
+  $action = $_POST['action'];
+  $id = $_POST['id'];
+  // echo $id;
+  if($action == "getService"){
+    $result = service::getAllServices($id);
+    $result = json_encode($result);
+    echo $result;
+  }
+}
 
 ?>

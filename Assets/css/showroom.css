@@ -173,3 +173,14 @@ input[type="range"] {
 .from-value::after {
   content: "€";
 }
+
+main {
+position: relative;
+}
+
+main > .button {
+width: fit-content;
+position: absolute;
+top:0;
+right:25px;
+}

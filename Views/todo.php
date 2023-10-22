@@ -56,6 +56,10 @@ body{
         <li>afficher les données modifier service</li>
         <li>3 véhicules par ligne dans showroom</li>
         <li>les select dans les formulaire (cas de modification)</li>
+        <li>problème d'affichage de l'image (car.php)</li>
+        <li>afficher l'aperçu de l'image dans le formulaire modifier service</li>
+        <li>les textarea dans les formulaire de modification (voiture & service)</li>
+        
 
     </div>
 </body>
