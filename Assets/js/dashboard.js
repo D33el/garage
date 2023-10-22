@@ -136,14 +136,17 @@ onClick(".add-service", () => {
 function displayUpdateDrawer(obj) {
   console.log(obj);
   let container = $('.drawer[data-id="update"]');
-  let inputs = container.find("input,textarea");
-  console.log(inputs);
+  let inputs = container.find("input");
   inputs.each(function (i, input) {
     let name = input.name;
     if (name == "imageprincipale" || name == "imageService") $(".input-file-preview").attr("src", "../" + obj[name]);
     if (name != "password") input.setAttribute("value", obj[name]);
   });
   
+  container.find('textarea').each(function() {
+    const name = $(this).attr('name');
+    $(this).html(`${obj[name]}"]`);
+  });
   container.find('select').each(function() {
     const name = $(this).attr('name');
     $(this).find(`option[value="${obj[name]}"]`).prop('selected', true);
@@ -176,22 +179,6 @@ onClick(".update-employee", async function () {
     type: "post",
     url: "../Controllers/UserController.php",
     data: { action: "getAll", id: id },
-    success: function (response) {
-      console.log("success");
-      let data = JSON.parse(response);
-      displayUpdateDrawer(data[0]);
-    },
-    error: function (error) {
-      console.log(error);
-    },
-  });
-});
-onClick(".update-comment", async () => {
-  displayDrawer("update");
-  await $.ajax({
-    type: "post",
-    url: "url",
-    data: "data",
     success: function (response) {
       console.log("success");
       let data = JSON.parse(response);
