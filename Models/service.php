@@ -1,5 +1,9 @@
 <?php 
 
+require_once realpath(__DIR__) . '/../bootstrap.php';
+require_once APP_PATH .('/DataBase/DB.php');
+
+
 class service 
 {
 
@@ -47,17 +51,17 @@ class service
  }
 
 
- static public function getAllServices($condition){
+ static public function getAllServices($id){
   $db = DB::connect();
   $query = "SELECT * FROM services ";
 
-  if($condition){
+  if($id){
    $query .= " WHERE id_service = :condition";
   }
 
   $stmt = $db->prepare($query);
-  if($condition){
-   $stmt->bindParam(':condition', $condition, PDO::PARAM_STR);
+  if($id){
+   $stmt->bindParam(':condition', $id, PDO::PARAM_STR);
   }
 
   $stmt->execute();

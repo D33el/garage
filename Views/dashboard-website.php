@@ -168,7 +168,7 @@ if(isset($_POST['modifier'])){
                   <?php foreach($services as $service){ ?>
                   <div class="service-card">
                     <div class="edit">
-                      <div class="update-service"><i class="fa-solid fa-pen-to-square"></i></div>
+                      <div class="update-service" data-id="<?php echo $service['id_service'] ?>"><i class="fa-solid fa-pen-to-square"></i></div>
                       <div class="delete-btn" data-id="<?php echo $service['id_service'] ?>"><i class="fa-solid fa-trash-can"></i></div>
                     </div>
                     <img src="<?php echo "../".$service['imageService'] ?>" alt="" />

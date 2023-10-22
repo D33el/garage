@@ -78,24 +78,25 @@ Public function updateVoiture(){
     'carburant' => $_POST['carburant'],
     'observation' => $_POST['observation'],
     'prix' => $_POST['prix'],
-    'annee' => $_POST['annee']
+    'annee' => $_POST['annee'],
+    'boite' => $_POST['boite']
    );
 
-   if (!empty($_FILES['imageprincpale']['name'])){
+   if (!empty($_FILES['imageprincipale']['name'])){
                 
     $nom = 'files/img'; // Le nom du répertoire à créer
     $Img='';
-    $fileName = $_FILES['imageprincpale']['name'];
-          if(move_uploaded_file($_FILES['imageprincpale']['tmp_name'],$nom.'/'.$fileName)){
+    $fileName = $_FILES['imageprincipale']['name'];
+          if(move_uploaded_file($_FILES['imageprincipale']['tmp_name'],$nom.'/'.$fileName)){
            //echo'fichier envoyé avec succé';
           }else{
           //echo'fichier non envoyer';
          }
-       $Img=$nom.'/'.$_FILES['imageprincpale']['name'];
+       $Img=$nom.'/'.$_FILES['imageprincipale']['name'];
 
     $data['imageprincipale'] = $Img;    
 }
-
+  
    $success = general::update("voitures",$data,"id_voiture=$id");
    if($success){
     // successfull insert
@@ -106,7 +107,11 @@ Public function updateVoiture(){
 
 Public function deleteVoiture(){
   $id = $_POST['id_voiture'];
+  $res = contact::getAll($id);
   general::delete("voitures","id_voiture",$id);
+  if($res){
+    general::delete("contact","id_voiture",$id);
+  }
 }
 
 static Public function getVoiture($id,$random3){

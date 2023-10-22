@@ -5,13 +5,7 @@ require_once APP_PATH .('/DataBase/DB.php');
 
 class voiture{
 
- Public function update($data){
 
- }
-
- Public function delete($data){
-
- }
 
  static Public function get($id,$random3){
   $db = DB::connect();
@@ -53,11 +47,11 @@ class voiture{
   }
 
   if($boite){
-   $sql .= " boite = $boite AND ";
+   $sql .= " boite = '$boite' AND ";
   }
 
   if($carburant){
-   $sql .= " carburant = $carburant AND ";
+   $sql .= " carburant = '$carburant' AND ";
   }
 
   if($fromPrice || $toPrice || $annee || $boite || $carburant){

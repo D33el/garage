@@ -149,7 +149,7 @@ function displayUpdateDrawer(obj) {
   });
   container.find('select').each(function() {
     const name = $(this).attr('name');
-    $(this).find(`option[value="${obj[name]}"]`).prop('selected', true);
+    $(this).find(`option[value="${obj[name].toLowerCase()}"]`).prop('selected', true);
   });
 }
 
@@ -189,12 +189,14 @@ onClick(".update-employee", async function () {
     },
   });
 });
-onClick(".update-service", async () => {
+
+onClick(".update-service", async function () {
   displayDrawer("update");
+  let id = $(this).data("id");
   await $.ajax({
     type: "post",
-    url: "url",
-    data: "data",
+    url: "../Controllers/servicesController.php",
+    data: {action:"getService", id:id},
     success: function (response) {
       console.log("success");
       let data = JSON.parse(response);

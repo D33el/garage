@@ -22,6 +22,7 @@ if (isset($_SESSION['admin']) == true) {
   if(isset($_POST['modifier'])){
     $modif = new UserController();
     $modif->updateUser();
+    header('Location: ' . APP_PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . "/dashboard-employees");
   }
 
   $data = new UserController();

@@ -197,3 +197,9 @@ function displayCars() {
     `)
   }
 }
+
+$(document).on("click","#reload",function () { 
+location.reload()
+})
+
+ 
