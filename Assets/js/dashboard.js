@@ -145,7 +145,7 @@ function displayUpdateDrawer(obj) {
   
   container.find('textarea').each(function() {
     const name = $(this).attr('name');
-    $(this).html(`${obj[name]}"]`);
+    $(this).html(obj[name]);
   });
   container.find('select').each(function() {
     const name = $(this).attr('name');
